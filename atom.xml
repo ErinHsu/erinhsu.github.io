@@ -4,7 +4,7 @@
   <subtitle><![CDATA[做到老學到老]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-11-23T08:04:31.000Z</updated>
+  <updated>2015-11-25T02:52:08.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,15 +15,154 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[\Android/ Android Studio 基本使用技巧 － System Log使用]]></title>
+    <link href="http://yoursite.com/2015/11/25/Android-AndroidStudio-SystemLog/"/>
+    <id>http://yoursite.com/2015/11/25/Android-AndroidStudio-SystemLog/</id>
+    <published>2015-11-25T02:50:20.000Z</published>
+    <updated>2015-11-25T02:52:08.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="前言">前言</h3><p>系統日誌(System Log)可幫助顯示系統信息，同時幫助Debug應用程序。如果要使用系統日誌來Debug你的應用程序，在程式碼內寫入<strong>Log程式碼</strong>，並輸出表達異常情況的字串，來幫助除錯。</p>
+<h3 id="實作範例">實作範例</h3><p>增加日誌訊息使用</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android . util . <span class="type">Log</span> ; </span><br><span class="line">... </span><br><span class="line">public  <span class="class"><span class="keyword">class</span>  <span class="title">MyActivity</span>  <span class="keyword"><span class="keyword">extends</span></span>  <span class="title">Activity</span>  &#123;</span> </span><br><span class="line">    <span class="keyword">private</span>  static  <span class="keyword">final</span>  <span class="type">String</span> <span class="type">TAG</span> =  <span class="type">MyActivity</span> . <span class="class"><span class="keyword">class</span> . <span class="title">getSimpleName</span> (</span>); </span><br><span class="line">    ... </span><br><span class="line">    <span class="annotation">@Override</span> </span><br><span class="line">    public  void onCreate ( <span class="type">Bundle</span> savedInstanceState )  &#123; </span><br><span class="line">        <span class="keyword">if</span>  ( savedInstanceState !=  <span class="literal">null</span> )  &#123; </span><br><span class="line">            <span class="type">Log</span> . d ( <span class="type">TAG</span> ,  <span class="string">"onCreate() Restoring previous state"</span> ); </span><br><span class="line">            <span class="comment">/* restore state */</span> </span><br><span class="line">        &#125;  <span class="keyword">else</span>  &#123; </span><br><span class="line">            <span class="type">Log</span> . d ( <span class="type">TAG</span> ,  <span class="string">"onCreate() No saved state available"</span> ); </span><br><span class="line">            <span class="comment">/* initialize app */</span> </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>錯誤訊息e 寫入日誌</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">someOtherMethod</span> <span class="params">()</span>  </span>&#123; </span><br><span class="line">    <span class="keyword">try</span>  &#123; </span><br><span class="line">        ... </span><br><span class="line">    &#125;  <span class="keyword">catch</span>  ( SomeException e )  &#123; </span><br><span class="line">        Log . d ( TAG ,  <span class="string">"someOtherMethod()"</span> , e ); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>於DDMS查看日誌內容<br><img src="http://developer.android.com/images/tools/as-ddmslog.png" alt="DDMS"></p>
+<h6 id="參考來源">參考來源</h6><ol>
+<li><a href="http://developer.android.com/intl/zh-tw/tools/debugging/debugging-studio.html" target="_blank" rel="external">Debugging with Android Studio | Android Developers</a></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="前言">前言</h3><p>系統日誌(System Log)可幫助顯示系統信息，同時幫助Debug應用程序。如果要使用系統日誌來Debug你的應用程序，在程式碼內寫入<strong>Log程式碼</strong>，並輸出表達異常情況的字串，來幫助除錯。</p>
+<]]>
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="System Log" scheme="http://yoursite.com/tags/System-Log/"/>
+    
+      <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[\Android/ Android Studio 基本使用技巧 － Debug使用]]></title>
+    <link href="http://yoursite.com/2015/11/25/Android-AndroidStudio-Debug/"/>
+    <id>http://yoursite.com/2015/11/25/Android-AndroidStudio-Debug/</id>
+    <published>2015-11-25T02:30:20.000Z</published>
+    <updated>2015-11-25T03:55:02.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="前言">前言</h3><p>利用Android Studio您可以：</p>
+<ul>
+<li>選擇一個模擬器或Android設備來測試應用程序。</li>
+<li>查看系統日誌。</li>
+<li>設置中斷點。</li>
+<li>測試時檢查變數、運算表達式。</li>
+<li>進行Debug。</li>
+<li>對應用程序畫面做截圖或錄影。</li>
+</ul>
+<p>要Debug你的應用程序，Android Studio生成你的應用程序的可Debug版本，連接到設備或模擬器，安裝應用程序並運行它。<strong>IDE</strong>將顯示系統日誌，而你的應用程序正在運行，並提供調試工具來過濾日誌消息，中斷點工作，並控制執行流程。</p>
+<h3 id="步驟實作">步驟實作</h3><p><strong>step 1</strong><br>在AndroidStudio中打開專案</p>
+<p><strong>step 2</strong><br>點擊工具欄上的Debug圖示<img src="http://developer.android.com/images/tools/as-debugbutton.png" alt="Debug icon">（小昆蟲）。</p>
+<p><strong>step 3</strong><br>在Choose Device的視窗，選擇一個設備（或啟動）模擬器。<br><img src="http://developer.android.com/images/tools/as-debugdevices.png" alt="Debug icon"></p>
+<p><strong>step 4</strong><br>AndroidStudio將打開Debug工具視窗<img src="http://developer.android.com/images/tools/as-debugwindowbutton.png" alt="Debug belowicon">。</p>
+<ul>
+<li><strong>Debugger</strong> : 顯示線程（threads）和變數（variables）</li>
+<li><strong>Console</strong> : 顯示設備狀態</li>
+<li><strong>logcat</strong> : 顯示系統日誌(System Log)</li>
+</ul>
+<p><img src="http://developer.android.com/images/tools/as-debugview.png" alt="Debug工具視窗"></p>
+<h6 id="參考來源">參考來源</h6><ol>
+<li><a href="http://developer.android.com/intl/zh-tw/tools/debugging/debugging-studio.html" target="_blank" rel="external">Debugging with Android Studio | Android Developers</a></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="前言">前言</h3><p>利用Android Studio您可以：</p>
+<ul>
+<li>選擇一個模擬器或Android設備來測試應用程序。</li>
+<li>查看系統日誌。</li>
+<li>設置中斷點。</li>
+<li>測試時檢查變數、運算表達式。</]]>
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="Android Studio" scheme="http://yoursite.com/tags/Android-Studio/"/>
+    
+      <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[\Android/ Gradle]]></title>
+    <link href="http://yoursite.com/2015/11/24/Android-Gradle/"/>
+    <id>http://yoursite.com/2015/11/24/Android-Gradle/</id>
+    <published>2015-11-24T02:30:20.000Z</published>
+    <updated>2015-11-24T09:44:14.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="前言">前言</h3><p>Gradle </p>
+<h3 id="實作">實作</h3><p><strong>step 1</strong><br><a href="https://parse.com/" target="_blank" rel="external">註冊Parse</a></p>
+<p><strong>step 2</strong><br><a href="https://parse.com/apps/quickstart#parse_data/mobile/android/native/new" target="_blank" rel="external">Parse Andorid QuickStart</a></p>
+<h6 id="參考來源">參考來源</h6><ol>
+<li><a href="http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/" target="_blank" rel="external">RecyclerView使用详解（一） · Frank-Zhu</a></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="前言">前言</h3><p>Gradle </p>
+<h3 id="實作">實作</h3><p><strong>step 1</strong><br><a href="https://parse.com/" target="_blank" rel="externa]]>
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="Gradle" scheme="http://yoursite.com/tags/Gradle/"/>
+    
+      <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[\Android/ Parse架站]]></title>
+    <link href="http://yoursite.com/2015/11/24/Android-Parse/"/>
+    <id>http://yoursite.com/2015/11/24/Android-Parse/</id>
+    <published>2015-11-24T02:30:20.000Z</published>
+    <updated>2015-11-24T02:09:37.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="前言">前言</h3><p>Parse </p>
+<h3 id="實作">實作</h3><p><strong>step 1</strong><br><a href="https://parse.com/" target="_blank" rel="external">註冊Parse</a></p>
+<p><strong>step 2</strong><br><a href="https://parse.com/apps/quickstart#parse_data/mobile/android/native/new" target="_blank" rel="external">Parse Andorid QuickStart</a></p>
+<h6 id="參考來源">參考來源</h6><ol>
+<li><a href="http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/" target="_blank" rel="external">RecyclerView使用详解（一） · Frank-Zhu</a></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="前言">前言</h3><p>Parse </p>
+<h3 id="實作">實作</h3><p><strong>step 1</strong><br><a href="https://parse.com/" target="_blank" rel="external]]>
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="Parse" scheme="http://yoursite.com/tags/Parse/"/>
+    
+      <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[\Android/ Recyclerview]]></title>
     <link href="http://yoursite.com/2015/10/28/Android-Recycleview/"/>
     <id>http://yoursite.com/2015/10/28/Android-Recycleview/</id>
     <published>2015-10-28T02:49:25.000Z</published>
-    <updated>2015-11-23T08:04:31.000Z</updated>
+    <updated>2015-11-26T06:44:02.000Z</updated>
     <content type="html"><![CDATA[<h3 id="前言">前言</h3><p>RecyclerView 為 v7 的新部件，可替代 ListView 使用，標準化了 ViewHolder 類似於 ListView 中 convertView。</p>
 <p>RecyclerView 快速實現 listview 、 gridview 、瀑布流的效果，而且還可以設置橫向和縱向顯示，添加動畫效果也非常簡單(自帶了 ItemAnimation ，可以設置加載和移除時的動畫，方便做出各種動態瀏覽的效果)</p>
-<h3 id="實作">實作</h3><p>在build.gradle(app)內加入recyclerview和cardview的引用</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:23.0.+'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:cardview-v7:23.0.+'</span></span><br></pre></td></tr></table></figure>
+<p>以下是Google在對於RecyclerView的描述</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">A flexible <span class="keyword">view</span> <span class="keyword">for</span> providing a limited <span class="keyword">window</span> into a large data <span class="keyword">set</span>.</span><br><span class="line">```` </span><br><span class="line"></span><br><span class="line">以下是它的新特性：</span><br><span class="line"></span><br><span class="line"><span class="comment">* 分離出數據顯示相關的所有問題，只關注View的回收和復用</span></span><br><span class="line"><span class="comment">* 對數據的顯示、動畫的配置進行高度解耦，提供了插拔式的體驗</span></span><br><span class="line"><span class="comment">* 強制使用ViewHolder模式，消除不必要的Layout Resource查找時間內置添加和移除動畫</span></span><br><span class="line"></span><br><span class="line">### 實作</span><br><span class="line"></span><br><span class="line">#### gradle compile</span><br><span class="line">在build.gradle(<span class="keyword">app</span>)內加入recyclerview和cardview的引用</span><br></pre></td></tr></table></figure>
+<pre><code><span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:23.0.+'</span>
+<span class="keyword">compile</span> <span class="string">'com.android.support:cardview-v7:23.0.+'</span>
+</code></pre><p>````</p>
+<h3 id="生命週期">生命週期</h3><ul>
+<li><strong>getItemViewType</strong>：獲取View類型</li>
+<li><strong>onCreateViewHolder</strong>：創建ViewHolder</li>
+<li><strong>ViewHolderonViewAttac.bhedToWindow</strong>：當It​​em可見時調用</li>
+<li><strong>onBindViewHolder</strong>：綁定數據以及邏輯控製樣式</li>
+<li><strong>onViewDetachedFromWindow：Item</strong>不可見時調用</li>
+<li><strong>onViewRecycled：Item</strong>被回收時調用</li>
+</ul>
 <h6 id="參考來源">參考來源</h6><ol>
 <li><a href="http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/" target="_blank" rel="external">RecyclerView使用详解（一） · Frank-Zhu</a></li>
 </ol>
@@ -38,6 +177,45 @@
       <category term="RecyclerView" scheme="http://yoursite.com/tags/RecyclerView/"/>
     
       <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[\Android/ intent]]></title>
+    <link href="http://yoursite.com/2015/10/28/Android-Intent/"/>
+    <id>http://yoursite.com/2015/10/28/Android-Intent/</id>
+    <published>2015-10-28T02:49:25.000Z</published>
+    <updated>2015-11-27T01:46:55.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="intent">intent</h3><p><strong>目的,意圖</strong>,意義,含義(a.)熱心的,專心致志的</p>
+<h3 id="Android_intent">Android intent</h3><p>在Android來說，intent主要幫助我們在傳值、轉化畫面，像是<strong>意圖辦到什麼目的，前往哪個目的地的概念</strong></p>
+<p>intent分為兩種：顯式(Explicit intent)和隱式(Implicit intent)。</p>
+<p>假設今日我們要從FirstActivity.class轉換到GoalActivity.class</p>
+<h4 id="1-_顯示(Explicit)">1. 顯示(Explicit)</h4><p>直接指定<strong>確定</strong>要<strong>一個</strong>轉換的目標Activity，意圖明顯，所以稱為顯示意圖(Explicit intent)。<strong>常用於應用程式內部頁面之間轉換之用。</strong></p>
+<p>例如，在FirstActivity.java指定需要轉換到GoalActivity.java，直接在FirstActivity.java正確位置寫上下面程式碼。</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(FirstActivity.<span class="keyword">class</span>,  GoalActivity.<span class="keyword">class</span>)</span><br><span class="line">startActivity(<span class="type">intent</span>); </span><br><span class="line"></span><br><span class="line">// or this 取代 FirstActivity.<span class="keyword">class</span></span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(this,  GoalActivity.<span class="keyword">class</span>)</span><br><span class="line">startActivity(<span class="type">intent</span>); </span><br><span class="line"></span><br><span class="line">// or setComponent：ComponentName取代</span><br><span class="line">ComponentName CPName = new ComponentName(this,  GoalActivity.<span class="keyword">class</span>);  </span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();  </span><br><span class="line"><span class="type">intent</span>.setComponent(CPName);  </span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br><span class="line"></span><br><span class="line">// or setClass：ClassName取代</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();</span><br><span class="line"><span class="type">intent</span>.setClassName(this,  GoalActivity.<span class="keyword">class</span>);</span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br><span class="line"></span><br><span class="line">//最後，目標Activity可直接以package.<span class="keyword">class</span>路徑表示。如GoalActivity.<span class="keyword">class</span>表示成<span class="string">"com.bird.intenttext.GoalActivity"</span>字串型態。</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>最後一定要記得在AndroidManifest.xml文件中＜application＞＜/application＞ 之中，註冊欲前往的目標Activity。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure>
+<p> <activity android:name="com.bird.intenttext.GoalActivity"><br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### <span class="number">2.</span> 隱示(<span class="type">Implicit</span> <span class="type">intent</span>)</span><br><span class="line"></span><br><span class="line">相對顯示來說，隱示就是間接指定囉！就是讓系统幫你篩選出適合的目標Activity，根據&lt;<span class="type">intent</span>-filter&gt;来篩選。透過AndroidManifest.xml文件幫助我們完成這件事情。</span><br><span class="line"></span><br><span class="line">在AndroidManifest.xml文件中，註冊欲前往的目標Activity時，將內容修改內容如下：</span><br></pre></td></tr></table></figure></activity></p>
+<p><activity android:name="com.bird.intenttext.GoalActivity"><br>    <intent-filter><br>        //可自訂字串內容<br>        <action android:name="GotoGoalActivity"><br>        <category android:name="android.intent.category.DEFAULT"><br>    </category></action></intent-filter><br></activity><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在<span class="tag">FirstActivity</span><span class="class">.java</span>指定需要轉換到<span class="tag">GoalActivity</span><span class="class">.java</span>，直接在<span class="tag">FirstActivity</span><span class="class">.java</span>正確位置寫上下面程式碼。</span><br></pre></td></tr></table></figure></p>
+<p>Intent intent = new Intent(“GotoGoalActivity”)<br>startActivity(intent); </p>
+<p>// or setAction<br>Intent intent = new Intent();<br>intent.setAction(“GotoGoalActivity”);<br>startActivity(intent);<br>````</p>
+<p>另外，隱示最厲害的地方就是用於<strong>與外部應用程式間的Activity轉換</strong>，</p>
+<p>to be continued…</p>
+<h6 id="參考來源">參考來源</h6><ol>
+<li><a href="http://developer.android.com/intl/zh-tw/reference/android/content/Intent.html" target="_blank" rel="external">Android Developrs-intent</a></li>
+<li><a href="http://blog.csdn.net/xiao__gui/article/details/11392987" target="_blank" rel="external">Android理解：显式和隐式Intent - 叉叉哥的BLOG - 博客频道 - CSDN.NET</a></li>
+<li><a href="http://ke.jikexueyuan.com/zhiye/android/" target="_blank" rel="external">Android工程師<em>路徑圖的標題</em>職業路徑圖<em>IT職業在線教育平台</em>極客學院</a></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="intent">intent</h3><p><strong>目的,意圖</strong>,意義,含義(a.)熱心的,專心致志的</p>
+<h3 id="Android_intent">Android intent</h3><p>在Android來說，intent主]]>
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="intent" scheme="http://yoursite.com/tags/intent/"/>
+    
+      <category term="MoGoalileEngineer" scheme="http://yoursite.com/categories/MoGoalileEngineer/"/>
     
   </entry>
   
@@ -93,37 +271,6 @@
       <category term="ViewGroup" scheme="http://yoursite.com/tags/ViewGroup/"/>
     
       <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[\R/  取得數據方法]]></title>
-    <link href="http://yoursite.com/2015/10/23/R-DataImport/"/>
-    <id>http://yoursite.com/2015/10/23/R-DataImport/</id>
-    <published>2015-10-23T03:39:29.000Z</published>
-    <updated>2015-11-23T07:51:02.000Z</updated>
-    <content type="html"><![CDATA[<ul>
-<li>本地文档的读写</li>
-<li>连接数据库</li>
-<li>Web数据抓取</li>
-<li>API数据源</li>
-<li>其它数据资源</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<ul>
-<li>本地文档的读写</li>
-<li>连接数据库</li>
-<li>Web数据抓取</li>
-<li>API数据源</li>
-<li>其它数据资源</li>
-</ul>
-]]>
-    </summary>
-    
-      <category term="R" scheme="http://yoursite.com/tags/R/"/>
-    
-      <category term="DataAnalysis" scheme="http://yoursite.com/categories/DataAnalysis/"/>
     
   </entry>
   
@@ -209,200 +356,33 @@
   </entry>
   
   <entry>
-    <title><![CDATA[\MacOS/ Learning Keynote − 簡報大小事]]></title>
-    <link href="http://yoursite.com/2015/10/21/MacOS-Keynote/"/>
-    <id>http://yoursite.com/2015/10/21/MacOS-Keynote/</id>
-    <published>2015-10-21T03:39:29.000Z</published>
-    <updated>2015-11-23T07:46:05.000Z</updated>
-    <content type="html"><![CDATA[<ol>
-<li>簡報圖形化，一致性</li>
-<li>字體(EN)：Helvetic Neue(科技簡報), Baskerville(學術簡報), Zapfino(藝術剪報)</li>
-<li>字體(CH)：蘋方(科技), Hiragino Mincho ProN(), 楷體()</li>
-<li>圖片 ＰＮＧ</li>
-<li>一事/一頁</li>
-</ol>
+    <title><![CDATA[\R/  取得數據方法]]></title>
+    <link href="http://yoursite.com/2015/10/23/R-DataImport/"/>
+    <id>http://yoursite.com/2015/10/23/R-DataImport/</id>
+    <published>2015-10-23T03:39:29.000Z</published>
+    <updated>2015-11-23T07:51:02.000Z</updated>
+    <content type="html"><![CDATA[<ul>
+<li>本地文档的读写</li>
+<li>连接数据库</li>
+<li>Web数据抓取</li>
+<li>API数据源</li>
+<li>其它数据资源</li>
+</ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<ol>
-<li>簡報圖形化，一致性</li>
-<li>字體(EN)：Helvetic Neue(科技簡報), Baskerville(學術簡報), Zapfino(藝術剪報)</li>
-<li>字體(CH)：蘋方(科技), Hiragino Mincho ProN(), 楷體(]]>
+    <![CDATA[<ul>
+<li>本地文档的读写</li>
+<li>连接数据库</li>
+<li>Web数据抓取</li>
+<li>API数据源</li>
+<li>其它数据资源</li>
+</ul>
+]]>
     </summary>
     
-      <category term="Keynote" scheme="http://yoursite.com/tags/Keynote/"/>
-    
-      <category term="Software" scheme="http://yoursite.com/categories/Software/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[單元測試(Unit Testing)]]></title>
-    <link href="http://yoursite.com/2015/10/21/Code-UnitText20151021/"/>
-    <id>http://yoursite.com/2015/10/21/Code-UnitText20151021/</id>
-    <published>2015-10-21T01:11:58.000Z</published>
-    <updated>2015-11-23T07:52:05.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="解釋">解釋</h4><p>1987年，IEEE就把單元測試納入美國國家標準。<br>針對應用程式設計的最小單位（程式模組）來進行正確性檢驗的測試工作。<br>理想的測試案例都依循不同案例；經常使用stubs、mock或fake等測試馬甲程式。<br>單元測試通常由軟體開發人員編寫，用於確保他們所寫的代碼符合軟體需求和遵循開發目標。</p>
-<h4 id="主要目標">主要目標</h4><p>將應用程式中的最小可測試片段（稱之為單元）與程式碼其餘部分隔離，已確定他的功能是否符合期望。<br>將各單元分開測試，可識別絕大部分的錯誤之處所在。對於物件導向而言，最小單元就是方法，包括<strong><strong>基礎類別（超類）、抽象類、或者衍生類別（子類別）</strong></strong>中的方法。</p>
-<h4 id="通用方法">通用方法</h4><p>需要撰寫<strong><strong>驅動程式</strong></strong>和<strong><strong> Stub </strong></strong>。<br>驅動程式模擬呼叫單元，而 Stub 模擬被呼叫的單元。<br>驅動程式和 Stub 需要花費相對應成本。驅動程式和 Stub 可重複使用，因此可經常重新測試，而不必撰寫大量額外的測試程式碼，而且重新測試的成本也比較好控制。</p>
-<h4 id="優點">優點</h4><p>然而單元測試仍然提供一些難以拒絕的優點。</p>
-<ul>
-<li>它允許測試程序自動執行，可幫助我們更容易找出應用程式較複雜的程式片段中所含的錯誤。</li>
-<li>因為注意力是集中於各單元，可幫助我們做更全面的測試，涵蓋的範圍通常可以增加。</li>
-</ul>
-<h4 id="重要觀念">重要觀念</h4><h6 id="＊_目標程式">＊ 目標程式</h6><p>單元測試要測試的程式目標。</p>
-<h6 id="＊_單元測試種類">＊ 單元測試種類</h6><ul>
-<li><p><a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank" rel="external">TDD (Test-Driven Development)</a>：目標程式不存在前撰寫的單元測試。將撰寫程式的流程從原先的寫碼&gt;測試&gt;重構轉變為<strong><strong>測試&gt;寫碼&gt;重構</strong></strong>，先訂定程式目標及規範，避免過度設計，寫出來的程式碼 100% 可以被測試，測試涵蓋率百分百。</p>
-</li>
-<li><p><a href="https://en.wikipedia.org/wiki/Behavior-driven_development" target="_blank" rel="external">BDD (Behavior-Driven Development)</a>：目標程式已存在後，所撰寫的單元測試。 程式完成後，維護人員針對目標程式介面的初步認知，依循邏輯撰寫單元測試來進行測試，發生錯誤時，可分析是否是程式本身存在的問題，或是維護人員認知錯誤。</p>
-</li>
-</ul>
-<h6 id="＊_JAVA單元測試工具、函式庫">＊ JAVA單元測試工具、函式庫</h6><ol>
-<li><a href="http://junit.org/" target="_blank" rel="external">JUnit 4</a></li>
-<li><a href="http://code.google.com/p/mockito/" target="_blank" rel="external">Mockito</a></li>
-<li><a href="http://easymock.org/" target="_blank" rel="external">EasyMock</a></li>
-<li><a href="https://code.google.com/p/powermock/" target="_blank" rel="external">PowerMock</a></li>
-</ol>
-<h6 id="＊_JUint_參考">＊ JUint 參考</h6><ul>
-<li></li>
-<li><a href="http://slashlook.com/articles_20140904.html" target="_blank" rel="external">三分鐘學會單元測試（使用JUnit）</a></li>
-</ul>
-<h6 id="＊_整合單元測試">＊ 整合單元測試</h6><p>若您有兩個單元，並決定將它們合在一起，然後當作整合單元來進行初始測試比較划算，則在許多地方可能會發生錯誤：</p>
-<ul>
-<li>錯誤導因於單元 1 的缺失嗎？</li>
-<li>錯誤導因於單元 2 的缺失嗎？</li>
-<li>錯誤導因於這兩個單元的缺失嗎？</li>
-<li>錯誤導因於單元之間介面的缺失嗎？</li>
-<li>錯誤導因於測試的缺失嗎？</li>
-</ul>
-<p>找出整合式模組中的錯誤，比先隔離單元、逐一進行測試、整合之後再進行整體測試還要複雜。 </p>
-<h6 id="參考來源">參考來源</h6><ol>
-<li><a href="https://msdn.microsoft.com/zh-tw/library/aa292197.aspx" target="_blank" rel="external">單元測試-Microsoft Developer Network</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95" target="_blank" rel="external">單元測試 - 維基百科，自由的百科全書</a></li>
-<li><a href="http://www.codedata.com.tw/java/unit-test-the-way-changes-my-programming" target="_blank" rel="external">【單元測試】改變了我程式設計的思維方式 by pcbill | CodeData</a></li>
-<li><a href="http://blog.xuite.net/simonpower/sss/3943610-Java+%E7%A8%8B%E5%BC%8F%E7%9A%84%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6" target="_blank" rel="external">Java 程式的單元測試 @ Simon’s Software Sky :: 隨意窩 Xuite日誌</a></li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="解釋">解釋</h4><p>1987年，IEEE就把單元測試納入美國國家標準。<br>針對應用程式設計的最小單位（程式模組）來進行正確性檢驗的測試工作。<br>理想的測試案例都依循不同案例；經常使用stubs、mock或fake等測試馬甲程式。<br>單元測試通常]]>
-    </summary>
-    
-      <category term="單元測試" scheme="http://yoursite.com/tags/%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6/"/>
-    
-      <category term="Engineer" scheme="http://yoursite.com/categories/Engineer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[\GIS/ OpenData 跨領域資料、系統應用]]></title>
-    <link href="http://yoursite.com/2015/10/20/Geo-OpenData/"/>
-    <id>http://yoursite.com/2015/10/20/Geo-OpenData/</id>
-    <published>2015-10-20T06:59:09.000Z</published>
-    <updated>2015-11-23T07:45:23.000Z</updated>
-    <content type="html"><![CDATA[<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">鄧東坡</span><br><span class="line">dongpo.deng@gmail<span class="class">.com</span></span><br><span class="line">dongpo<span class="class">.deng</span></span><br><span class="line">@dongpo</span><br></pre></td></tr></table></figure>
-<p>開放街圖<br>政府<br>ＷＥＢ SafeTaiwan </p>
-<p>奈米 生醫 ＧＩＳ（美國三大新興產業）</p>
-<h4 id="GIS_five_Parts">GIS five Parts</h4><ul>
-<li>人 （領域知識）</li>
-<li>資料</li>
-<li>硬體</li>
-<li>軟體<strong>工具</strong></li>
-</ul>
-<p>ESRI ArcGIS：最大很貴，軟體平台化，google earth</p>
-<p>Source code, open data<br>Q : 簡易<br>GRASS<br>Post : Programmer<br>OSGeo : life </p>
-<p>KATO DB<br>turfJS (memory JS 運算)</p>
-<ul>
-<li>方法</li>
-</ul>
-<h4 id="GIS_Data">GIS Data</h4><ol>
-<li>點線面型態、屬性型態（景、地質）</li>
-<li>統計管理</li>
-<li>概括化(點線面呈現)、抽象化</li>
-<li>地圖呈現（一般、主題）</li>
-<li>影像（衛星影像：google 65cm）（含水量、熱：光譜）</li>
-</ol>
-<h4 id="Geo-Data">Geo-Data</h4><p>layer -&gt; object </p>
-<p>向量/網格管理</p>
-<h4 id="空間關係">空間關係</h4><ul>
-<li>從屬關係：導航系統<gp route=""></gp></li>
-<li>包含相鄰關係：</li>
-</ul>
-<h4 id="空間資料庫">空間資料庫</h4><p>連結關聯資料庫<br>空間畫呈現<br>似SQL指令</p>
-<h4 id="資料圖形化表示">資料圖形化表示</h4><p>人的視覺小於七種顏色<br>快速讀懂圖型為主</p>
-<h4 id="套件">套件</h4><p>熱點圖</p>
-<p>d3.js</p>
-<p>open street map<br>osm 開放街圖<br>map wiki<br><a href="http://overpass-tubro.eu/#" target="_blank" rel="external">overpass turbo</a></p>
-<p><a href="geocyber.org/maps/aed">aed</a></p>
-<p>turkj.js<br>時間/類別 -&gt; 放入地圖</p>
-<p>makebox 圖磚</p>
-<p>mit </p>
-<p>carto db</p>
-<p>new map<br>add empty map</p>
-<p>fusion table</p>
-<p>台灣走跳團 核能終結者</p>
-<p>ＫＭＬ<br>ＪＳＯＮ樹狀格式</p>
-<p>地圖算距離 ＱＧＩＳ</p>
-<p>疊圖層，座標系統：</p>
-<p>麥卡托<br>ＥＰＳＧ４３２６（台北市座標系統）<br>ＥＰＳＧ３８５６</p>
-<p>ＷＧＳ８４ 經緯度座標（ＧＯＯＧＬＥ地圖做標標凖）</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span clas]]>
-    </summary>
-    
-      <category term="GIS" scheme="http://yoursite.com/tags/GIS/"/>
+      <category term="R" scheme="http://yoursite.com/tags/R/"/>
     
       <category term="DataAnalysis" scheme="http://yoursite.com/categories/DataAnalysis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[\Android/ Manifest.xml 小字典(2)]]></title>
-    <link href="http://yoursite.com/2015/10/20/Android-Manifest/"/>
-    <id>http://yoursite.com/2015/10/20/Android-Manifest/</id>
-    <published>2015-10-20T06:59:09.000Z</published>
-    <updated>2015-11-23T08:04:33.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="簡介說明_:">簡介說明 :</h4><p> 是一個用來描述App的整體資訊設定的XML檔。</p>
-<h4 id="主要架構_:">主要架構 :</h4> <figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"> <span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">manifest</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">package</span>=<span class="value">"info.androidhive.materialdesign"</span> &gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">application</span></span><br><span class="line">    		&lt;!<span class="attribute">--Application</span>屬性值<span class="attribute">--</span>&gt;</span></span><br><span class="line">    &gt;</span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">activity</span></span><br><span class="line">        		&lt;!<span class="attribute">--Activity</span>屬性值<span class="attribute">--</span>&gt;</span></span><br><span class="line">        &gt;</span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">application</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">manifest</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="&lt;_Applicaion_&gt;">&lt; Applicaion &gt;</h3><p><a href="">AndroidManifest.xml 小字典(1)</a></p>
-<h3 id="&lt;_Activity_&gt;">&lt; Activity &gt;</h3><h4 id="[螢幕]">[螢幕]</h4><p><code>android:screenOrientation=&quot;portrait/landscape&quot;</code> : 強制直向/橫向呈現</p>
-<h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://gaebolg.blog.163.com/blog/static/19826906820134312050504/" target="_blank" rel="external">灼眼のFate【Android】技巧 6 – Android 禁止屏幕旋转 &amp; 屏幕旋转不刷新 Activity &amp; 动态更改屏幕方向  </a></li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="簡介說明_:">簡介說明 :</h4><p> 是一個用來描述App的整體資訊設定的XML檔。</p>
-<h4 id="主要架構_:">主要架構 :</h4> <figure class="highlight django"><table><tr><td class]]>
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
-    
-      <category term="AndroidManifest" scheme="http://yoursite.com/tags/AndroidManifest/"/>
-    
-      <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[\Hexo/ 安裝錯誤排除]]></title>
-    <link href="http://yoursite.com/2015/10/20/Hexo-Error20151020/"/>
-    <id>http://yoursite.com/2015/10/20/Hexo-Error20151020/</id>
-    <published>2015-10-20T06:31:12.000Z</published>
-    <updated>2015-11-23T07:51:19.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="錯誤訊息如下：">錯誤訊息如下：</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Release/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [<span class="string">Error:</span> Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [<span class="string">Error:</span> Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] <span class="string">code:</span> <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="解決方法：">解決方法：</h3><p><code>$ npm install hexo --no-optional</code></p>
-<hr>
-<h3 id="參考來源">參考來源</h3><ol>
-<li><a href="http://www.jianshu.com/p/98e993305653" target="_blank" rel="external">fazero</a></li>
-<li><a href="http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" target="_blank" rel="external">Huang Shiyang</a>;</li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="錯誤訊息如下：">錯誤訊息如下：</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class=]]>
-    </summary>
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-      <category term="Software" scheme="http://yoursite.com/categories/Software/"/>
     
   </entry>
   

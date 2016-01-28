@@ -175,13 +175,13 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/10/28/Android-Recycleview/">\Android/ Recyclerview</a>
+                                <a class="link-unstyled" href="/2015/11/25/Android-AndroidStudio-SystemLog/">\Android/ Android Studio 基本使用技巧 － System Log使用</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Oct 28 2015 10:49:25 GMT+0800">
+    <time itemprop="datePublished" content="Wed Nov 25 2015 10:50:20 GMT+0800">
 	
-		    Oct 28, 2015
+		    Nov 25, 2015
     	
     </time>
     
@@ -196,12 +196,14 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p>RecyclerView 為 v7 的新部件，可替代 ListView 使用，標準化了 ViewHolder 類似於 ListView 中 convertView。</p>
-<p>RecyclerView 快速實現 listview 、 gridview 、瀑布流的效果，而且還可以設置橫向和縱向顯示，添加動畫效果也非常簡單(自帶了 ItemAnimation ，可以設置加載和移除時的動畫，方便做出各種動態瀏覽的效果)</p>
-<h3 id="實作">實作</h3><p>在build.gradle(app)內加入recyclerview和cardview的引用</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:23.0.+'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:cardview-v7:23.0.+'</span></span><br></pre></td></tr></table></figure>
+                        <h3 id="前言">前言</h3><p>系統日誌(System Log)可幫助顯示系統信息，同時幫助Debug應用程序。如果要使用系統日誌來Debug你的應用程序，在程式碼內寫入<strong>Log程式碼</strong>，並輸出表達異常情況的字串，來幫助除錯。</p>
+<h3 id="實作範例">實作範例</h3><p>增加日誌訊息使用</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android . util . <span class="type">Log</span> ; </span><br><span class="line">... </span><br><span class="line">public  <span class="class"><span class="keyword">class</span>  <span class="title">MyActivity</span>  <span class="keyword"><span class="keyword">extends</span></span>  <span class="title">Activity</span>  &#123;</span> </span><br><span class="line">    <span class="keyword">private</span>  static  <span class="keyword">final</span>  <span class="type">String</span> <span class="type">TAG</span> =  <span class="type">MyActivity</span> . <span class="class"><span class="keyword">class</span> . <span class="title">getSimpleName</span> (</span>); </span><br><span class="line">    ... </span><br><span class="line">    <span class="annotation">@Override</span> </span><br><span class="line">    public  void onCreate ( <span class="type">Bundle</span> savedInstanceState )  &#123; </span><br><span class="line">        <span class="keyword">if</span>  ( savedInstanceState !=  <span class="literal">null</span> )  &#123; </span><br><span class="line">            <span class="type">Log</span> . d ( <span class="type">TAG</span> ,  <span class="string">"onCreate() Restoring previous state"</span> ); </span><br><span class="line">            <span class="comment">/* restore state */</span> </span><br><span class="line">        &#125;  <span class="keyword">else</span>  &#123; </span><br><span class="line">            <span class="type">Log</span> . d ( <span class="type">TAG</span> ,  <span class="string">"onCreate() No saved state available"</span> ); </span><br><span class="line">            <span class="comment">/* initialize app */</span> </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>錯誤訊息e 寫入日誌</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">someOtherMethod</span> <span class="params">()</span>  </span>&#123; </span><br><span class="line">    <span class="keyword">try</span>  &#123; </span><br><span class="line">        ... </span><br><span class="line">    &#125;  <span class="keyword">catch</span>  ( SomeException e )  &#123; </span><br><span class="line">        Log . d ( TAG ,  <span class="string">"someOtherMethod()"</span> , e ); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>於DDMS查看日誌內容<br><img src="http://developer.android.com/images/tools/as-ddmslog.png" alt="DDMS"></p>
 <h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/" target="_blank" rel="external">RecyclerView使用详解（一） · Frank-Zhu</a></li>
+<li><a href="http://developer.android.com/intl/zh-tw/tools/debugging/debugging-studio.html" target="_blank" rel="external">Debugging with Android Studio | Android Developers</a></li>
 </ol>
 
                         
@@ -210,7 +212,7 @@
                         
                         
                             <p>
-                                <a href="/2015/10/28/Android-Recycleview/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/11/25/Android-AndroidStudio-SystemLog/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -232,7 +234,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 1 of 4</li>
+        <li class="pagination-number">page 1 of 9</li>
     </ul>
 </div>
 
@@ -242,7 +244,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2015 bird. All Rights Reserved.
+        Copyrights &copy; 2016 bird. All Rights Reserved.
     </span>
 </footer>
 

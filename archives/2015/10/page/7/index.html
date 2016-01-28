@@ -175,11 +175,11 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/10/21/Code-UnitText20151021/">單元測試(Unit Testing)</a>
+                                <a class="link-unstyled" href="/2015/10/21/MacOS-Keynote/">\MacOS/ Learning Keynote − 簡報大小事</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Oct 21 2015 09:11:58 GMT+0800">
+    <time itemprop="datePublished" content="Wed Oct 21 2015 11:39:29 GMT+0800">
 	
 		    Oct 21, 2015
     	
@@ -187,7 +187,7 @@
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/Engineer/">Engineer</a>
+    <a class="category-link" href="/categories/Software/">Software</a>
 
 
     
@@ -196,45 +196,12 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h4 id="解釋">解釋</h4><p>1987年，IEEE就把單元測試納入美國國家標準。<br>針對應用程式設計的最小單位（程式模組）來進行正確性檢驗的測試工作。<br>理想的測試案例都依循不同案例；經常使用stubs、mock或fake等測試馬甲程式。<br>單元測試通常由軟體開發人員編寫，用於確保他們所寫的代碼符合軟體需求和遵循開發目標。</p>
-<h4 id="主要目標">主要目標</h4><p>將應用程式中的最小可測試片段（稱之為單元）與程式碼其餘部分隔離，已確定他的功能是否符合期望。<br>將各單元分開測試，可識別絕大部分的錯誤之處所在。對於物件導向而言，最小單元就是方法，包括<strong><strong>基礎類別（超類）、抽象類、或者衍生類別（子類別）</strong></strong>中的方法。</p>
-<h4 id="通用方法">通用方法</h4><p>需要撰寫<strong><strong>驅動程式</strong></strong>和<strong><strong> Stub </strong></strong>。<br>驅動程式模擬呼叫單元，而 Stub 模擬被呼叫的單元。<br>驅動程式和 Stub 需要花費相對應成本。驅動程式和 Stub 可重複使用，因此可經常重新測試，而不必撰寫大量額外的測試程式碼，而且重新測試的成本也比較好控制。</p>
-<h4 id="優點">優點</h4><p>然而單元測試仍然提供一些難以拒絕的優點。</p>
-<ul>
-<li>它允許測試程序自動執行，可幫助我們更容易找出應用程式較複雜的程式片段中所含的錯誤。</li>
-<li>因為注意力是集中於各單元，可幫助我們做更全面的測試，涵蓋的範圍通常可以增加。</li>
-</ul>
-<h4 id="重要觀念">重要觀念</h4><h6 id="＊_目標程式">＊ 目標程式</h6><p>單元測試要測試的程式目標。</p>
-<h6 id="＊_單元測試種類">＊ 單元測試種類</h6><ul>
-<li><p><a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank" rel="external">TDD (Test-Driven Development)</a>：目標程式不存在前撰寫的單元測試。將撰寫程式的流程從原先的寫碼&gt;測試&gt;重構轉變為<strong><strong>測試&gt;寫碼&gt;重構</strong></strong>，先訂定程式目標及規範，避免過度設計，寫出來的程式碼 100% 可以被測試，測試涵蓋率百分百。</p>
-</li>
-<li><p><a href="https://en.wikipedia.org/wiki/Behavior-driven_development" target="_blank" rel="external">BDD (Behavior-Driven Development)</a>：目標程式已存在後，所撰寫的單元測試。 程式完成後，維護人員針對目標程式介面的初步認知，依循邏輯撰寫單元測試來進行測試，發生錯誤時，可分析是否是程式本身存在的問題，或是維護人員認知錯誤。</p>
-</li>
-</ul>
-<h6 id="＊_JAVA單元測試工具、函式庫">＊ JAVA單元測試工具、函式庫</h6><ol>
-<li><a href="http://junit.org/" target="_blank" rel="external">JUnit 4</a></li>
-<li><a href="http://code.google.com/p/mockito/" target="_blank" rel="external">Mockito</a></li>
-<li><a href="http://easymock.org/" target="_blank" rel="external">EasyMock</a></li>
-<li><a href="https://code.google.com/p/powermock/" target="_blank" rel="external">PowerMock</a></li>
-</ol>
-<h6 id="＊_JUint_參考">＊ JUint 參考</h6><ul>
-<li></li>
-<li><a href="http://slashlook.com/articles_20140904.html" target="_blank" rel="external">三分鐘學會單元測試（使用JUnit）</a></li>
-</ul>
-<h6 id="＊_整合單元測試">＊ 整合單元測試</h6><p>若您有兩個單元，並決定將它們合在一起，然後當作整合單元來進行初始測試比較划算，則在許多地方可能會發生錯誤：</p>
-<ul>
-<li>錯誤導因於單元 1 的缺失嗎？</li>
-<li>錯誤導因於單元 2 的缺失嗎？</li>
-<li>錯誤導因於這兩個單元的缺失嗎？</li>
-<li>錯誤導因於單元之間介面的缺失嗎？</li>
-<li>錯誤導因於測試的缺失嗎？</li>
-</ul>
-<p>找出整合式模組中的錯誤，比先隔離單元、逐一進行測試、整合之後再進行整體測試還要複雜。 </p>
-<h6 id="參考來源">參考來源</h6><ol>
-<li><a href="https://msdn.microsoft.com/zh-tw/library/aa292197.aspx" target="_blank" rel="external">單元測試-Microsoft Developer Network</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95" target="_blank" rel="external">單元測試 - 維基百科，自由的百科全書</a></li>
-<li><a href="http://www.codedata.com.tw/java/unit-test-the-way-changes-my-programming" target="_blank" rel="external">【單元測試】改變了我程式設計的思維方式 by pcbill | CodeData</a></li>
-<li><a href="http://blog.xuite.net/simonpower/sss/3943610-Java+%E7%A8%8B%E5%BC%8F%E7%9A%84%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6" target="_blank" rel="external">Java 程式的單元測試 @ Simon’s Software Sky :: 隨意窩 Xuite日誌</a></li>
+                        <ol>
+<li>簡報圖形化，一致性</li>
+<li>字體(EN)：Helvetic Neue(科技簡報), Baskerville(學術簡報), Zapfino(藝術剪報)</li>
+<li>字體(CH)：蘋方(科技), Hiragino Mincho ProN(), 楷體()</li>
+<li>圖片 ＰＮＧ</li>
+<li>一事/一頁</li>
 </ol>
 
                         
@@ -243,7 +210,7 @@
                         
                         
                             <p>
-                                <a href="/2015/10/21/Code-UnitText20151021/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/10/21/MacOS-Keynote/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -274,7 +241,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 7 of 12</li>
+        <li class="pagination-number">page 7 of 14</li>
     </ul>
 </div>
 
@@ -284,7 +251,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2015 bird. All Rights Reserved.
+        Copyrights &copy; 2016 bird. All Rights Reserved.
     </span>
 </footer>
 

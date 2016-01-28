@@ -6,25 +6,34 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="bird 學習日記">
-    <title>\Android/ Manifest.xml 小字典(2) - bird 學習日記</title>
+    <title>\Android/ Gradle - bird 學習日記</title>
     <meta name="author" content="bird">
     
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="簡介說明 : 是一個用來描述App的整體資訊設定的XML檔。
-主要架構 : 1234567891011121314151617 &amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;    package=&quot;info.and">
+    <meta name="description" content="前言Gradle 
+實作step 1註冊Parse
+step 2Parse Andorid QuickStart
+參考來源
+RecyclerView使用详解（一） · Frank-Zhu">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="\Android/ Manifest.xml 小字典(2)">
-<meta property="og:url" content="http://yoursite.com/2015/10/20/Android-Manifest/index.html">
+<meta property="og:title" content="\Android/ Gradle">
+<meta property="og:url" content="http://yoursite.com/2015/11/24/Android-Gradle/index.html">
 <meta property="og:site_name" content="bird 學習日記">
-<meta property="og:description" content="簡介說明 : 是一個用來描述App的整體資訊設定的XML檔。
-主要架構 : 1234567891011121314151617 &amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;    package=&quot;info.and">
-<meta property="og:updated_time" content="2015-11-23T08:04:33.000Z">
+<meta property="og:description" content="前言Gradle 
+實作step 1註冊Parse
+step 2Parse Andorid QuickStart
+參考來源
+RecyclerView使用详解（一） · Frank-Zhu">
+<meta property="og:updated_time" content="2015-11-24T09:44:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="\Android/ Manifest.xml 小字典(2)">
-<meta name="twitter:description" content="簡介說明 : 是一個用來描述App的整體資訊設定的XML檔。
-主要架構 : 1234567891011121314151617 &amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;    package=&quot;info.and">
+<meta name="twitter:title" content="\Android/ Gradle">
+<meta name="twitter:description" content="前言Gradle 
+實作step 1註冊Parse
+step 2Parse Andorid QuickStart
+參考來源
+RecyclerView使用详解（一） · Frank-Zhu">
     
     
     
@@ -175,13 +184,13 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            \Android/ Manifest.xml 小字典(2)
+            \Android/ Gradle
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Tue Oct 20 2015 14:59:09 GMT+0800">
+    <time itemprop="datePublished" content="Tue Nov 24 2015 10:30:20 GMT+0800">
 	
-		    Oct 20, 2015
+		    Nov 24, 2015
     	
     </time>
     
@@ -196,12 +205,11 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <h4 id="簡介說明_:">簡介說明 :</h4><p> 是一個用來描述App的整體資訊設定的XML檔。</p>
-<h4 id="主要架構_:">主要架構 :</h4> <figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"> <span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">manifest</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">package</span>=<span class="value">"info.androidhive.materialdesign"</span> &gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">application</span></span><br><span class="line">    		&lt;!<span class="attribute">--Application</span>屬性值<span class="attribute">--</span>&gt;</span></span><br><span class="line">    &gt;</span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="title">activity</span></span><br><span class="line">        		&lt;!<span class="attribute">--Activity</span>屬性值<span class="attribute">--</span>&gt;</span></span><br><span class="line">        &gt;</span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">application</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">manifest</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="&lt;_Applicaion_&gt;">&lt; Applicaion &gt;</h3><p><a href="">AndroidManifest.xml 小字典(1)</a></p>
-<h3 id="&lt;_Activity_&gt;">&lt; Activity &gt;</h3><h4 id="[螢幕]">[螢幕]</h4><p><code>android:screenOrientation=&quot;portrait/landscape&quot;</code> : 強制直向/橫向呈現</p>
+            <h3 id="前言">前言</h3><p>Gradle </p>
+<h3 id="實作">實作</h3><p><strong>step 1</strong><br><a href="https://parse.com/" target="_blank" rel="external">註冊Parse</a></p>
+<p><strong>step 2</strong><br><a href="https://parse.com/apps/quickstart#parse_data/mobile/android/native/new" target="_blank" rel="external">Parse Andorid QuickStart</a></p>
 <h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://gaebolg.blog.163.com/blog/static/19826906820134312050504/" target="_blank" rel="external">灼眼のFate【Android】技巧 6 – Android 禁止屏幕旋转 &amp; 屏幕旋转不刷新 Activity &amp; 动态更改屏幕方向  </a></li>
+<li><a href="http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/" target="_blank" rel="external">RecyclerView使用详解（一） · Frank-Zhu</a></li>
 </ol>
 
             
@@ -215,7 +223,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/Android/">Android</a> <a class="tag tag--primary tag--small t-link" href="/tags/AndroidManifest/">AndroidManifest</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/Android/">Android</a> <a class="tag tag--primary tag--small t-link" href="/tags/Gradle/">Gradle</a>
 
             </div>
         
@@ -224,7 +232,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/20/Geo-OpenData/"  data-tooltip="\GIS/ OpenData 跨領域資料、系統應用">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/25/Android-AndroidStudio-Debug/"  data-tooltip="\Android/ Android Studio 基本使用技巧 － Debug使用">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -232,7 +240,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/20/Hexo-Error20151020/" data-tooltip="\Hexo/ 安裝錯誤排除">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/24/Android-Parse/" data-tooltip="\Android/ Parse架站">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -247,17 +255,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/10/20/Android-Manifest/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/11/24/Android-Gradle/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/10/20/Android-Manifest/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/11/24/Android-Gradle/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/10/20/Android-Manifest/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/11/24/Android-Gradle/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -287,7 +295,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2015 bird. All Rights Reserved.
+        Copyrights &copy; 2016 bird. All Rights Reserved.
     </span>
 </footer>
 
@@ -299,7 +307,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/20/Geo-OpenData/"  data-tooltip="\GIS/ OpenData 跨領域資料、系統應用">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/25/Android-AndroidStudio-Debug/"  data-tooltip="\Android/ Android Studio 基本使用技巧 － Debug使用">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -307,7 +315,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/20/Hexo-Error20151020/" data-tooltip="\Hexo/ 安裝錯誤排除">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/24/Android-Parse/" data-tooltip="\Android/ Parse架站">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -322,17 +330,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/10/20/Android-Manifest/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/11/24/Android-Gradle/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/10/20/Android-Manifest/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/11/24/Android-Gradle/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/10/20/Android-Manifest/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/11/24/Android-Gradle/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -358,17 +366,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/10/20/Android-Manifest/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/11/24/Android-Gradle/">
                 <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/10/20/Android-Manifest/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/11/24/Android-Gradle/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/10/20/Android-Manifest/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/11/24/Android-Gradle/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>

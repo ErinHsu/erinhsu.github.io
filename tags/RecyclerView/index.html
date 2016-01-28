@@ -198,8 +198,19 @@
                     <div class="postShorten-content" itemprop="articleBody">
                         <h3 id="前言">前言</h3><p>RecyclerView 為 v7 的新部件，可替代 ListView 使用，標準化了 ViewHolder 類似於 ListView 中 convertView。</p>
 <p>RecyclerView 快速實現 listview 、 gridview 、瀑布流的效果，而且還可以設置橫向和縱向顯示，添加動畫效果也非常簡單(自帶了 ItemAnimation ，可以設置加載和移除時的動畫，方便做出各種動態瀏覽的效果)</p>
-<h3 id="實作">實作</h3><p>在build.gradle(app)內加入recyclerview和cardview的引用</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:23.0.+'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:cardview-v7:23.0.+'</span></span><br></pre></td></tr></table></figure>
+<p>以下是Google在對於RecyclerView的描述</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">A flexible <span class="keyword">view</span> <span class="keyword">for</span> providing a limited <span class="keyword">window</span> into a large data <span class="keyword">set</span>.</span><br><span class="line">```` </span><br><span class="line"></span><br><span class="line">以下是它的新特性：</span><br><span class="line"></span><br><span class="line"><span class="comment">* 分離出數據顯示相關的所有問題，只關注View的回收和復用</span></span><br><span class="line"><span class="comment">* 對數據的顯示、動畫的配置進行高度解耦，提供了插拔式的體驗</span></span><br><span class="line"><span class="comment">* 強制使用ViewHolder模式，消除不必要的Layout Resource查找時間內置添加和移除動畫</span></span><br><span class="line"></span><br><span class="line">### 實作</span><br><span class="line"></span><br><span class="line">#### gradle compile</span><br><span class="line">在build.gradle(<span class="keyword">app</span>)內加入recyclerview和cardview的引用</span><br></pre></td></tr></table></figure>
+<pre><code><span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:23.0.+'</span>
+<span class="keyword">compile</span> <span class="string">'com.android.support:cardview-v7:23.0.+'</span>
+</code></pre><p>````</p>
+<h3 id="生命週期">生命週期</h3><ul>
+<li><strong>getItemViewType</strong>：獲取View類型</li>
+<li><strong>onCreateViewHolder</strong>：創建ViewHolder</li>
+<li><strong>ViewHolderonViewAttac.bhedToWindow</strong>：當It​​em可見時調用</li>
+<li><strong>onBindViewHolder</strong>：綁定數據以及邏輯控製樣式</li>
+<li><strong>onViewDetachedFromWindow：Item</strong>不可見時調用</li>
+<li><strong>onViewRecycled：Item</strong>被回收時調用</li>
+</ul>
 <h6 id="參考來源">參考來源</h6><ol>
 <li><a href="http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/" target="_blank" rel="external">RecyclerView使用详解（一） · Frank-Zhu</a></li>
 </ol>
@@ -234,7 +245,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2015 bird. All Rights Reserved.
+        Copyrights &copy; 2016 bird. All Rights Reserved.
     </span>
 </footer>
 
