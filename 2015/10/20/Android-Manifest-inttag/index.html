@@ -13,18 +13,18 @@
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
     <meta name="description" content="簡介說明 : 是一個用來描述App的整體資訊設定的XML檔，可向 Android 系統顯示應用程式的基本資訊，也就是系統在執行該應用程式的任何程式碼之前必須具備的資訊。
-Manifect.xml 功能 :Intent Filters應用程式元件是由 Intent 來啟動，用以指明要執行的活動。其中包含了活動名稱、所需資料、要執行本活動的元件分類、適當的指令。activity 程式碼中的 inten">
+Manifect.xml 功能 :Intent Filters 詳情請配合參閱\Android/ Intent應用應用程式元件是由 Intent 來啟動，用以指明要執行的活動(activity)與動作(action)。其中包含了活">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="\Android/ Manifest.xml 簡介 & Tag">
 <meta property="og:url" content="http://yoursite.com/2015/10/20/Android-Manifest-inttag/index.html">
 <meta property="og:site_name" content="bird 學習日記">
 <meta property="og:description" content="簡介說明 : 是一個用來描述App的整體資訊設定的XML檔，可向 Android 系統顯示應用程式的基本資訊，也就是系統在執行該應用程式的任何程式碼之前必須具備的資訊。
-Manifect.xml 功能 :Intent Filters應用程式元件是由 Intent 來啟動，用以指明要執行的活動。其中包含了活動名稱、所需資料、要執行本活動的元件分類、適當的指令。activity 程式碼中的 inten">
-<meta property="og:updated_time" content="2016-01-28T04:01:50.000Z">
+Manifect.xml 功能 :Intent Filters 詳情請配合參閱\Android/ Intent應用應用程式元件是由 Intent 來啟動，用以指明要執行的活動(activity)與動作(action)。其中包含了活">
+<meta property="og:updated_time" content="2016-01-30T00:50:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="\Android/ Manifest.xml 簡介 & Tag">
 <meta name="twitter:description" content="簡介說明 : 是一個用來描述App的整體資訊設定的XML檔，可向 Android 系統顯示應用程式的基本資訊，也就是系統在執行該應用程式的任何程式碼之前必須具備的資訊。
-Manifect.xml 功能 :Intent Filters應用程式元件是由 Intent 來啟動，用以指明要執行的活動。其中包含了活動名稱、所需資料、要執行本活動的元件分類、適當的指令。activity 程式碼中的 inten">
+Manifect.xml 功能 :Intent Filters 詳情請配合參閱\Android/ Intent應用應用程式元件是由 Intent 來啟動，用以指明要執行的活動(activity)與動作(action)。其中包含了活">
     
     
     
@@ -197,7 +197,7 @@ Manifect.xml 功能 :Intent Filters應用程式元件是由 Intent 來啟動，�
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <h4 id="簡介說明_:">簡介說明 :</h4><p> 是一個用來描述App的整體資訊設定的XML檔，可向 Android 系統顯示應用程式的基本資訊，也就是系統在執行該應用程式的任何程式碼之前必須具備的資訊。</p>
-<h4 id="Manifect-xml_功能_:">Manifect.xml 功能 :</h4><h6 id="Intent_Filters">Intent Filters</h6><p>應用程式元件是由 Intent 來啟動，用以指明要執行的活動。其中包含了活動名稱、所需資料、要執行本活動的元件分類、適當的指令。<strong>activity 程式碼中的 intent 直接指明，優先於 <intent-filter>。</intent-filter></strong></p>
+<h4 id="Manifect-xml_功能_:">Manifect.xml 功能 :</h4><h6 id="Intent_Filters_詳情請配合參閱\Android/_Intent應用">Intent Filters 詳情請配合參閱<a href="https://erinhsu.github.io/2015/10/28/Android-Intent" target="_blank" rel="external">\Android/ Intent應用</a></h6><p>應用程式元件是由 Intent 來啟動，用以指明要執行的活動(activity)與動作(action)。其中包含了活動名稱、所需資料、要執行本活動的元件分類、適當的指令。<strong>activity 程式碼中的 <code>intent</code> 直接指明，優先於 <code>&lt;intent-filter&gt;</code>。</strong></p>
 <p><code>&lt;intent-filter&gt;</code>: 表示所能處理的 intent有哪些。</p>
 <h6 id="Icons_and_Labels">Icons and Labels</h6><p>其<code>android:icon</code>(圖示) 與<code>android:label</code>(標題) 即是其內所有元素的預設值。</p>
 <h6 id="Permissions">Permissions</h6><p>告所需的許可權，用來限制程式與資料的存取，以避免遭到誤用，而產生不良後果。每個許可權的識別碼都是唯一的。一個功能特徵只能使用一個許可權來保護它。</p>
@@ -211,8 +211,8 @@ Manifect.xml 功能 :Intent Filters應用程式元件是由 Intent 來啟動，�
 <h5 id="1-_Application_應用程式">1. Application 應用程式</h5><h5 id="1-1-_Activity_活動">1-1. Activity 活動</h5><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/activity-alias-element.html" target="_blank" rel="external"><code>&lt;activity&gt;</code></a>：實作應用程式<strong>有畫面呈現的功能</strong>，沒聲明將不會被運行。</p>
 <p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/activity-alias-element.html" target="_blank" rel="external"><code>&lt;activity-alias&gt;</code></a>：android里為了重複使用Activity而設計的。由於它是 <activity> 的別名，因此必須跟在該元素的後面</activity></p>
 <h5 id="1-2-_Service_服務">1-2. Service 服務</h5><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/service-element.html" target="_blank" rel="external"><code>&lt;service&gt;</code></a>：實作應用程式<strong>長時間後台運行</strong>，沒聲明將不會被運行。</p>
-<h5 id="1-3-_receiver_廣播接收器">1-3. receiver 廣播接收器</h5><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/receiver-element.html" target="_blank" rel="external"><code>&lt;receiver&gt;</code></a>：能夠接收由所述系統或其它應用程序的廣播。</p>
-<h5 id="1-4-_provider_內容供應程式">1-4. provider 內容供應程式</h5><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/provider-element.html" target="_blank" rel="external"><code>&lt;provider&gt;</code></a>：能夠提供由所述系統或其它應用程序的廣播。</p>
+<h5 id="1-3-_receiver_廣播接收器">1-3. receiver 廣播接收器</h5><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/receiver-element.html" target="_blank" rel="external"><code>&lt;receiver&gt;</code></a>：能夠<strong>接收</strong>由所述系統或其它應用程序的廣播。</p>
+<h5 id="1-4-_provider_內容供應程式">1-4. provider 內容供應程式</h5><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/provider-element.html" target="_blank" rel="external"><code>&lt;provider&gt;</code></a>：能夠<strong>提供</strong>由所述系統或其它應用程序的廣播。</p>
 <hr>
 <h3 id="[_延伸閱讀_標籤字典_]">[ 延伸閱讀 標籤字典 ]</h3><ul>
 <li><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/manifest-intro.html" target="_blank" rel="external">Android Developer官方文件</a></p>
@@ -248,7 +248,7 @@ Manifect.xml 功能 :Intent Filters應用程式元件是由 Intent 來啟動，�
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/20/Geo-OpenData/"  data-tooltip="\GIS/ OpenData 跨領域資料、系統應用">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/21/Code-UnitText20151021/"  data-tooltip="單元測試(Unit Testing)">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -256,7 +256,7 @@ Manifect.xml 功能 :Intent Filters應用程式元件是由 Intent 來啟動，�
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/20/Android-Manifest-dic1/" data-tooltip="\Android/ Manifest.xml 小字典(1)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/20/Hexo-Error20151020/" data-tooltip="\Hexo/ 安裝錯誤排除">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -323,7 +323,7 @@ Manifect.xml 功能 :Intent Filters應用程式元件是由 Intent 來啟動，�
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/20/Geo-OpenData/"  data-tooltip="\GIS/ OpenData 跨領域資料、系統應用">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/21/Code-UnitText20151021/"  data-tooltip="單元測試(Unit Testing)">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -331,7 +331,7 @@ Manifect.xml 功能 :Intent Filters應用程式元件是由 Intent 來啟動，�
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/20/Android-Manifest-dic1/" data-tooltip="\Android/ Manifest.xml 小字典(1)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/20/Hexo-Error20151020/" data-tooltip="\Hexo/ 安裝錯誤排除">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>

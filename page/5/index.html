@@ -174,13 +174,13 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/10/28/Android-Recycleview/">\Android/ Recyclerview</a>
+                                <a class="link-unstyled" href="/2015/11/24/Android-Gradle/">\Android/ Gradle</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Oct 28 2015 10:49:25 GMT+0800">
+    <time itemprop="datePublished" content="Tue Nov 24 2015 10:30:20 GMT+0800">
 	
-		    Oct 28, 2015
+		    Nov 24, 2015
     	
     </time>
     
@@ -195,23 +195,44 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p>RecyclerView 為 v7 的新部件，可替代 ListView 使用，標準化了 ViewHolder 類似於 ListView 中 convertView。</p>
-<p>RecyclerView 快速實現 listview 、 gridview 、瀑布流的效果，而且還可以設置橫向和縱向顯示，添加動畫效果也非常簡單(自帶了 ItemAnimation ，可以設置加載和移除時的動畫，方便做出各種動態瀏覽的效果)</p>
-<p>以下是Google在對於RecyclerView的描述</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">A flexible <span class="keyword">view</span> <span class="keyword">for</span> providing a limited <span class="keyword">window</span> into a large data <span class="keyword">set</span>.</span><br><span class="line">```` </span><br><span class="line"></span><br><span class="line">以下是它的新特性：</span><br><span class="line"></span><br><span class="line"><span class="comment">* 分離出數據顯示相關的所有問題，只關注View的回收和復用</span></span><br><span class="line"><span class="comment">* 對數據的顯示、動畫的配置進行高度解耦，提供了插拔式的體驗</span></span><br><span class="line"><span class="comment">* 強制使用ViewHolder模式，消除不必要的Layout Resource查找時間內置添加和移除動畫</span></span><br><span class="line"></span><br><span class="line">### 實作</span><br><span class="line"></span><br><span class="line">#### gradle compile</span><br><span class="line">在build.gradle(<span class="keyword">app</span>)內加入recyclerview和cardview的引用</span><br></pre></td></tr></table></figure>
-<pre><code><span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:23.0.+'</span>
-<span class="keyword">compile</span> <span class="string">'com.android.support:cardview-v7:23.0.+'</span>
-</code></pre><p>````</p>
-<h3 id="生命週期">生命週期</h3><ul>
-<li><strong>getItemViewType</strong>：獲取View類型</li>
-<li><strong>onCreateViewHolder</strong>：創建ViewHolder</li>
-<li><strong>ViewHolderonViewAttac.bhedToWindow</strong>：當It​​em可見時調用</li>
-<li><strong>onBindViewHolder</strong>：綁定數據以及邏輯控製樣式</li>
-<li><strong>onViewDetachedFromWindow：Item</strong>不可見時調用</li>
-<li><strong>onViewRecycled：Item</strong>被回收時調用</li>
-</ul>
-<h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/" target="_blank" rel="external">RecyclerView使用详解（一） · Frank-Zhu</a></li>
+                        <h3 id="前言">前言</h3><p>Gradle </p>
+<p>自動化編譯工具為 Ant , Maven ,Gradle</p>
+<p>Ant -&gt; <a href="http://www.codedata.com.tw/java/understanding-gradle-1-ant/" target="_blank" rel="external">【認識 Gradle】（1）講古的時間 Apache Ant | CodeData</a></p>
+<p>提供一組 XML 標籤，讓你定義一個『專案（project）』內要提供哪些『目標(target)』，在目標內需要描述有哪些『任務（task）』需要被執行。簡而言之，Ant 讓你用 XML 的方式描述一些自動化編譯的事項，就如同撰寫程式語言一般。說到程式語言不外乎，語法、語意與函式，若將上述概念轉換成 Ant 的領域，則為 XML、DataType、Properties、Task。</p>
+<p>Maven -&gt; <a href="http://www.codedata.com.tw/java/understanding-gradle-2-maven/" target="_blank" rel="external">【認識 Gradle】（2）講古的時間 Apache Maven by qrtt1 | CodeData</a></p>
+<p>Maven 被創造出來的動機有二個主要原因：</p>
+<ol>
+<li>Java 專案的標準化</li>
+<li>Java 專案函式庫管理的問題</li>
+</ol>
+<p>Gradle -&gt; <a href="http://siwei.me/blog/posts/gradle-why-gradle-but-not-ant-maven-ivy" target="_blank" rel="external">為什麼要用Gradle? - 申思維的技術站點  | CodeData</a></p>
+<p>ANT的缺點：</p>
+<p>很容易變臃腫。雖然ANT 提倡大家寫個MODULE出來，但是大部分人都不會這樣做。基本都喜歡把所有內容都寫在build.xml中</p>
+<p>MAVEN的缺點：</p>
+<p>比較精簡，但是無法定制化。在MAVEN中，想要定制，必須得寫個plugin 或者做些hack， 無法像ANT那樣靈活。可以說走了與ANT相反的極端。</p>
+<p>ANT和MAVEN共同的缺點：</p>
+<p>都很複雜。XML 在2000年還是很炫酷的，但是到了現在就是喳喳。。。寫起來麻煩。</p>
+<p>Gradle 把兩者的優點結合到了一起。</p>
+<p>比ant 語法經驗， 比MAVEN靈活。可以自由定制。</p>
+<h3 id="檔案架構">檔案架構</h3><p><a href="http://www.codedata.com.tw/java/understanding-gradle-3-getting-started/" target="_blank" rel="external">【認識 Gradle】（3）Gradle 起手式 by qrtt1 | CodeData</a></p>
+<p>範例一 java project</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 引用 java plugin 獲得編譯 java 專案相關的 task $ */</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span> </span><br><span class="line"><span class="comment">/* 引用 application plugin 獲得執行 java 專案相關的 task $ */</span></span><br><span class="line">apply <span class="string">plugin:</span><span class="string">'application'</span></span><br><span class="line"><span class="comment">/* 執行 application plugin 用到的參數 $ */</span></span><br><span class="line">mainClassName = <span class="string">"tw.com.codedata.HelloWorld"</span></span><br><span class="line"><span class="comment">/* 設定 maven repository server $ */</span></span><br><span class="line">repositories &#123;</span><br><span class="line">   	mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 宣告專案的相依函式庫 $ */</span></span><br><span class="line">dependencies &#123;</span><br><span class="line">   	compile <span class="string">group:</span> <span class="string">'commons-logging'</span>, <span class="string">name:</span> <span class="string">'commons-logging'</span>, <span class="string">version:</span> <span class="string">'1.1.1'</span></span><br><span class="line">   	compile <span class="string">group:</span> <span class="string">'log4j'</span>, <span class="string">name:</span> <span class="string">'log4j'</span>, <span class="string">version:</span> <span class="string">'1.2.16'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>範例二 android project</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 引用 java plugin 獲得編譯 android 專案相關的 task  */</span></span><br><span class="line">apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line"><span class="comment">/* 設定 android SDK 目標版本 要和“com.android...”下方同一版本  */</span></span><br><span class="line">android &#123;</span><br><span class="line">   	compileSdkVersion <span class="number">23</span> </span><br><span class="line">   	buildToolsVersion <span class="string">"23.0.1"</span></span><br><span class="line"><span class="comment">/* 設定 android SDK 最小資源版本 */</span></span><br><span class="line">   defaultConfig &#123;</span><br><span class="line">       applicationId <span class="string">"com.ftc.ec"</span></span><br><span class="line">       minSdkVersion  <span class="number">14</span></span><br><span class="line">       targetSdkVersion <span class="number">23</span></span><br><span class="line">       versionCode <span class="number">1</span></span><br><span class="line">       versionName <span class="string">"1.0"</span></span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">/*    */</span></span><br><span class="line">   buildTypes &#123;</span><br><span class="line">       release &#123;</span><br><span class="line">           minifyEnabled <span class="keyword">false</span></span><br><span class="line">           proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.txt'</span></span><br><span class="line">       	&#125;</span><br><span class="line">   	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 宣告專案的相依函式庫 */</span></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">	<span class="comment">//-- project</span></span><br><span class="line">   	<span class="keyword">compile</span> <span class="keyword">project</span>(<span class="string">':chachalibrary'</span>)</span><br><span class="line">   	<span class="comment">//-- 線上jar檔</span></span><br><span class="line">   	<span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:23.1.1'</span></span><br><span class="line">   	<span class="comment">//-- local jar檔</span></span><br><span class="line">	<span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">  		<span class="keyword">compile</span> files(<span class="string">'libs/ormlite-core-4.48.jar'</span>)</span><br><span class="line">   	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="參考來源">參考來源</h6><p>CodeData系列文章</p>
+<ol>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-1-ant/" target="_blank" rel="external">【認識 Gradle】（1）講古的時間 Apache Ant | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-2-maven/" target="_blank" rel="external">【認識 Gradle】（2）講古的時間 Apache Maven by qrtt1 | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-3-getting-started/" target="_blank" rel="external">【認識 Gradle】（3）Gradle 起手式 by qrtt1 | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-4-gradle-script/" target="_blank" rel="external">【認識 Gradle】（4）看懂 Gradle Script by qrtt1 | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-2-maven/" target="_blank" rel="external">【認識 Gradle】（5）Gradle Task 觀念導讀 | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-4-java-project-build-script-customization/" target="_blank" rel="external">【認識 Gradle】（6）Java 專案與 Build Script 客製化 | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-7-java-project-dependencies/" target="_blank" rel="external">【認識 Gradle】（7）Java 專案相依管理 | CodeData</a></li>
+</ol>
+<p>其他</p>
+<ol>
+<li><a href="http://polinwei.blogspot.tw/2008/07/ant.html" target="_blank" rel="external">我與小崴崴的工作日記: [教學] ANT 的基本介紹</a></li>
+<li><a href="http://www.cnblogs.com/luotaoyeah/p/3764533.html" target="_blank" rel="external">Maven入門指南① ：Maven 快速入門及簡單使用- 羅韜- 博客園</a></li>
 </ol>
 
                         
@@ -220,7 +241,7 @@
                         
                         
                             <p>
-                                <a href="/2015/10/28/Android-Recycleview/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/11/24/Android-Gradle/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -251,7 +272,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 5 of 18</li>
+        <li class="pagination-number">page 5 of 13</li>
     </ul>
 </div>
 

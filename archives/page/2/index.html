@@ -175,11 +175,11 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/11/25/Android-AndroidStudio-Debug/">\Android/ Android Studio 基本使用技巧 － Debug使用</a>
+                                <a class="link-unstyled" href="/2015/11/25/Android-AndroidStudio-SystemLog/">\Android/ Android Studio 基本使用技巧 － System Log使用</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Nov 25 2015 10:30:20 GMT+0800">
+    <time itemprop="datePublished" content="Wed Nov 25 2015 10:50:20 GMT+0800">
 	
 		    Nov 25, 2015
     	
@@ -196,26 +196,12 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p>利用Android Studio您可以：</p>
-<ul>
-<li>選擇一個模擬器或Android設備來測試應用程序。</li>
-<li>查看系統日誌。</li>
-<li>設置中斷點。</li>
-<li>測試時檢查變數、運算表達式。</li>
-<li>進行Debug。</li>
-<li>對應用程序畫面做截圖或錄影。</li>
-</ul>
-<p>要Debug你的應用程序，Android Studio生成你的應用程序的可Debug版本，連接到設備或模擬器，安裝應用程序並運行它。<strong>IDE</strong>將顯示系統日誌，而你的應用程序正在運行，並提供調試工具來過濾日誌消息，中斷點工作，並控制執行流程。</p>
-<h3 id="步驟實作">步驟實作</h3><p><strong>step 1</strong><br>在AndroidStudio中打開專案</p>
-<p><strong>step 2</strong><br>點擊工具欄上的Debug圖示<img src="http://developer.android.com/images/tools/as-debugbutton.png" alt="Debug icon">（小昆蟲）。</p>
-<p><strong>step 3</strong><br>在Choose Device的視窗，選擇一個設備（或啟動）模擬器。<br><img src="http://developer.android.com/images/tools/as-debugdevices.png" alt="Debug icon"></p>
-<p><strong>step 4</strong><br>AndroidStudio將打開Debug工具視窗<img src="http://developer.android.com/images/tools/as-debugwindowbutton.png" alt="Debug belowicon">。</p>
-<ul>
-<li><strong>Debugger</strong> : 顯示線程（threads）和變數（variables）</li>
-<li><strong>Console</strong> : 顯示設備狀態</li>
-<li><strong>logcat</strong> : 顯示系統日誌(System Log)</li>
-</ul>
-<p><img src="http://developer.android.com/images/tools/as-debugview.png" alt="Debug工具視窗"></p>
+                        <h3 id="前言">前言</h3><p>系統日誌(System Log)可幫助顯示系統信息，同時幫助Debug應用程序。如果要使用系統日誌來Debug你的應用程序，在程式碼內寫入<strong>Log程式碼</strong>，並輸出表達異常情況的字串，來幫助除錯。</p>
+<h3 id="實作範例">實作範例</h3><p>增加日誌訊息使用</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android . util . <span class="type">Log</span> ; </span><br><span class="line">... </span><br><span class="line">public  <span class="class"><span class="keyword">class</span>  <span class="title">MyActivity</span>  <span class="keyword"><span class="keyword">extends</span></span>  <span class="title">Activity</span>  &#123;</span> </span><br><span class="line">    <span class="keyword">private</span>  static  <span class="keyword">final</span>  <span class="type">String</span> <span class="type">TAG</span> =  <span class="type">MyActivity</span> . <span class="class"><span class="keyword">class</span> . <span class="title">getSimpleName</span> (</span>); </span><br><span class="line">    ... </span><br><span class="line">    <span class="annotation">@Override</span> </span><br><span class="line">    public  void onCreate ( <span class="type">Bundle</span> savedInstanceState )  &#123; </span><br><span class="line">        <span class="keyword">if</span>  ( savedInstanceState !=  <span class="literal">null</span> )  &#123; </span><br><span class="line">            <span class="type">Log</span> . d ( <span class="type">TAG</span> ,  <span class="string">"onCreate() Restoring previous state"</span> ); </span><br><span class="line">            <span class="comment">/* restore state */</span> </span><br><span class="line">        &#125;  <span class="keyword">else</span>  &#123; </span><br><span class="line">            <span class="type">Log</span> . d ( <span class="type">TAG</span> ,  <span class="string">"onCreate() No saved state available"</span> ); </span><br><span class="line">            <span class="comment">/* initialize app */</span> </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>錯誤訊息e 寫入日誌</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">someOtherMethod</span> <span class="params">()</span>  </span>&#123; </span><br><span class="line">    <span class="keyword">try</span>  &#123; </span><br><span class="line">        ... </span><br><span class="line">    &#125;  <span class="keyword">catch</span>  ( SomeException e )  &#123; </span><br><span class="line">        Log . d ( TAG ,  <span class="string">"someOtherMethod()"</span> , e ); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>於DDMS查看日誌內容<br><img src="http://developer.android.com/images/tools/as-ddmslog.png" alt="DDMS"></p>
 <h6 id="參考來源">參考來源</h6><ol>
 <li><a href="http://developer.android.com/intl/zh-tw/tools/debugging/debugging-studio.html" target="_blank" rel="external">Debugging with Android Studio | Android Developers</a></li>
 </ol>
@@ -226,7 +212,7 @@
                         
                         
                             <p>
-                                <a href="/2015/11/25/Android-AndroidStudio-Debug/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/11/25/Android-AndroidStudio-SystemLog/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -257,7 +243,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 2 of 18</li>
+        <li class="pagination-number">page 2 of 13</li>
     </ul>
 </div>
 
