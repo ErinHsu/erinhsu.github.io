@@ -4,7 +4,7 @@
   <subtitle><![CDATA[做到老學到老]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-02T07:43:47.000Z</updated>
+  <updated>2016-02-03T07:06:25.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2016/02/01/Ionic/"/>
     <id>http://yoursite.com/2016/02/01/Ionic/</id>
     <published>2016-02-01T02:30:20.000Z</published>
-    <updated>2016-02-02T07:43:47.000Z</updated>
+    <updated>2016-02-03T07:06:25.000Z</updated>
     <content type="html"><![CDATA[<h3 id="前言">前言</h3><p>一般我們所知的手機作業系統，以最大宗來說，iOS與Android為主要兩大市場，當然也有windows phone等等其他作業系統，這些相互獨立的市場，開發條件與方式當然截然不同。</p>
 <p>想要成為一個行動裝置軟體開發者，首先你要選擇你想攻佔的是屬於apple系列（ios）還是google系列(Android)的領土，才能進行對應技術的學習與開發。</p>
 <p>請下關鍵字：</p>
@@ -47,15 +47,7 @@
 <p><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 4</a>:直接下載並安裝小於5的版本使用</p>
 <p><a href="https://www.npmjs.com/package/ionic" target="_blank" rel="external">Cordova ionic</a>: 開啟command line 透過 Node.js 的 npm 指令下載</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> cordova ionic</span></span><br></pre></td></tr></table></figure>
-<p><a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">Android Studio</a>: 請可安裝Android Studio或是單獨安裝 <a href="http://developer.android.com/intl/zh-tw/sdk/index.html#Other" target="_blank" rel="external">sdk</a>。並確認已確認SDK版本</p>
-<p><code>Error</code> </p>
-<p><code>1.&quot;SDK Platform&quot; for android-23</code></p>
-<p><code>2.Lastest &quot;Android SDK Platform-tool&quot;</code> </p>
-<p><code>3.Lastest &quot;Android SDK Build-tools&quot;</code></p>
-<p>Mac OS X /Linux 在 ~/.bash_profile 文件最後加入以下指令&lt;!?&gt;</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export ANDROID_HOME=/Users/your_user_name/android-sdks</span><br><span class="line">export PATH=$&#123;PATH&#125;:<span class="variable">$ANDROID</span>_HOME/tools:<span class="variable">$ANDROID</span>_HOME/platform-tools</span><br></pre></td></tr></table></figure>
-<p>Windows 環境變數設制</p>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// android-sdks位置</span></span><br><span class="line">set ANDROID_HOME=C:\&lt;installation location&gt;\android-sdk-windowsset PATH=<span class="variable">%PATH</span><span class="variable">%;</span><span class="variable">%ANDROID_HOME</span><span class="variable">%\</span>tools;<span class="variable">%ANDROID_HOME</span><span class="variable">%\</span>platform-tools</span><br></pre></td></tr></table></figure>
+<p><a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">Android Studio</a>: 請可安裝Android Studio或是單獨安裝 <a href="http://developer.android.com/intl/zh-tw/sdk/index.html#Other" target="_blank" rel="external">sdk</a>。並確認SDK版本</p>
 <h4 id="Step3_建立專案">Step3 建立專案</h4><ol>
 <li><p>cd到你想建立專案的資料夾，利用模組範例，建立一個新的專案資料夾</p>
  <figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic <span class="keyword">start</span> &#123;projectName&#125; &#123;blank/tabs/sidemenu&#125;</span><br></pre></td></tr></table></figure>
@@ -84,13 +76,6 @@
 <span class="comment"><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAV<span class="built_in">A_HOME</span>=$(/usr/libexec/jav<span class="built_in">a_home</span>)</span><br></pre></td></tr></table></figure></span>
 </code></pre><h4 id="Step5_執行">Step5 執行</h4><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic serve <span class="comment">//網頁</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//建立成一個<span class="keyword">android/ios對應開發專案資料夾</span><br><span class="line"></span><span class="label">ionic</span> <span class="keyword">build </span>&#123;<span class="keyword">android/ios&#125;</span><br><span class="line"></span>//emulate模擬器<span class="comment">; run實機</span></span><br><span class="line"> ----------------- ios實機要用Xcode執行 /<span class="keyword">android </span>SDK <span class="number">16</span>up</span><br><span class="line"><span class="label">ionic</span> &#123;emulate/run&#125; &#123;<span class="keyword">android/ios&#125;</span></span><br></pre></td></tr></table></figure>
-<p><strong>Android 模擬器(Genymotion)注意事項</strong></p>
-<p>大家都知道 Android 模擬器（AVD）在運行速度慢且無法代表真實的設備，若要使用虛擬機的話（常用 Genymotion 替代，它會在你的電腦中將 Android 設備當做一個虛擬機來運行），因為 Genymotion 被視為電腦的物理設備，因此使用 Genymotion 的話將使用<code>ionic run</code> 而非 ionic emulate。</p>
-<p><strong>偵測實機問題</strong> </p>
-<p>依序執行以下三種指令</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="operator"><span class="keyword">kill</span>-<span class="keyword">server</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="operator"><span class="keyword">start</span>-<span class="keyword">server</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">adb</span> devices</span><br></pre></td></tr></table></figure>
 <h4 id="Step5_發布">Step5 發布</h4><p>完成了你的作品之後，怎麼把它上傳給其他使用者使用呢。<br>在上架之前我們必須先把用於 debug 的 plugin 移除避免困擾。</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin rm org<span class="class">.apache</span><span class="class">.cordova</span><span class="class">.console</span></span><br></pre></td></tr></table></figure>
 <p>將我們的 App build 成還沒簽證的 .apk 檔</p>
@@ -103,6 +88,21 @@
 <p>簽核完後我們可以使用 APK 優化工具 <a href="http://developer.android.com/intl/zh-tw/tools/help/zipalign.html" target="_blank" rel="external">zip align</a>，優化後產生 HelloWorld.apk 的檔案。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zipalign -v <span class="number">4</span> HelloWorld-release-<span class="keyword">unsigned</span>.apk HelloWorld.apk</span><br></pre></td></tr></table></figure>
 <p>若是之後想更新 App，記得更新 platforms/android/AndroidManifest.xml 中的 android:versionCode 版本值並再次提交你的 .apk 檔案。</p>
+<h4 id="疑難雜症">疑難雜症</h4><p><strong>node.js問題</strong></p>
+<p><strong>Android 模擬器(Genymotion)注意事項</strong></p>
+<p>大家都知道 Android 模擬器（AVD）在運行速度慢且無法代表真實的設備，若要使用虛擬機的話（常用 Genymotion 替代，它會在你的電腦中將 Android 設備當做一個虛擬機來運行），因為 Genymotion 被視為電腦的物理設備，因此使用 Genymotion 的話將使用<code>ionic run</code> 而非 ionic emulate。</p>
+<p><strong>偵測實機問題</strong> </p>
+<p>依序執行以下三種指令</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="operator"><span class="keyword">kill</span>-<span class="keyword">server</span> </span><br><span class="line">adb <span class="keyword">start</span>-<span class="keyword">server</span> </span><br><span class="line">adb devices</span></span><br></pre></td></tr></table></figure>
+<p><strong>Android 執行版本問題</strong></p>
+<p><code>Error</code> </p>
+<p><code>1.&quot;SDK Platform&quot; for android-23</code></p>
+<p><code>2.Lastest &quot;Android SDK Platform-tool&quot;</code> </p>
+<p><code>3.Lastest &quot;Android SDK Build-tools&quot;</code></p>
+<p>Mac OS X /Linux 在 ~/.bash_profile 文件最後加入以下指令&lt;!?&gt;</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export ANDROID_HOME=/Users/your_user_name/android-sdks</span><br><span class="line">export PATH=$&#123;PATH&#125;:<span class="variable">$ANDROID</span>_HOME/tools:<span class="variable">$ANDROID</span>_HOME/platform-tools</span><br></pre></td></tr></table></figure>
+<p>Windows 環境變數設制</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// android-sdks位置</span></span><br><span class="line">set ANDROID_HOME=C:\&lt;installation location&gt;\android-sdk-windowsset PATH=<span class="variable">%PATH</span><span class="variable">%;</span><span class="variable">%ANDROID_HOME</span><span class="variable">%\</span>tools;<span class="variable">%ANDROID_HOME</span><span class="variable">%\</span>platform-tools</span><br></pre></td></tr></table></figure>
 <h6 id="參考來源">參考來源</h6><p>Full-Stack Engineering系列文章</p>
 <ol>
 <li><a href="http://blog.kdchang.cc/2015/02/ionic-note-ionic-book-chapter-1-all-about-ionic.html" target="_blank" rel="external">Full-Stack Engineering: [Ionic 初心者筆記] 官方教學 - Ch 1 關於 Ionic</a></li>
