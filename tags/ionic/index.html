@@ -220,10 +220,15 @@
 <p>隨客官愛好進行版本選學，最後附上<code>簡易版(下拉)教學</code>給客官賞味 XD</p>
 <h4 id="Step2_安裝環境設置">Step2 安裝環境設置</h4><p>確認自己的電腦是否有安裝 <strong>Node.js 4 </strong>與<strong> 最新的 Apache Cordova</strong>。</p>
 <p>以及設置iOS與Android開發依循環境，特別是iOS必須在Mac OS X環境下才能測試開發。</p>
-<p><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 4</a>:直接下載並安裝小於5的版本使用</p>
-<p><a href="https://www.npmjs.com/package/ionic" target="_blank" rel="external">Cordova ionic</a>: 開啟command line 透過 Node.js 的 npm 指令下載</p>
+<ol>
+<li><p><a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">Android Studio</a>: 請可安裝Android Studio或是單獨安裝 <a href="http://developer.android.com/intl/zh-tw/sdk/index.html#Other" target="_blank" rel="external">sdk</a>。並確認SDK版本</p>
+</li>
+<li><p><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 4</a>:直接下載並安裝小於5的版本使用</p>
+</li>
+<li><p><a href="https://www.npmjs.com/package/ionic" target="_blank" rel="external">Cordova ionic</a>: 開啟command line 透過 Node.js 的 npm 指令下載</p>
+</li>
+</ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> cordova ionic</span></span><br></pre></td></tr></table></figure>
-<p><a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">Android Studio</a>: 請可安裝Android Studio或是單獨安裝 <a href="http://developer.android.com/intl/zh-tw/sdk/index.html#Other" target="_blank" rel="external">sdk</a>。並確認SDK版本</p>
 <h4 id="Step3_建立專案">Step3 建立專案</h4><ol>
 <li><p>cd到你想建立專案的資料夾，利用模組範例，建立一個新的專案資料夾</p>
  <figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic <span class="keyword">start</span> &#123;projectName&#125; &#123;blank/tabs/sidemenu&#125;</span><br></pre></td></tr></table></figure>
@@ -234,7 +239,7 @@
  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">├── bower<span class="class">.json</span>     <span class="comment">// bower dependencies</span></span><br><span class="line">├── config<span class="class">.xml</span>     <span class="comment">// cordova configuration</span></span><br><span class="line">├── gulpfile<span class="class">.js</span>    <span class="comment">// gulp tasks</span></span><br><span class="line">├── hooks          <span class="comment">// custom cordova hooks to execute on specific commands</span></span><br><span class="line">├── ionic<span class="class">.project</span>  <span class="comment">// ionic configuration</span></span><br><span class="line">├── package<span class="class">.json</span>   <span class="comment">// node dependencies</span></span><br><span class="line">├── platforms      <span class="comment">// iOS/Android specific builds will reside here</span></span><br><span class="line">├── plugins        <span class="comment">// where your cordova/ionic plugins will be installed</span></span><br><span class="line">├── scss           <span class="comment">// scss code, which will output to www/css/</span></span><br><span class="line">└── www            <span class="comment">// application - JS code and libs, CSS, images, etc.</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="Step4_建立測試平台">Step4 建立測試平台</h4><figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> myApp <span class="comment">//指到專案那個資料夾裡</span></span><br></pre></td></tr></table></figure>
+<h4 id="Step4_建立測試平台">Step4 建立測試平台</h4><figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &#123;projectName&#125;  <span class="comment">//指到專案那個資料夾裡</span></span><br></pre></td></tr></table></figure>
 <p>產生測試參數</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic <span class="built_in">platform</span> <span class="built_in">add</span> &#123;android/ios&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong> iOS 不能在windows環境下運行，但依然會幫你建立(建立爽的嗎哈哈)，出錯如下。</p>
@@ -258,13 +263,13 @@
 <p>簽核完後我們可以使用 APK 優化工具 <a href="http://developer.android.com/intl/zh-tw/tools/help/zipalign.html" target="_blank" rel="external">zip align</a>，優化後產生 HelloWorld.apk 的檔案。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zipalign -v <span class="number">4</span> HelloWorld-release-<span class="keyword">unsigned</span>.apk HelloWorld.apk</span><br></pre></td></tr></table></figure>
 <p>若是之後想更新 App，記得更新 platforms/android/AndroidManifest.xml 中的 android:versionCode 版本值並再次提交你的 .apk 檔案。</p>
-<h4 id="疑難雜症">疑難雜症</h4><p><strong>node.js問題</strong></p>
-<p><strong>Android 模擬器(Genymotion)注意事項</strong></p>
+<hr>
+<h4 id="其他疑難雜症">其他疑難雜症</h4><p>2.<strong>Android 模擬器(Genymotion)注意事項</strong></p>
 <p>大家都知道 Android 模擬器（AVD）在運行速度慢且無法代表真實的設備，若要使用虛擬機的話（常用 Genymotion 替代，它會在你的電腦中將 Android 設備當做一個虛擬機來運行），因為 Genymotion 被視為電腦的物理設備，因此使用 Genymotion 的話將使用<code>ionic run</code> 而非 ionic emulate。</p>
-<p><strong>偵測實機問題</strong> </p>
+<p>3.<strong>偵測實機問題</strong> </p>
 <p>依序執行以下三種指令</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="operator"><span class="keyword">kill</span>-<span class="keyword">server</span> </span><br><span class="line">adb <span class="keyword">start</span>-<span class="keyword">server</span> </span><br><span class="line">adb devices</span></span><br></pre></td></tr></table></figure>
-<p><strong>Android 執行版本問題</strong></p>
+<p>4.<strong>Android 執行版本問題</strong></p>
 <p><code>Error</code> </p>
 <p><code>1.&quot;SDK Platform&quot; for android-23</code></p>
 <p><code>2.Lastest &quot;Android SDK Platform-tool&quot;</code> </p>
