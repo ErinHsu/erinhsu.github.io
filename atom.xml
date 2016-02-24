@@ -4,7 +4,7 @@
   <subtitle><![CDATA[做到老學到老]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-24T02:25:53.000Z</updated>
+  <updated>2016-02-24T07:29:52.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title><![CDATA[\Android/ ListView 顯示陣列資料]]></title>
     <link href="http://yoursite.com/2016/02/17/Android-ListviewArray/"/>
     <id>http://yoursite.com/2016/02/17/Android-ListviewArray/</id>
     <published>2016-02-17T02:44:08.000Z</published>
-    <updated>2016-02-24T02:25:53.000Z</updated>
+    <updated>2016-02-24T07:29:52.000Z</updated>
     <content type="html"><![CDATA[<h3 id="前言">前言</h3><p>ListView 是非常常用的Layout，將你要顯示的資訊用列表的方式垂直依序顯示出來。</p>
 <p>我們常用的View，包括ListView,GridView, Spinner等，常常伴隨著<a href="http://erinhsu.github.io/2016/02/15/Android-Adapter/" target="_blank" rel="external">Adapter</a>的使用。 </p>
 <p>如下圖直觀的表達了Data、Adapter、View三者的關係：<br><img src="http://image.lxway.com/upload/f/15/f15b47d3418249a43e56a800abc75e83.jpg" alt=""></p>
