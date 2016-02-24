@@ -175,11 +175,11 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/10/28/Android-ViewGroup/">\Android/ ViewGroup</a>
+                                <a class="link-unstyled" href="/2015/10/28/iOS-pods/">\iOS/ 使用 CocoaPods 管理第三方套件</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Oct 28 2015 09:57:47 GMT+0800">
+    <time itemprop="datePublished" content="Wed Oct 28 2015 10:44:08 GMT+0800">
 	
 		    Oct 28, 2015
     	
@@ -196,18 +196,42 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h1 id="[Android]_自定義_view">[Android] 自定義 view</h1><h3 id="前言">前言</h3><p>Android開發中，對於自定義 View <a href="https://zh.wikipedia.org/wiki/%E6%8E%A7%E4%BB%B6" target="_blank" rel="external">widget</a>分為兩種</p>
-<ul>
-<li><p><code>自定義widget (繼承 View class)</code>：<br>需重載兩個操作widget的方法，一個是用來測量尺寸的<strong><a href="http://ticktick.blog.51cto.com/823160/1540134" target="_blank" rel="external">onMeasure()</a></strong>另一個是用來繪製UI的<strong>onDraw()</strong>。</p>
+                        <h3 id="前言">前言</h3><p>在開發iOS APP時，利用XCode創建新的專案，經常需要引用第三方Open Source套件。通常我們將要運用的套件下載到本機端，再放置到專案中。<strong>未來若有新版本的套件需要更新時，都必須重新搜尋並下載</strong></p>
+<p><strong>CocoaPods</strong>就是為iOS開發提供依賴管理的工具。主要Source Code在Github上管理。CocoaPods幫助我們在開發iOS時管理第三方套件，省下了開發時間。</p>
+<h5 id="COCOAPODS網站：http://cocoapods-org/">COCOAPODS網站：<a href="http://cocoapods.org/" target="_blank" rel="external">http://cocoapods.org/</a></h5><h3 id="使用方法">使用方法</h3><h5 id="安裝">安裝</h5><ol>
+<li>開啓終端機</li>
+<li><p>輸入指令</p>
+ <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>[sudo] gem install cocoapods (安裝)</span><br><span class="line"><span class="variable">$ </span>pod setup (設定)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>自定義佈局容器 （繼承 ViewGroup）</code>：<br>需重載三個操作widget的方法，一個是用來測量尺寸的<strong>onMeasure()</strong>，一個是用佈局子部件的<strong>onLayout()</strong>以及繪製UI的<strong>dispatchDraw()</strong>。</p>
+<li><p>接著就能使用</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="built_in">help</span> (幫助)</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p>Android View和ViewGroup從組成架構上看，似乎ViewGroup在View之上，View需要繼承ViewGroup，但實際上不是這樣的。<strong>View是基類，ViewGroup是它的子類。</strong>這就證明了一點，View代表了用戶界面組件的一塊可繪製的空間塊。每一個View在屏幕上佔據一個長方形區域。在這個區域內，這個VIEW對象負責圖形繪製和事件處理。View是小控件widgets和ViewGroup的父類。<strong>ViewGroup又是Layout的基類。</strong></p>
-<h4 id="ViewGroup的onLayout()方法">ViewGroup的onLayout()方法</h4><p>由於ViewGroup的定位就是一個容器，用來盛放子部件的，所以就必須定義要以什麼的方式來盛放，比如LinearLayout就是以橫向或者縱向順序存放，而RelativeLayout則以相對位置來擺放子控件，同樣，我們的自定義ViewGroup也必須給出我們期望的佈局方式，而這個定義就通過onLayout()函數來實現。</p>
+</ol>
+<h5 id="建立_PODFILE">建立 PODFILE</h5><p>方法一： 利用終端機</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>vi <span class="constant">Podfile</span></span><br></pre></td></tr></table></figure>
+<p>方法二：    在專案資料夾直接右鍵新增</p>
+<p>內容</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'8.0'</span></span><br><span class="line">use_frameworks!</span><br><span class="line"></span><br><span class="line">target <span class="string">'MyApp'</span> <span class="keyword">do</span></span><br><span class="line">  pod <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 2.6'</span></span><br><span class="line">  pod <span class="string">'ORStackView'</span>, <span class="string">'~&gt; 3.0'</span></span><br><span class="line">  pod <span class="string">'SwiftyJSON'</span>, <span class="string">'~&gt; 2.3'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h5 id="安裝LIBRARY">安裝LIBRARY</h5><p>開啓終端機</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+<p>安裝完成後，專案資料夾會出現多個檔案</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> <span class="constant">Podfile</span>.lock</span><br><span class="line"></span>-<span class="ruby"> <span class="constant">Pods</span> folder /<span class="regexp">/放置所引用的第三方套件檔案</span><br><span class="line"></span></span>-<span class="ruby"><span class="regexp"> build folder </span><br><span class="line"></span></span>-<span class="ruby"><span class="regexp"> .xcworkspace /</span><span class="regexp">/專案改用這個開啟吧</span></span></span><br></pre></td></tr></table></figure>
+<p>用.xcworkspace開啟專案，Xcode開啟後，會多出有關pods的多個檔案，方便我們管理操作。</p>
+<h5 id="更新LIBRARY">更新LIBRARY</h5><p>開啓終端機</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>pod outdated (檢查<span class="constant">Library</span>是否過期)</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"></span><br><span class="line"><span class="variable">$ </span>pod update (更新<span class="constant">Library</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="新增第三方套件">新增第三方套件</h5><ol>
+<li><p>開啓PODFILE做內容修改</p>
+ <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, ‘<span class="number">8.0</span>’（版本） </span><br><span class="line">pod <span class="string">'...'</span></span><br></pre></td></tr></table></figure>
+<p> 如</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">platform</span> <span class="pseudo">:ios</span>, ‘8<span class="class">.0</span>’（版本） </span><br><span class="line"><span class="tag">pod</span> ‘<span class="tag">AFNetworking</span>’, ‘~&gt;2<span class="class">.1</span><span class="class">.0</span>’</span><br><span class="line"><span class="tag">pod</span> ‘<span class="tag">MBProgressHUD</span>’</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>開啓終端機</p>
+</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="operator"><span class="keyword">update</span> (更新<span class="keyword">Library</span>)</span></span><br></pre></td></tr></table></figure>
 <h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://ticktick.blog.51cto.com/823160/1542200" target="_blank" rel="external">Android開發實踐：自定義ViewGroup的onLayout()分析- 對影成三人- 51CTO技術博客</a></li>
-<li><a href="http://acreep.blog.51cto.com/3333560/667431" target="_blank" rel="external">2.1 Android界面View及ViewGroup - 棕櫚燒酒- 51CTO技術博客</a></li>
+<li><a href="http://cg2010studio.com/2014/08/15/ios-%E4%BD%BF%E7%94%A8-cocoapods-%E7%AE%A1%E7%90%86%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6/" target="_blank" rel="external">[iOS] 使用 CocoaPods 管理第三方套件 | 逍遙文工作室</a></li>
+<li><a href="https://cocoapods.org/" target="_blank" rel="external">CocoaPods.org</a></li>
 </ol>
 
                         
@@ -216,7 +240,7 @@
                         
                         
                             <p>
-                                <a href="/2015/10/28/Android-ViewGroup/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/10/28/iOS-pods/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -247,7 +271,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 6 of 11</li>
+        <li class="pagination-number">page 6 of 12</li>
     </ul>
 </div>
 

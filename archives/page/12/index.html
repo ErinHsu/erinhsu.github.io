@@ -175,19 +175,19 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/10/20/Android-Manifest-inttag/">\Android/ Manifest.xml 簡介 &amp; Tag</a>
+                                <a class="link-unstyled" href="/2015/10/21/Code-UnitText20151021/">單元測試(Unit Testing)</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Tue Oct 20 2015 14:59:09 GMT+0800">
+    <time itemprop="datePublished" content="Wed Oct 21 2015 09:11:58 GMT+0800">
 	
-		    Oct 20, 2015
+		    Oct 21, 2015
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/MobileEngineer/">MobileEngineer</a>
+    <a class="category-link" href="/categories/Engineer/">Engineer</a>
 
 
     
@@ -196,36 +196,44 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h4 id="簡介說明_:">簡介說明 :</h4><p> 是一個用來描述App的整體資訊設定的XML檔，可向 Android 系統顯示應用程式的基本資訊，也就是系統在執行該應用程式的任何程式碼之前必須具備的資訊。</p>
-<h4 id="Manifect-xml_功能_:">Manifect.xml 功能 :</h4><h6 id="Intent_Filters_詳情請配合參閱\Android/_Intent應用">Intent Filters 詳情請配合參閱<a href="https://erinhsu.github.io/2015/10/28/Android-Intent" target="_blank" rel="external">\Android/ Intent應用</a></h6><p>應用程式元件是由 Intent 來啟動，用以指明要執行的活動(activity)與動作(action)。其中包含了活動名稱、所需資料、要執行本活動的元件分類、適當的指令。<strong>activity 程式碼中的 <code>intent</code> 直接指明，優先於 <code>&lt;intent-filter&gt;</code>。</strong></p>
-<p><code>&lt;intent-filter&gt;</code>: 表示所能處理的 intent有哪些。</p>
-<h6 id="Icons_and_Labels">Icons and Labels</h6><p>其<code>android:icon</code>(圖示) 與<code>android:label</code>(標題) 即是其內所有元素的預設值。</p>
-<h6 id="Permissions">Permissions</h6><p>告所需的許可權，用來限制程式與資料的存取，以避免遭到誤用，而產生不良後果。每個許可權的識別碼都是唯一的。一個功能特徵只能使用一個許可權來保護它。</p>
-<h6 id="Libraries">Libraries</h6><p>當應用程式所用到的 package 位於不同的函式庫內，此時需指明所用到的函式庫。<br>每一個函式庫都需使用一個 <code>&lt;uses-library&gt;</code> 來單獨宣告。</p>
-<h4 id="主要架構_:">主要架構 :</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">manifest</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 0. 軟體預設值 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">uses-permission</span> /&gt;</span> </span><br><span class="line">   	<span class="tag">&lt;<span class="title">permission</span> /&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="title">permission-tree</span> /&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="title">permission-group</span> /&gt;</span></span><br><span class="line">      	<span class="tag">&lt;<span class="title">instrumentation</span> /&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="title">uses-sdk</span> /&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="title">uses-configuration</span> /&gt;</span> </span><br><span class="line">   	<span class="tag">&lt;<span class="title">uses-feature</span> /&gt;</span>  </span><br><span class="line">   	<span class="tag">&lt;<span class="title">supports-screens</span> /&gt;</span>  </span><br><span class="line">   	<span class="tag">&lt;<span class="title">compatible-screens</span> /&gt;</span>  </span><br><span class="line">   	<span class="tag">&lt;<span class="title">supports-gl-texture</span> /&gt;</span>  </span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 1. Application--&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="title">application</span>&gt;</span></span><br><span class="line">   	</span><br><span class="line">       	<span class="comment">&lt;!-- 1-1. Activity --&gt;</span></span><br><span class="line">       	<span class="tag">&lt;<span class="title">activity</span>&gt;</span></span><br><span class="line">       	    <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">       	        <span class="tag">&lt;<span class="title">action</span> /&gt;</span></span><br><span class="line">       	        <span class="tag">&lt;<span class="title">category</span> /&gt;</span></span><br><span class="line">       	        <span class="tag">&lt;<span class="title">data</span> /&gt;</span></span><br><span class="line">       	    <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">       	    <span class="tag">&lt;<span class="title">meta-data</span> /&gt;</span></span><br><span class="line">       	<span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">activity-alias</span>&gt;</span></span><br><span class="line">   	        <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span> . . . <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">       	    <span class="tag">&lt;<span class="title">meta-data</span> /&gt;</span></span><br><span class="line">       	<span class="tag">&lt;/<span class="title">activity-alias</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       	<span class="comment">&lt;!-- 1-2. Service --&gt;</span>	</span><br><span class="line">       	<span class="tag">&lt;<span class="title">service</span>&gt;</span></span><br><span class="line">       	    <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span> . . . <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">           	<span class="tag">&lt;<span class="title">meta-data</span> /&gt;</span></span><br><span class="line">       	<span class="tag">&lt;/<span class="title">service</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!-- 1-3. 廣播接收器 --&gt;</span>	</span><br><span class="line">       	<span class="tag">&lt;<span class="title">receiver</span>&gt;</span></span><br><span class="line">       	    <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span> . . . <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">       	    <span class="tag">&lt;<span class="title">meta-data</span> /&gt;</span></span><br><span class="line">       	<span class="tag">&lt;/<span class="title">receiver</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!-- 1-4. 內容供應程式 --&gt;</span></span><br><span class="line">       	<span class="tag">&lt;<span class="title">provider</span>&gt;</span></span><br><span class="line">           	<span class="tag">&lt;<span class="title">grant-uri-permission</span> /&gt;</span></span><br><span class="line">           	<span class="tag">&lt;<span class="title">meta-data</span> /&gt;</span></span><br><span class="line">           	<span class="tag">&lt;<span class="title">path-permission</span> /&gt;</span></span><br><span class="line">       	<span class="tag">&lt;/<span class="title">provider</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       	<span class="tag">&lt;<span class="title">uses-library</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">   	<span class="tag">&lt;/<span class="title">application</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="0-_軟體預設值">0. 軟體預設值</h5><h6 id="permission_同意權限功能_–&gt;">permission 同意權限功能 –&gt;</h6><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/uses-permission-element.html" target="_blank" rel="external"><code>&lt;uses-permission&gt;</code></a>： 若應用程式要使用的功能特徵是受到許可權所保護的。</p>
-<p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/permission-element.html" target="_blank" rel="external"><code>&lt;permission&gt;</code></a>：應用程式若想要自訂許可權來保護內部元件。</p>
-<p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/permission-tree-element.html" target="_blank" rel="external"><code>&lt;permission-tree&gt;</code></a>：幫一組許可權宣告一個 namespace 並定義在程式碼中。</p>
-<p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/permission-group-element.html" target="_blank" rel="external"><code>&lt;permission-group&gt;</code></a>：宣告群組名稱，然後在 <permission> 元素的屬性 permissionGroup 指定群組名稱，以便將數個許可權歸納在同一群組。</permission></p>
-<h6 id="硬體宣告_–&gt;">硬體宣告 –&gt;</h6><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/uses-feature-element.html" target="_blank" rel="external"><code>&lt;uses-feature&gt;</code></a>: 運用硬體或軟體功能時所做的宣告:Blueteeth, camera…</p>
-<h5 id="1-_Application_應用程式">1. Application 應用程式</h5><h5 id="1-1-_Activity_活動">1-1. Activity 活動</h5><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/activity-alias-element.html" target="_blank" rel="external"><code>&lt;activity&gt;</code></a>：實作應用程式<strong>有畫面呈現的功能</strong>，沒聲明將不會被運行。</p>
-<p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/activity-alias-element.html" target="_blank" rel="external"><code>&lt;activity-alias&gt;</code></a>：android里為了重複使用Activity而設計的。由於它是 <activity> 的別名，因此必須跟在該元素的後面</activity></p>
-<h5 id="1-2-_Service_服務">1-2. Service 服務</h5><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/service-element.html" target="_blank" rel="external"><code>&lt;service&gt;</code></a>：實作應用程式<strong>長時間後台運行</strong>，沒聲明將不會被運行。</p>
-<h5 id="1-3-_receiver_廣播接收器">1-3. receiver 廣播接收器</h5><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/receiver-element.html" target="_blank" rel="external"><code>&lt;receiver&gt;</code></a>：能夠<strong>接收</strong>由所述系統或其它應用程序的廣播。</p>
-<h5 id="1-4-_provider_內容供應程式">1-4. provider 內容供應程式</h5><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/provider-element.html" target="_blank" rel="external"><code>&lt;provider&gt;</code></a>：能夠<strong>提供</strong>由所述系統或其它應用程序的廣播。</p>
-<hr>
-<h3 id="[_延伸閱讀_標籤字典_]">[ 延伸閱讀 標籤字典 ]</h3><ul>
-<li><p><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/manifest-intro.html" target="_blank" rel="external">Android Developer官方文件</a></p>
+                        <h4 id="解釋">解釋</h4><p>1987年，IEEE就把單元測試納入美國國家標準。<br>針對應用程式設計的最小單位（程式模組）來進行正確性檢驗的測試工作。<br>理想的測試案例都依循不同案例；經常使用stubs、mock或fake等測試馬甲程式。<br>單元測試通常由軟體開發人員編寫，用於確保他們所寫的代碼符合軟體需求和遵循開發目標。</p>
+<h4 id="主要目標">主要目標</h4><p>將應用程式中的最小可測試片段（稱之為單元）與程式碼其餘部分隔離，已確定他的功能是否符合期望。<br>將各單元分開測試，可識別絕大部分的錯誤之處所在。對於物件導向而言，最小單元就是方法，包括<strong><strong>基礎類別（超類）、抽象類、或者衍生類別（子類別）</strong></strong>中的方法。</p>
+<h4 id="通用方法">通用方法</h4><p>需要撰寫<strong><strong>驅動程式</strong></strong>和<strong><strong> Stub </strong></strong>。<br>驅動程式模擬呼叫單元，而 Stub 模擬被呼叫的單元。<br>驅動程式和 Stub 需要花費相對應成本。驅動程式和 Stub 可重複使用，因此可經常重新測試，而不必撰寫大量額外的測試程式碼，而且重新測試的成本也比較好控制。</p>
+<h4 id="優點">優點</h4><p>然而單元測試仍然提供一些難以拒絕的優點。</p>
+<ul>
+<li>它允許測試程序自動執行，可幫助我們更容易找出應用程式較複雜的程式片段中所含的錯誤。</li>
+<li>因為注意力是集中於各單元，可幫助我們做更全面的測試，涵蓋的範圍通常可以增加。</li>
+</ul>
+<h4 id="重要觀念">重要觀念</h4><h6 id="＊_目標程式">＊ 目標程式</h6><p>單元測試要測試的程式目標。</p>
+<h6 id="＊_單元測試種類">＊ 單元測試種類</h6><ul>
+<li><p><a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank" rel="external">TDD (Test-Driven Development)</a>：目標程式不存在前撰寫的單元測試。將撰寫程式的流程從原先的寫碼&gt;測試&gt;重構轉變為<strong><strong>測試&gt;寫碼&gt;重構</strong></strong>，先訂定程式目標及規範，避免過度設計，寫出來的程式碼 100% 可以被測試，測試涵蓋率百分百。</p>
 </li>
-<li><p><a href="https://erinhsu.github.io/2015/10/20/Android-Manifest-dic1" target="_blank" rel="external">AndroidManifest.xml 小字典(1)</a></p>
-</li>
-<li><p><a href="https://erinhsu.github.io/2015/10/20/Android-Manifest-dic2" target="_blank" rel="external">AndroidManifest.xml 小字典(2)</a></p>
+<li><p><a href="https://en.wikipedia.org/wiki/Behavior-driven_development" target="_blank" rel="external">BDD (Behavior-Driven Development)</a>：目標程式已存在後，所撰寫的單元測試。 程式完成後，維護人員針對目標程式介面的初步認知，依循邏輯撰寫單元測試來進行測試，發生錯誤時，可分析是否是程式本身存在的問題，或是維護人員認知錯誤。</p>
 </li>
 </ul>
+<h6 id="＊_JAVA單元測試工具、函式庫">＊ JAVA單元測試工具、函式庫</h6><ol>
+<li><a href="http://junit.org/" target="_blank" rel="external">JUnit 4</a></li>
+<li><a href="http://code.google.com/p/mockito/" target="_blank" rel="external">Mockito</a></li>
+<li><a href="http://easymock.org/" target="_blank" rel="external">EasyMock</a></li>
+<li><a href="https://code.google.com/p/powermock/" target="_blank" rel="external">PowerMock</a></li>
+</ol>
+<h6 id="＊_JUint_參考">＊ JUint 參考</h6><ul>
+<li><a href="http://slashlook.com/articles_20140904.html" target="_blank" rel="external">三分鐘學會單元測試（使用JUnit）</a></li>
+</ul>
+<h6 id="＊_整合單元測試">＊ 整合單元測試</h6><p>若您有兩個單元，並決定將它們合在一起，然後當作整合單元來進行初始測試比較划算，則在許多地方可能會發生錯誤：</p>
+<ul>
+<li>錯誤導因於單元 1 的缺失嗎？</li>
+<li>錯誤導因於單元 2 的缺失嗎？</li>
+<li>錯誤導因於這兩個單元的缺失嗎？</li>
+<li>錯誤導因於單元之間介面的缺失嗎？</li>
+<li>錯誤導因於測試的缺失嗎？</li>
+</ul>
+<p>找出整合式模組中的錯誤，比先隔離單元、逐一進行測試、整合之後再進行整體測試還要複雜。 </p>
 <h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://gaebolg.blog.163.com/blog/static/19826906820134312050504/" target="_blank" rel="external">灼眼のFate【Android】技巧 6 – Android 禁止屏幕旋转 &amp; 屏幕旋转不刷新 Activity &amp; 动态更改屏幕方向  </a></li>
-<li><a href="http://developer.android.com/intl/zh-tw/guide/topics/manifest/manifest-intro.html" target="_blank" rel="external">應用程式manifest-intro | Android Developers</a></li>
-<li><a href="http://androidappguider.blogspot.tw/2015/09/App-Manifest.html" target="_blank" rel="external">App Manifest 介紹- Android App 學習筆記 </a></li>
+<li><a href="https://msdn.microsoft.com/zh-tw/library/aa292197.aspx" target="_blank" rel="external">單元測試-Microsoft Developer Network</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95" target="_blank" rel="external">單元測試 - 維基百科，自由的百科全書</a></li>
+<li><a href="http://www.codedata.com.tw/java/unit-test-the-way-changes-my-programming" target="_blank" rel="external">【單元測試】改變了我程式設計的思維方式 by pcbill | CodeData</a></li>
+<li><a href="http://blog.xuite.net/simonpower/sss/3943610-Java+%E7%A8%8B%E5%BC%8F%E7%9A%84%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6" target="_blank" rel="external">Java 程式的單元測試 @ Simon’s Software Sky :: 隨意窩 Xuite日誌</a></li>
 </ol>
 
                         
@@ -234,7 +242,7 @@
                         
                         
                             <p>
-                                <a href="/2015/10/20/Android-Manifest-inttag/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/10/21/Code-UnitText20151021/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -265,7 +273,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 12 of 15</li>
+        <li class="pagination-number">page 12 of 16</li>
     </ul>
 </div>
 
