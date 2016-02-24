@@ -174,19 +174,19 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/10/21/Code-UnitText20151021/">單元測試(Unit Testing)</a>
+                                <a class="link-unstyled" href="/2015/10/28/Android-Intent/">\Android/ intent</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Oct 21 2015 09:11:58 GMT+0800">
+    <time itemprop="datePublished" content="Wed Oct 28 2015 10:49:25 GMT+0800">
 	
-		    Oct 21, 2015
+		    Oct 28, 2015
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/Engineer/">Engineer</a>
+    <a class="category-link" href="/categories/MoGoalileEngineer/">MoGoalileEngineer</a>
 
 
     
@@ -195,44 +195,41 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h4 id="解釋">解釋</h4><p>1987年，IEEE就把單元測試納入美國國家標準。<br>針對應用程式設計的最小單位（程式模組）來進行正確性檢驗的測試工作。<br>理想的測試案例都依循不同案例；經常使用stubs、mock或fake等測試馬甲程式。<br>單元測試通常由軟體開發人員編寫，用於確保他們所寫的代碼符合軟體需求和遵循開發目標。</p>
-<h4 id="主要目標">主要目標</h4><p>將應用程式中的最小可測試片段（稱之為單元）與程式碼其餘部分隔離，已確定他的功能是否符合期望。<br>將各單元分開測試，可識別絕大部分的錯誤之處所在。對於物件導向而言，最小單元就是方法，包括<strong><strong>基礎類別（超類）、抽象類、或者衍生類別（子類別）</strong></strong>中的方法。</p>
-<h4 id="通用方法">通用方法</h4><p>需要撰寫<strong><strong>驅動程式</strong></strong>和<strong><strong> Stub </strong></strong>。<br>驅動程式模擬呼叫單元，而 Stub 模擬被呼叫的單元。<br>驅動程式和 Stub 需要花費相對應成本。驅動程式和 Stub 可重複使用，因此可經常重新測試，而不必撰寫大量額外的測試程式碼，而且重新測試的成本也比較好控制。</p>
-<h4 id="優點">優點</h4><p>然而單元測試仍然提供一些難以拒絕的優點。</p>
-<ul>
-<li>它允許測試程序自動執行，可幫助我們更容易找出應用程式較複雜的程式片段中所含的錯誤。</li>
-<li>因為注意力是集中於各單元，可幫助我們做更全面的測試，涵蓋的範圍通常可以增加。</li>
-</ul>
-<h4 id="重要觀念">重要觀念</h4><h6 id="＊_目標程式">＊ 目標程式</h6><p>單元測試要測試的程式目標。</p>
-<h6 id="＊_單元測試種類">＊ 單元測試種類</h6><ul>
-<li><p><a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank" rel="external">TDD (Test-Driven Development)</a>：目標程式不存在前撰寫的單元測試。將撰寫程式的流程從原先的寫碼&gt;測試&gt;重構轉變為<strong><strong>測試&gt;寫碼&gt;重構</strong></strong>，先訂定程式目標及規範，避免過度設計，寫出來的程式碼 100% 可以被測試，測試涵蓋率百分百。</p>
-</li>
-<li><p><a href="https://en.wikipedia.org/wiki/Behavior-driven_development" target="_blank" rel="external">BDD (Behavior-Driven Development)</a>：目標程式已存在後，所撰寫的單元測試。 程式完成後，維護人員針對目標程式介面的初步認知，依循邏輯撰寫單元測試來進行測試，發生錯誤時，可分析是否是程式本身存在的問題，或是維護人員認知錯誤。</p>
-</li>
-</ul>
-<h6 id="＊_JAVA單元測試工具、函式庫">＊ JAVA單元測試工具、函式庫</h6><ol>
-<li><a href="http://junit.org/" target="_blank" rel="external">JUnit 4</a></li>
-<li><a href="http://code.google.com/p/mockito/" target="_blank" rel="external">Mockito</a></li>
-<li><a href="http://easymock.org/" target="_blank" rel="external">EasyMock</a></li>
-<li><a href="https://code.google.com/p/powermock/" target="_blank" rel="external">PowerMock</a></li>
-</ol>
-<h6 id="＊_JUint_參考">＊ JUint 參考</h6><ul>
-<li><a href="http://slashlook.com/articles_20140904.html" target="_blank" rel="external">三分鐘學會單元測試（使用JUnit）</a></li>
-</ul>
-<h6 id="＊_整合單元測試">＊ 整合單元測試</h6><p>若您有兩個單元，並決定將它們合在一起，然後當作整合單元來進行初始測試比較划算，則在許多地方可能會發生錯誤：</p>
-<ul>
-<li>錯誤導因於單元 1 的缺失嗎？</li>
-<li>錯誤導因於單元 2 的缺失嗎？</li>
-<li>錯誤導因於這兩個單元的缺失嗎？</li>
-<li>錯誤導因於單元之間介面的缺失嗎？</li>
-<li>錯誤導因於測試的缺失嗎？</li>
-</ul>
-<p>找出整合式模組中的錯誤，比先隔離單元、逐一進行測試、整合之後再進行整體測試還要複雜。 </p>
+                        <h3 id="intent">intent</h3><p><strong>目的,意圖</strong>,意義,含義(a.)熱心的,專心致志的</p>
+<h3 id="Android_intent">Android intent</h3><p>在Android來說，intent是常用到的方法，導頁好幫手，主要幫助我們在傳值、轉化畫面等等，像是<strong>意圖辦到什麼目的，前往哪個目的地的概念</strong></p>
+<p>但除了導頁功能之外，intent能做到的事情不只這些唷，先以導頁做舉例與方法使用說明 …</p>
+<p>intent分為兩種：顯式(Explicit intent)和隱式(Implicit intent)。</p>
+<p>假設今日我們要從FirstActivity.class轉換到GoalActivity.class</p>
+<h4 id="1-_顯示(Explicit)">1. 顯示(Explicit)</h4><p>直接指定<strong>確定</strong>要<strong>一個</strong>轉換的目標Activity，意圖明顯，所以稱為顯示意圖(Explicit intent)。<strong>常用於應用程式內部頁面之間轉換之用。</strong></p>
+<p>例如，在FirstActivity.java指定需要轉換到GoalActivity.java，直接在FirstActivity.java正確位置寫上下面程式碼。很多種可替代的寫法，所以選自己習慣的寫法就行囉！</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//<span class="number">1.</span> 目標Activity可直接以package.<span class="keyword">class</span>路徑表示。</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(FirstActivity.<span class="keyword">class</span>,<span class="string">"com.bird.intenttext.GoalActivity"</span>)</span><br><span class="line">startActivity(<span class="type">intent</span>); 		</span><br><span class="line">//<span class="number">2.</span> 目標Activity簡化表示</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(FirstActivity.this,  GoalActivity.<span class="keyword">class</span>)</span><br><span class="line">startActivity(<span class="type">intent</span>); </span><br><span class="line">//<span class="number">3.</span> this 取代 FirstActivity.<span class="keyword">class</span></span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(this,  GoalActivity.<span class="keyword">class</span>)</span><br><span class="line">startActivity(<span class="type">intent</span>); </span><br><span class="line">//<span class="number">4.</span> setComponent：ComponentName取代</span><br><span class="line">ComponentName CPName = new ComponentName(this,  GoalActivity.<span class="keyword">class</span>);  </span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();  </span><br><span class="line"><span class="type">intent</span>.setComponent(CPName);  </span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br><span class="line">//<span class="number">5.</span> setClass：ClassName取代</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();</span><br><span class="line"><span class="type">intent</span>.setClassName(this,  GoalActivity.<span class="keyword">class</span>);</span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
+<p><strong> <code>「重要」</code> 最後一定要記得在 AndroidManifest.xml 文件中＜application＞＜/application＞ 之中，註冊欲前往的目標Activity。
+</strong></p>
+<p>範例如下</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span> <span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GoalActivity"</span></span><br><span class="line">			<span class="attribute">...</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">action</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">category</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">data</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">meta-data</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-_隱示(Implicit_intent)">2. 隱示(Implicit intent)</h4><p>相對顯示來說，隱示就是<strong>間接指定</strong>囉！就是讓系统幫你篩選出適合的目標Activity，根據<intent-filter>来篩選。透過AndroidManifest.xml文件幫助我們完成這件事情。</intent-filter></p>
+<p>舉例來說，在AndroidManifest.xml文件中，註冊欲前往的目標Activity時，將內容修改內容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span></span><br><span class="line">	<span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GoalActivity"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">		//可自訂android:name字串內容</span><br><span class="line">		<span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GotoGoalActivity"</span>/&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在FirstActivity.java指定需要轉換到GoalActivity.java，直接在FirstActivity.java正確位置寫上下面程式碼。</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="string">"GotoGoalActivity"</span>);</span><br><span class="line">startActivity(<span class="type">intent</span>); </span><br><span class="line">// or 將Activity定義為<span class="keyword">Action</span>，使用setAction</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();  </span><br><span class="line"><span class="type">intent</span>.setAction(<span class="string">"com.bird.intenttext.GotoGoalActivity"</span>);  </span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="外部轉換">外部轉換</h5><p>另外，隱示最厲害的地方就是用於<strong>與外部應用程式間的Activity轉換</strong>，讓<br>透過設置<strong>Action</strong>，表明自己的意圖，由系統解析，找到能夠處理這個Intent的Activity並啟動。</p>
+<p>例如</p>
+<p><code>&quot;android.intent.action.DIAL&quot;</code>: 表示當你有撥打電話的意圖時，系統會呼叫Activity該讓使用者選擇使用。</p>
+<p>範例1：表示GoalActivity有撥打電話的功能意圖可被呼叫</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span></span><br><span class="line">	<span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GoalActivity"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">		//可自訂android:name字串內容: 建議將其完整命名package.class</span><br><span class="line">		<span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.DIAL"</span>/&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>範例2：該Activity需呼叫別的意圖功能</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="type">Intent</span>.ACTION_DIAL);  </span><br><span class="line">// 或者<span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="string">"android.intent.action.DIAL"</span>);</span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="安全機制">安全機制</h4><p>有時候會因為AndroidManifest.xml中忘記註冊或字串打錯等原因，找不到對應的Activity，便會拋出ActivityNotFoundException的錯誤訊息，為防止App出錯關閉無法運行，因此我們要設立對應的安全機制。</p>
+<p>方法1：try catch</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"GotoGoalActivity"</span>);</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	startActivity(intent); </span><br><span class="line">&#125;<span class="keyword">catch</span>(ActivityNotFoundException e)&#123;</span><br><span class="line">	 Toast.makeText(<span class="keyword">this</span>, <span class="string">"找不到对应的Activity"</span>, Toast.LENGTH_SHORT).show();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法2：使用Intent的resolveActivity方法判斷這個Intent是否能找到合適的Activity</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="type">Intent</span>.ACTION_DIAL); </span><br><span class="line"><span class="keyword">if</span>(<span class="type">intent</span>.resolveActivity(getPackageManager()) == null)  </span><br><span class="line">&#123;  </span><br><span class="line">   // 设置控件不可用   </span><br><span class="line">&#125;</span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
+<p>方法3：多個Activity可供選擇的話，則返回的Component是com.android.internal.app.ResolverActivity，也就是用戶選擇Activity的那個界面對應的Activity，這裡不再深究。</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="type">Intent</span>.ACTION_DIAL);  </span><br><span class="line">ComponentName componentName = <span class="type">intent</span>.resolveActivity(getPackageManager());  </span><br><span class="line"><span class="keyword">if</span>(componentName <span class="comment">!= null)  </span></span><br><span class="line">&#123;  </span><br><span class="line">    String className = componentName.getClassName();  </span><br><span class="line">   	Toast.makeText(this, className, Toast.LENGTH_SHORT).show();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h6 id="參考來源">參考來源</h6><ol>
-<li><a href="https://msdn.microsoft.com/zh-tw/library/aa292197.aspx" target="_blank" rel="external">單元測試-Microsoft Developer Network</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95" target="_blank" rel="external">單元測試 - 維基百科，自由的百科全書</a></li>
-<li><a href="http://www.codedata.com.tw/java/unit-test-the-way-changes-my-programming" target="_blank" rel="external">【單元測試】改變了我程式設計的思維方式 by pcbill | CodeData</a></li>
-<li><a href="http://blog.xuite.net/simonpower/sss/3943610-Java+%E7%A8%8B%E5%BC%8F%E7%9A%84%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6" target="_blank" rel="external">Java 程式的單元測試 @ Simon’s Software Sky :: 隨意窩 Xuite日誌</a></li>
+<li><a href="http://blog.csdn.net/xiao__gui/article/details/11392987" target="_blank" rel="external">Android理解：显式和隐式Intent - 叉叉哥的BLOG - 博客频道 - CSDN.NET</a></li>
+<li><a href="http://developer.android.com/intl/zh-tw/reference/android/content/Intent.html" target="_blank" rel="external">Android Developrs-intent</a></li>
+<li><a href="http://ke.jikexueyuan.com/zhiye/android/" target="_blank" rel="external">Android工程師<em>路徑圖的標題</em>職業路徑圖<em>IT職業在線教育平台</em>極客學院</a></li>
 </ol>
 
                         
@@ -241,7 +238,7 @@
                         
                         
                             <p>
-                                <a href="/2015/10/21/Code-UnitText20151021/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/10/28/Android-Intent/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -272,7 +269,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 9 of 13</li>
+        <li class="pagination-number">page 9 of 15</li>
     </ul>
 </div>
 

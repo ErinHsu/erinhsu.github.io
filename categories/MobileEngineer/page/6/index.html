@@ -175,13 +175,13 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/10/28/Android-Recycleview/">\Android/ Recyclerview</a>
+                                <a class="link-unstyled" href="/2015/11/25/Android-AndroidStudio-Debug/">\Android/ Android Studio 基本使用技巧 － Debug使用</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Oct 28 2015 10:49:25 GMT+0800">
+    <time itemprop="datePublished" content="Wed Nov 25 2015 10:30:20 GMT+0800">
 	
-		    Oct 28, 2015
+		    Nov 25, 2015
     	
     </time>
     
@@ -196,28 +196,28 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p>RecyclerView 為 v7 的新部件，可替代 ListView 使用，標準化了 ViewHolder 類似於 ListView 中 convertView。</p>
-<p>RecyclerView 快速實現 listview 、 gridview 、瀑布流的效果，而且還可以設置橫向和縱向顯示，添加動畫效果也非常簡單(自帶了 ItemAnimation ，可以設置加載和移除時的動畫，方便做出各種動態瀏覽的效果)</p>
-<p>以下是Google在對於RecyclerView的描述</p>
-<p><code>A flexible view for providing a limited window into a large data set.</code> </p>
-<p>以下是它的新特性：</p>
+                        <h3 id="前言">前言</h3><p>利用Android Studio您可以：</p>
 <ul>
-<li>分離出數據顯示相關的所有問題，只關注View的回收和復用</li>
-<li>對數據的顯示、動畫的配置進行高度解耦，提供了插拔式的體驗</li>
-<li>強制使用ViewHolder模式，消除不必要的Layout Resource查找時間內置添加和移除動畫</li>
+<li>選擇一個模擬器或Android設備來測試應用程序。</li>
+<li>查看系統日誌。</li>
+<li>設置中斷點。</li>
+<li>測試時檢查變數、運算表達式。</li>
+<li>進行Debug。</li>
+<li>對應用程序畫面做截圖或錄影。</li>
 </ul>
-<h3 id="實作">實作</h3><h4 id="gradle_compile">gradle compile</h4><p>在build.gradle(app)內加入recyclerview和cardview的引用</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:23.0.+'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:cardview-v7:23.0.+'</span></span><br></pre></td></tr></table></figure>
-<h3 id="生命週期">生命週期</h3><ul>
-<li><strong>getItemViewType</strong>：獲取View類型</li>
-<li><strong>onCreateViewHolder</strong>：創建ViewHolder</li>
-<li><strong>ViewHolderonViewAttac.bhedToWindow</strong>：當It​​em可見時調用</li>
-<li><strong>onBindViewHolder</strong>：綁定數據以及邏輯控製樣式</li>
-<li><strong>onViewDetachedFromWindow：Item</strong>不可見時調用</li>
-<li><strong>onViewRecycled：Item</strong>被回收時調用</li>
+<p>要Debug你的應用程序，Android Studio生成你的應用程序的可Debug版本，連接到設備或模擬器，安裝應用程序並運行它。<strong>IDE</strong>將顯示系統日誌，而你的應用程序正在運行，並提供調試工具來過濾日誌消息，中斷點工作，並控制執行流程。</p>
+<h3 id="步驟實作">步驟實作</h3><p><strong>step 1</strong><br>在AndroidStudio中打開專案</p>
+<p><strong>step 2</strong><br>點擊工具欄上的Debug圖示<img src="http://developer.android.com/images/tools/as-debugbutton.png" alt="Debug icon">（小昆蟲）。</p>
+<p><strong>step 3</strong><br>在Choose Device的視窗，選擇一個設備（或啟動）模擬器。<br><img src="http://developer.android.com/images/tools/as-debugdevices.png" alt="Debug icon"></p>
+<p><strong>step 4</strong><br>AndroidStudio將打開Debug工具視窗<img src="http://developer.android.com/images/tools/as-debugwindowbutton.png" alt="Debug belowicon">。</p>
+<ul>
+<li><strong>Debugger</strong> : 顯示線程（threads）和變數（variables）</li>
+<li><strong>Console</strong> : 顯示設備狀態</li>
+<li><strong>logcat</strong> : 顯示系統日誌(System Log)</li>
 </ul>
+<p><img src="http://developer.android.com/images/tools/as-debugview.png" alt="Debug工具視窗"></p>
 <h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/" target="_blank" rel="external">RecyclerView使用详解（一） · Frank-Zhu</a></li>
+<li><a href="http://developer.android.com/intl/zh-tw/tools/debugging/debugging-studio.html" target="_blank" rel="external">Debugging with Android Studio | Android Developers</a></li>
 </ol>
 
                         
@@ -226,7 +226,7 @@
                         
                         
                             <p>
-                                <a href="/2015/10/28/Android-Recycleview/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/11/25/Android-AndroidStudio-Debug/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -257,7 +257,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 6 of 8</li>
+        <li class="pagination-number">page 6 of 10</li>
     </ul>
 </div>
 

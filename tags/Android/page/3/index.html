@@ -175,13 +175,13 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/11/24/Android-Parse/">\Android/ Parse架站</a>
+                                <a class="link-unstyled" href="/2016/02/15/Android-Adapter/">\Android/ Adapter 觀念</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Tue Nov 24 2015 10:30:20 GMT+0800">
+    <time itemprop="datePublished" content="Mon Feb 15 2016 10:44:08 GMT+0800">
 	
-		    Nov 24, 2015
+		    Feb 15, 2016
     	
     </time>
     
@@ -196,11 +196,58 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p>Parse </p>
-<p>要關閉了ＱＱ</p>
-<p><a href="https://medium.com/@Appletone/%E9%97%9C%E6%96%BC-parse-%E6%9C%8D%E5%8B%99%E6%BA%96%E5%82%99%E9%97%9C%E6%8E%89%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9B%A0%E6%87%89%E6%8E%AA%E6%96%BD-77d430d6d8a5#.5n2t3g73p" target="_blank" rel="external">關於 Parse 服務準備關掉的一些因應措施</a></p>
-<h3 id="實作">實作</h3><p><strong>step 1</strong><br><a href="https://parse.com/" target="_blank" rel="external">註冊Parse</a></p>
-<p><strong>step 2</strong><br><a href="https://parse.com/apps/quickstart#parse_data/mobile/android/native/new" target="_blank" rel="external">Parse Andorid QuickStart</a></p>
+                        <h3 id="前言">前言</h3><p><code>Adapter (n.) 適配器; 多功能插頭; 改編者</code></p>
+<p>在Android的世界裡，Adapter是<code>Database和UI（View）之間一個重要的橋樑</code>，用於連接後端資料和前端介面。</p>
+<p>我們常用的View，包括ListView,GridView, Spinner等，常常伴隨著Adapter的使用。</p>
+<p>如下圖直觀的表達了Data、Adapter、View三者的關係：<br><img src="http://image.lxway.com/upload/f/15/f15b47d3418249a43e56a800abc75e83.jpg" alt=""></p>
+<h3 id="種類">種類</h3><p>比較常用的有BaseAdapter，SimpleAdapter，ArrayAdapter，SimpleCursorAdapter等。</p>
+<ul>
+<li><p><a href="http://developer.android.com/reference/android/widget/ArrayAdapter.html" target="_blank" rel="external"><strong><code>ArrayAdapter&lt;T&gt;</code></strong></a></p>
+<p>  <img src="http://i.stack.imgur.com/NC9L0.png" alt="Single ListView"></p>
+<ol>
+<li><p>ArrayAdapter可繼承自BaseAdapter，最為簡單，只能展示一行字。</p>
+</li>
+<li><p>利用ArrayAdapter的<code>add()</code>方法新增資料到adapter尾端或是用<code>insert()</code>新增資料到特定的位置；刪除資料則使用<code>remove()</code>方法。</p>
+</li>
+<li><p>ListView類別是負責顯示在螢幕上，adapter類別才是負責處理資料的繫結。一旦adapter內的資料有了變更，則adapter和ListView的內容就失去了同步，這是侯需要由adapter發送一個<code>notifyDataSetChanged()</code>方法通知ListView重新同步顯示的內容。</p>
+</li>
+</ol>
+</li>
+<li><p><a href="http://developer.android.com/reference/android/widget/BaseAdapter.html" target="_blank" rel="external"><strong><code>BaseAdapter</code></strong></a></p>
+<ol>
+<li><p>當ListView需要附加其他更強大的功能時，就必須重新自定義一個Adapter，此時可繼承使用BaseAdapter來建構，具有較高的靈活性。</p>
+</li>
+<li><p>使用者自定的Layout時需要覆寫<code>getCount()</code>, <code>getItem(Int position)</code>, <code>getItemId(int position)</code>, 還有 <code>getView(int position, View convertView, ViewGroup parent)</code>那麼多函式。</p>
+</li>
+</ol>
+</li>
+<li><p><a href="http://developer.android.com/reference/android/support/v4/widget/CursorAdapter.html" target="_blank" rel="external"><code>CursorAdapter</code></a></p>
+</li>
+<li><a href="http://developer.android.com/reference/android/widget/HeaderViewListAdapter.html" target="_blank" rel="external"><code>HeaderViewListAdapter</code></a></li>
+<li><a href="http://developer.android.com/reference/android/widget/ListAdapter.html" target="_blank" rel="external"><code>ListAdapter</code></a></li>
+<li><a href="http://developer.android.com/reference/android/support/v4/widget/ResourceCursorAdapter.html" target="_blank" rel="external"><code>ResourceCursorAdapter</code></a></li>
+<li><p><a href="http://developer.android.com/reference/android/widget/SimpleAdapter.html" target="_blank" rel="external"><strong><code>SimpleAdapter</code></strong></a> </p>
+<p>  有最好的擴充性，可以<code>定義各種各樣的佈局</code>出來，可以放上ImageView（圖片），還可以放上Button（按鈕），CheckBox（複選框）等等。代碼都可以直接繼承了ListActivity。</p>
+</li>
+<li><p><a href="http://developer.android.com/reference/android/support/v4/widget/SimpleCursorAdapter.html" target="_blank" rel="external"><strong><code>SimpleCursorAdapter</code></strong></a></p>
+<p>  可以適用於簡單的純文字型ListView，它需要Cursor的字段和UI的id對應起來。如需要實現更複雜的UI也可以重寫其他方法。可以認為是SimpleAdapter<code>對資料庫的簡單結合</code>，可以方便地把數據庫的內容以列表的形式展示出來。</p>
+</li>
+<li><p><a href="http://developer.android.com/reference/android/widget/SpinnerAdapter.html" target="_blank" rel="external"><code>SpinnerAdapter</code></a></p>
+<p>  <img src="http://images.cnblogs.com/cnblogs_com/over140/2010/11/2010-11-26_1.jpg" alt="SpinnerAdapter"></p>
+<p>  擴展自Adapter 的適配器是在Spinner 與數據之間的一座橋樑。一個Spinner Adapter 允許定義兩個不同的視圖：一是在Spinner 上顯示數據，另一個是當Spinner 按下時在下拉列表裡顯示數據。</p>
+</li>
+<li><p><a href="http://developer.android.com/reference/android/support/v7/widget/ThemedSpinnerAdapter.html" target="_blank" rel="external"><code>ThemedSpinnerAdapter</code></a></p>
+</li>
+<li><a href="http://developer.android.com/reference/android/widget/WrapperListAdapter.html" target="_blank" rel="external"><code>WrapperListAdapter</code></a></li>
+</ul>
+<h6 id="參考來源">參考來源</h6><ol>
+<li><a href="http://developer.android.com/intl/zh-tw/reference/android/widget/ListView.html" target="_blank" rel="external">ListView | Android Developers</a></li>
+<li><a href="http://huli.logdown.com/posts/280137-android-custom-listview" target="_blank" rel="external">[Android] 自訂ListView « Huli’s Blog</a></li>
+<li><a href="http://www.cnblogs.com/devinzhang/archive/2012/01/20/2328334.html" target="_blank" rel="external">Android之Adapter用法总结 - Devin Zhang - 博客园</a></li>
+<li><a href="http://www.jianshu.com/p/136e57599537" target="_blank" rel="external">Android入門2：從GridView控件使用到自定義Adapter - 簡書</a></li>
+<li><a href="http://hhliu-skills.blogspot.tw/2012/04/arrayadapter.html" target="_blank" rel="external">雜技本 - Android程式開發: ArrayAdapter的使用</a></li>
+<li><a href="http://www.cnblogs.com/over140/archive/2010/11/26/1888359.html" target="_blank" rel="external">Android API 中文（50） —— SpinnerAdapter - 農民伯伯- 博客園</a></li>
+</ol>
 
                         
                             
@@ -208,7 +255,7 @@
                         
                         
                             <p>
-                                <a href="/2015/11/24/Android-Parse/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2016/02/15/Android-Adapter/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -239,7 +286,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 3 of 8</li>
+        <li class="pagination-number">page 3 of 10</li>
     </ul>
 </div>
 
