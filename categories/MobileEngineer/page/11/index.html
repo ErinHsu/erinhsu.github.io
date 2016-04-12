@@ -175,13 +175,13 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/10/28/iOS-pods/">\iOS/ 使用 CocoaPods 管理第三方套件</a>
+                                <a class="link-unstyled" href="/2015/11/24/Android-Parse/">\Android/ Parse架站</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Oct 28 2015 10:44:08 GMT+0800">
+    <time itemprop="datePublished" content="Tue Nov 24 2015 10:30:20 GMT+0800">
 	
-		    Oct 28, 2015
+		    Nov 24, 2015
     	
     </time>
     
@@ -196,43 +196,11 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p>在開發iOS APP時，利用XCode創建新的專案，經常需要引用第三方Open Source套件。通常我們將要運用的套件下載到本機端，再放置到專案中。<strong>未來若有新版本的套件需要更新時，都必須重新搜尋並下載</strong></p>
-<p><strong>CocoaPods</strong>就是為iOS開發提供依賴管理的工具。主要Source Code在Github上管理。CocoaPods幫助我們在開發iOS時管理第三方套件，省下了開發時間。</p>
-<h5 id="COCOAPODS網站：http://cocoapods-org/">COCOAPODS網站：<a href="http://cocoapods.org/" target="_blank" rel="external">http://cocoapods.org/</a></h5><h3 id="使用方法">使用方法</h3><h5 id="安裝">安裝</h5><ol>
-<li>開啓終端機</li>
-<li><p>輸入指令</p>
- <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>[sudo] gem install cocoapods (安裝)</span><br><span class="line"><span class="variable">$ </span>pod setup (設定)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接著就能使用</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="built_in">help</span> (幫助)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h5 id="建立_PODFILE">建立 PODFILE</h5><p>方法一： 利用終端機</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>vi <span class="constant">Podfile</span></span><br></pre></td></tr></table></figure>
-<p>方法二：    在專案資料夾直接右鍵新增</p>
-<p>內容</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'8.0'</span></span><br><span class="line">use_frameworks!</span><br><span class="line"></span><br><span class="line">target <span class="string">'MyApp'</span> <span class="keyword">do</span></span><br><span class="line">  pod <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 2.6'</span></span><br><span class="line">  pod <span class="string">'ORStackView'</span>, <span class="string">'~&gt; 3.0'</span></span><br><span class="line">  pod <span class="string">'SwiftyJSON'</span>, <span class="string">'~&gt; 2.3'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h5 id="安裝LIBRARY">安裝LIBRARY</h5><p>開啓終端機</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
-<p>安裝完成後，專案資料夾會出現多個檔案</p>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> <span class="constant">Podfile</span>.lock</span><br><span class="line"></span>-<span class="ruby"> <span class="constant">Pods</span> folder /<span class="regexp">/放置所引用的第三方套件檔案</span><br><span class="line"></span></span>-<span class="ruby"><span class="regexp"> build folder </span><br><span class="line"></span></span>-<span class="ruby"><span class="regexp"> .xcworkspace /</span><span class="regexp">/專案改用這個開啟吧</span></span></span><br></pre></td></tr></table></figure>
-<p>用.xcworkspace開啟專案，Xcode開啟後，會多出有關pods的多個檔案，方便我們管理操作。</p>
-<h5 id="更新LIBRARY">更新LIBRARY</h5><p>開啓終端機</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>pod outdated (檢查<span class="constant">Library</span>是否過期)</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"></span><br><span class="line"><span class="variable">$ </span>pod update (更新<span class="constant">Library</span>)</span><br></pre></td></tr></table></figure>
-<h5 id="新增第三方套件">新增第三方套件</h5><ol>
-<li><p>開啓PODFILE做內容修改</p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, ‘<span class="number">8.0</span>’（版本） </span><br><span class="line">pod <span class="string">'...'</span></span><br></pre></td></tr></table></figure>
-<p> 如</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">platform</span> <span class="pseudo">:ios</span>, ‘8<span class="class">.0</span>’（版本） </span><br><span class="line"><span class="tag">pod</span> ‘<span class="tag">AFNetworking</span>’, ‘~&gt;2<span class="class">.1</span><span class="class">.0</span>’</span><br><span class="line"><span class="tag">pod</span> ‘<span class="tag">MBProgressHUD</span>’</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>開啓終端機</p>
-</li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="operator"><span class="keyword">update</span> (更新<span class="keyword">Library</span>)</span></span><br></pre></td></tr></table></figure>
-<h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://cg2010studio.com/2014/08/15/ios-%E4%BD%BF%E7%94%A8-cocoapods-%E7%AE%A1%E7%90%86%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6/" target="_blank" rel="external">[iOS] 使用 CocoaPods 管理第三方套件 | 逍遙文工作室</a></li>
-<li><a href="https://cocoapods.org/" target="_blank" rel="external">CocoaPods.org</a></li>
-</ol>
+                        <h3 id="前言">前言</h3><p>Parse </p>
+<p>要關閉了ＱＱ</p>
+<p><a href="https://medium.com/@Appletone/%E9%97%9C%E6%96%BC-parse-%E6%9C%8D%E5%8B%99%E6%BA%96%E5%82%99%E9%97%9C%E6%8E%89%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9B%A0%E6%87%89%E6%8E%AA%E6%96%BD-77d430d6d8a5#.5n2t3g73p" target="_blank" rel="external">關於 Parse 服務準備關掉的一些因應措施</a></p>
+<h3 id="實作">實作</h3><p><strong>step 1</strong><br><a href="https://parse.com/" target="_blank" rel="external">註冊Parse</a></p>
+<p><strong>step 2</strong><br><a href="https://parse.com/apps/quickstart#parse_data/mobile/android/native/new" target="_blank" rel="external">Parse Andorid QuickStart</a></p>
 
                         
                             
@@ -240,7 +208,7 @@
                         
                         
                             <p>
-                                <a href="/2015/10/28/iOS-pods/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/11/24/Android-Parse/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -271,7 +239,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 11 of 13</li>
+        <li class="pagination-number">page 11 of 14</li>
     </ul>
 </div>
 

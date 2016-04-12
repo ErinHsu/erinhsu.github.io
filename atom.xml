@@ -4,7 +4,7 @@
   <subtitle><![CDATA[站在巨人的肩膀上]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-12T01:00:53.000Z</updated>
+  <updated>2016-04-12T07:14:57.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[iOS – APNS 推播後，錯誤訊息解析]]></title>
+    <link href="http://yoursite.com/2016/04/11/iOS-APNSerror/"/>
+    <id>http://yoursite.com/2016/04/11/iOS-APNSerror/</id>
+    <published>2016-04-11T03:44:08.000Z</published>
+    <updated>2016-04-12T07:14:57.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1115744-ffe0d6fd8774048f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="apns process"></p>
+<p><img src="http://img.blog.csdn.net/20130621104249562?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuZ2t1bjA4MjQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="apns process"></p>
+<ol>
+<li><p>服務器沒有啟動</p>
+<p> <code>java.net.ConnectException: Connection refused: connecting</code></p>
+</li>
+<li><p>服務端的證書是不可信的。解決辦法見這篇文章<a href="http://zhuyuehua.iteye.com/blog/1102347" target="_blank" rel="external">http://zhuyuehua.iteye.com/blog/1102347
+</a></p>
+<p> <code>javax.net.ssl​​.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed</code></p>
+</li>
+</ol>
+<ol>
+<li><p>這是由於服務端配置的是SSL雙向認證，而客戶端發送數據是按照服務器是單向認證時發送的，即沒有將客戶端證書信息一起發送給服務端。</p>
+<p> <code>java.net.SocketException: Software caused connection abort: recv failed</code></p>
+</li>
+</ol>
+<ol>
+<li><p>這一般是服務端防火牆的原因。攔截了客戶端請求。另外，當服務端負載過重時，也會出現此問題。</p>
+<p> <code>org.apache.commons.httpclient.NoHttpResponseException</code></p>
+</li>
+</ol>
+<ol>
+<li><p>這是由於服務端配置的是SSL雙向認證，而客戶端發送數據是按照服務器是單向認證時發送的，即沒有將客戶端證書信息一起發送給服務端。服務端驗證客戶端證書時，發現客戶端沒有證書，然後就斷開了握手連接。</p>
+<p> <code>javax.net.ssl​​.SSLHandshakeException: Remote host closed connection during handshake</code></p>
+</li>
+</ol>
+<h6 id="參考來源">參考來源</h6><ol>
+<li><a href="http://www.myexception.cn/web/626358.html" target="_blank" rel="external">apns客戶端怎麼使用httpclient向https服務器發送數據- Web前端</a></li>
+<li><a href="http://www.360doc.com/content/15/0118/17/1073512_441822850.shtml" target="_blank" rel="external">手把手教你配置苹果APNS推送服务|钿畑的博客 | 钿畑的博客</a></li>
+<li><a href="http://www.jianshu.com/p/51d249b9f3f2" target="_blank" rel="external">远程推送 LongDistancePush - 简书</a></li>
+<li><a href="http://blog.csdn.net/yangkun0824/article/details/9143099" target="_blank" rel="external">Apple Push Notification服務- 楊坤的技術博客- 博客頻道- CSDN.NET</a></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1115744-ffe0d6fd8774048f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" ]]>
+    </summary>
+    
+      <category term="APNS" scheme="http://yoursite.com/tags/APNS/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[ANDROID – GCM 推播後，錯誤訊息解析]]></title>
@@ -248,54 +299,6 @@
   </entry>
   
   <entry>
-    <title><![CDATA[\Android/ Support]]></title>
-    <link href="http://yoursite.com/2016/02/01/Android-support/"/>
-    <id>http://yoursite.com/2016/02/01/Android-support/</id>
-    <published>2016-02-01T02:30:20.000Z</published>
-    <updated>2016-02-01T09:01:18.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="前言">前言</h3><p>Android一些SDK比較分裂，為此google官方提供了Android Support Library package 系列的包來保證高版本sdk開發的向下兼容性, 所以你可能經常看到v4，v7，v13這些數字，首先我們就來理清楚這些數字的含義，以及它們之間的區別。</p>
-<h3 id="support-v4">support-v4</h3><ul>
-<li><p>用在API lever 4 (Android 1.6)或者更高版本。</p>
-</li>
-<li><p>它包含了相對其他版本更為豐富的內容，運用廣泛，例如：Fragment，NotificationCompat，LoadBroadcastManager，ViewPager，PageTabStrip，Loader，FileProvider 等</p>
-</li>
-</ul>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:support-v4:21.0.3'</span></span><br></pre></td></tr></table></figure>
-<h3 id="support-v7">support-v7</h3><ul>
-<li><p>用於API level 7(Android 2.1)以上版本而設計的</p>
-</li>
-<li><p>v7是要依賴於v4，需確定你有包含 v4的檔案</p>
-</li>
-<li><p>v7支持了Action Bar以及一些Theme的兼容。</p>
-</li>
-</ul>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:21.0.3'</span></span><br></pre></td></tr></table></figure>
-<h3 id="support-v13">support-v13</h3><p>為了API level 13(即Android 3.2)及更高版本的，一般我們都不常用，平板開發中能用到。</p>
-<h4 id="實際應用">實際應用</h4><p><code>Material Design Theme</code></p>
-<p>今年的5.0版本，Android推出了Material Design的概念，這是在設計上Android的又一大突破。對應的程序實現上就有Theme.Material.Light、Theme.Material.Light.DarkActionBar等，但是這種風格只能應用在在5.0版本的手機，如果在5.0之前應用Material Design該怎麼辦呢？同樣的引用appcompat-v7包，這個時候的Theme.AppCompat.Light、Theme.AppCompat.Light.DarkActionBar就是相對應兼容的Material Design的Theme。</p>
-<h4 id="注意事項">注意事項</h4><ul>
-<li>gradle引用appcompat-v7包的時候就不需要引用v4了，因為v7裡默認包含了v4包</li>
-</ul>
-<h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://stormzhang.com/android/2015/03/29/android-support-library/" target="_blank" rel="external">Android Support兼容包詳解</a></li>
-<li><a href="http://www.xiaoyunduo.org/article/235/" target="_blank" rel="external">android android-support-v4 v7 v8 v13 v17 的特性说明<em>混乱记忆</em>小云朵</a></li>
-<li><a href="http://fatting10.blogspot.tw/2015/04/soloved-android-support-v7-appcompat-v4.html" target="_blank" rel="external">[Soloved] android-support-v7-appcompat &amp;&amp; v4 Support Library</a></li>
-<li><a href="https://developer.android.com/intl/zh-tw/tools/support-library/features.html" target="_blank" rel="external">Support Library Features | Android Developers</a></li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="前言">前言</h3><p>Android一些SDK比較分裂，為此google官方提供了Android Support Library package 系列的包來保證高版本sdk開發的向下兼容性, 所以你可能經常看到v4，v7，v13這些數字，首先我們就來理清楚這]]>
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
-    
-      <category term="Support" scheme="http://yoursite.com/tags/Support/"/>
-    
-      <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[\ionic/ 環境架設]]></title>
     <link href="http://yoursite.com/2016/02/01/Ionic/"/>
     <id>http://yoursite.com/2016/02/01/Ionic/</id>
@@ -414,6 +417,54 @@
   </entry>
   
   <entry>
+    <title><![CDATA[\Android/ Support]]></title>
+    <link href="http://yoursite.com/2016/02/01/Android-support/"/>
+    <id>http://yoursite.com/2016/02/01/Android-support/</id>
+    <published>2016-02-01T02:30:20.000Z</published>
+    <updated>2016-02-01T09:01:18.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="前言">前言</h3><p>Android一些SDK比較分裂，為此google官方提供了Android Support Library package 系列的包來保證高版本sdk開發的向下兼容性, 所以你可能經常看到v4，v7，v13這些數字，首先我們就來理清楚這些數字的含義，以及它們之間的區別。</p>
+<h3 id="support-v4">support-v4</h3><ul>
+<li><p>用在API lever 4 (Android 1.6)或者更高版本。</p>
+</li>
+<li><p>它包含了相對其他版本更為豐富的內容，運用廣泛，例如：Fragment，NotificationCompat，LoadBroadcastManager，ViewPager，PageTabStrip，Loader，FileProvider 等</p>
+</li>
+</ul>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:support-v4:21.0.3'</span></span><br></pre></td></tr></table></figure>
+<h3 id="support-v7">support-v7</h3><ul>
+<li><p>用於API level 7(Android 2.1)以上版本而設計的</p>
+</li>
+<li><p>v7是要依賴於v4，需確定你有包含 v4的檔案</p>
+</li>
+<li><p>v7支持了Action Bar以及一些Theme的兼容。</p>
+</li>
+</ul>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:21.0.3'</span></span><br></pre></td></tr></table></figure>
+<h3 id="support-v13">support-v13</h3><p>為了API level 13(即Android 3.2)及更高版本的，一般我們都不常用，平板開發中能用到。</p>
+<h4 id="實際應用">實際應用</h4><p><code>Material Design Theme</code></p>
+<p>今年的5.0版本，Android推出了Material Design的概念，這是在設計上Android的又一大突破。對應的程序實現上就有Theme.Material.Light、Theme.Material.Light.DarkActionBar等，但是這種風格只能應用在在5.0版本的手機，如果在5.0之前應用Material Design該怎麼辦呢？同樣的引用appcompat-v7包，這個時候的Theme.AppCompat.Light、Theme.AppCompat.Light.DarkActionBar就是相對應兼容的Material Design的Theme。</p>
+<h4 id="注意事項">注意事項</h4><ul>
+<li>gradle引用appcompat-v7包的時候就不需要引用v4了，因為v7裡默認包含了v4包</li>
+</ul>
+<h6 id="參考來源">參考來源</h6><ol>
+<li><a href="http://stormzhang.com/android/2015/03/29/android-support-library/" target="_blank" rel="external">Android Support兼容包詳解</a></li>
+<li><a href="http://www.xiaoyunduo.org/article/235/" target="_blank" rel="external">android android-support-v4 v7 v8 v13 v17 的特性说明<em>混乱记忆</em>小云朵</a></li>
+<li><a href="http://fatting10.blogspot.tw/2015/04/soloved-android-support-v7-appcompat-v4.html" target="_blank" rel="external">[Soloved] android-support-v7-appcompat &amp;&amp; v4 Support Library</a></li>
+<li><a href="https://developer.android.com/intl/zh-tw/tools/support-library/features.html" target="_blank" rel="external">Support Library Features | Android Developers</a></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="前言">前言</h3><p>Android一些SDK比較分裂，為此google官方提供了Android Support Library package 系列的包來保證高版本sdk開發的向下兼容性, 所以你可能經常看到v4，v7，v13這些數字，首先我們就來理清楚這]]>
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="Support" scheme="http://yoursite.com/tags/Support/"/>
+    
+      <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[\Android/ Android Studio 基本使用技巧 － System Log使用]]></title>
     <link href="http://yoursite.com/2015/11/25/Android-AndroidStudio-SystemLog/"/>
     <id>http://yoursite.com/2015/11/25/Android-AndroidStudio-SystemLog/</id>
@@ -510,66 +561,6 @@
       <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
       <category term="Parse" scheme="http://yoursite.com/tags/Parse/"/>
-    
-      <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[\Android/ Gradle]]></title>
-    <link href="http://yoursite.com/2015/11/24/Android-Gradle/"/>
-    <id>http://yoursite.com/2015/11/24/Android-Gradle/</id>
-    <published>2015-11-24T02:30:20.000Z</published>
-    <updated>2016-01-30T07:54:34.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="前言">前言</h3><p>Gradle </p>
-<p>自動化編譯工具為 Ant , Maven ,Gradle</p>
-<p>Ant -&gt; <a href="http://www.codedata.com.tw/java/understanding-gradle-1-ant/" target="_blank" rel="external">【認識 Gradle】（1）講古的時間 Apache Ant | CodeData</a></p>
-<p>提供一組 XML 標籤，讓你定義一個『專案（project）』內要提供哪些『目標(target)』，在目標內需要描述有哪些『任務（task）』需要被執行。簡而言之，Ant 讓你用 XML 的方式描述一些自動化編譯的事項，就如同撰寫程式語言一般。說到程式語言不外乎，語法、語意與函式，若將上述概念轉換成 Ant 的領域，則為 XML、DataType、Properties、Task。</p>
-<p>Maven -&gt; <a href="http://www.codedata.com.tw/java/understanding-gradle-2-maven/" target="_blank" rel="external">【認識 Gradle】（2）講古的時間 Apache Maven by qrtt1 | CodeData</a></p>
-<p>Maven 被創造出來的動機有二個主要原因：</p>
-<ol>
-<li>Java 專案的標準化</li>
-<li>Java 專案函式庫管理的問題</li>
-</ol>
-<p>Gradle -&gt; <a href="http://siwei.me/blog/posts/gradle-why-gradle-but-not-ant-maven-ivy" target="_blank" rel="external">為什麼要用Gradle? - 申思維的技術站點  | CodeData</a></p>
-<p>ANT的缺點：</p>
-<p>很容易變臃腫。雖然ANT 提倡大家寫個MODULE出來，但是大部分人都不會這樣做。基本都喜歡把所有內容都寫在build.xml中</p>
-<p>MAVEN的缺點：</p>
-<p>比較精簡，但是無法定制化。在MAVEN中，想要定制，必須得寫個plugin 或者做些hack， 無法像ANT那樣靈活。可以說走了與ANT相反的極端。</p>
-<p>ANT和MAVEN共同的缺點：</p>
-<p>都很複雜。XML 在2000年還是很炫酷的，但是到了現在就是喳喳。。。寫起來麻煩。</p>
-<p>Gradle 把兩者的優點結合到了一起。</p>
-<p>比ant 語法經驗， 比MAVEN靈活。可以自由定制。</p>
-<h3 id="檔案架構">檔案架構</h3><p><a href="http://www.codedata.com.tw/java/understanding-gradle-3-getting-started/" target="_blank" rel="external">【認識 Gradle】（3）Gradle 起手式 by qrtt1 | CodeData</a></p>
-<p>範例一 java project</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 引用 java plugin 獲得編譯 java 專案相關的 task $ */</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span> </span><br><span class="line"><span class="comment">/* 引用 application plugin 獲得執行 java 專案相關的 task $ */</span></span><br><span class="line">apply <span class="string">plugin:</span><span class="string">'application'</span></span><br><span class="line"><span class="comment">/* 執行 application plugin 用到的參數 $ */</span></span><br><span class="line">mainClassName = <span class="string">"tw.com.codedata.HelloWorld"</span></span><br><span class="line"><span class="comment">/* 設定 maven repository server $ */</span></span><br><span class="line">repositories &#123;</span><br><span class="line">   	mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 宣告專案的相依函式庫 $ */</span></span><br><span class="line">dependencies &#123;</span><br><span class="line">   	compile <span class="string">group:</span> <span class="string">'commons-logging'</span>, <span class="string">name:</span> <span class="string">'commons-logging'</span>, <span class="string">version:</span> <span class="string">'1.1.1'</span></span><br><span class="line">   	compile <span class="string">group:</span> <span class="string">'log4j'</span>, <span class="string">name:</span> <span class="string">'log4j'</span>, <span class="string">version:</span> <span class="string">'1.2.16'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>範例二 android project</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 引用 java plugin 獲得編譯 android 專案相關的 task  */</span></span><br><span class="line">apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line"><span class="comment">/* 設定 android SDK 目標版本 要和“com.android...”下方同一版本  */</span></span><br><span class="line">android &#123;</span><br><span class="line">   	compileSdkVersion <span class="number">23</span> </span><br><span class="line">   	buildToolsVersion <span class="string">"23.0.1"</span></span><br><span class="line"><span class="comment">/* 設定 android SDK 最小資源版本 */</span></span><br><span class="line">   defaultConfig &#123;</span><br><span class="line">       applicationId <span class="string">"com.ftc.ec"</span></span><br><span class="line">       minSdkVersion  <span class="number">14</span></span><br><span class="line">       targetSdkVersion <span class="number">23</span></span><br><span class="line">       versionCode <span class="number">1</span></span><br><span class="line">       versionName <span class="string">"1.0"</span></span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">/*    */</span></span><br><span class="line">   buildTypes &#123;</span><br><span class="line">       release &#123;</span><br><span class="line">           minifyEnabled <span class="keyword">false</span></span><br><span class="line">           proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.txt'</span></span><br><span class="line">       	&#125;</span><br><span class="line">   	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 宣告專案的相依函式庫 */</span></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">	<span class="comment">//-- project</span></span><br><span class="line">   	<span class="keyword">compile</span> <span class="keyword">project</span>(<span class="string">':chachalibrary'</span>)</span><br><span class="line">   	<span class="comment">//-- 線上jar檔</span></span><br><span class="line">   	<span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:23.1.1'</span></span><br><span class="line">   	<span class="comment">//-- local jar檔</span></span><br><span class="line">	<span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">  		<span class="keyword">compile</span> files(<span class="string">'libs/ormlite-core-4.48.jar'</span>)</span><br><span class="line">   	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="參考來源">參考來源</h6><p>CodeData系列文章</p>
-<ol>
-<li><a href="http://www.codedata.com.tw/java/understanding-gradle-1-ant/" target="_blank" rel="external">【認識 Gradle】（1）講古的時間 Apache Ant | CodeData</a></li>
-<li><a href="http://www.codedata.com.tw/java/understanding-gradle-2-maven/" target="_blank" rel="external">【認識 Gradle】（2）講古的時間 Apache Maven by qrtt1 | CodeData</a></li>
-<li><a href="http://www.codedata.com.tw/java/understanding-gradle-3-getting-started/" target="_blank" rel="external">【認識 Gradle】（3）Gradle 起手式 by qrtt1 | CodeData</a></li>
-<li><a href="http://www.codedata.com.tw/java/understanding-gradle-4-gradle-script/" target="_blank" rel="external">【認識 Gradle】（4）看懂 Gradle Script by qrtt1 | CodeData</a></li>
-<li><a href="http://www.codedata.com.tw/java/understanding-gradle-2-maven/" target="_blank" rel="external">【認識 Gradle】（5）Gradle Task 觀念導讀 | CodeData</a></li>
-<li><a href="http://www.codedata.com.tw/java/understanding-gradle-4-java-project-build-script-customization/" target="_blank" rel="external">【認識 Gradle】（6）Java 專案與 Build Script 客製化 | CodeData</a></li>
-<li><a href="http://www.codedata.com.tw/java/understanding-gradle-7-java-project-dependencies/" target="_blank" rel="external">【認識 Gradle】（7）Java 專案相依管理 | CodeData</a></li>
-</ol>
-<p>其他</p>
-<ol>
-<li><a href="http://polinwei.blogspot.tw/2008/07/ant.html" target="_blank" rel="external">我與小崴崴的工作日記: [教學] ANT 的基本介紹</a></li>
-<li><a href="http://www.cnblogs.com/luotaoyeah/p/3764533.html" target="_blank" rel="external">Maven入門指南① ：Maven 快速入門及簡單使用- 羅韜- 博客園</a></li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="前言">前言</h3><p>Gradle </p>
-<p>自動化編譯工具為 Ant , Maven ,Gradle</p>
-<p>Ant -&gt; <a href="http://www.codedata.com.tw/java/understanding-gr]]>
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
-    
-      <category term="Gradle" scheme="http://yoursite.com/tags/Gradle/"/>
     
       <category term="MobileEngineer" scheme="http://yoursite.com/categories/MobileEngineer/"/>
     

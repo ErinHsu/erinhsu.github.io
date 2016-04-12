@@ -174,11 +174,11 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/10/28/iOS-pods/">\iOS/ 使用 CocoaPods 管理第三方套件</a>
+                                <a class="link-unstyled" href="/2015/10/28/Android-Intent/">\Android/ intent</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Oct 28 2015 10:44:08 GMT+0800">
+    <time itemprop="datePublished" content="Wed Oct 28 2015 10:49:25 GMT+0800">
 	
 		    Oct 28, 2015
     	
@@ -186,7 +186,7 @@
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/MobileEngineer/">MobileEngineer</a>
+    <a class="category-link" href="/categories/MoGoalileEngineer/">MoGoalileEngineer</a>
 
 
     
@@ -195,42 +195,41 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p>在開發iOS APP時，利用XCode創建新的專案，經常需要引用第三方Open Source套件。通常我們將要運用的套件下載到本機端，再放置到專案中。<strong>未來若有新版本的套件需要更新時，都必須重新搜尋並下載</strong></p>
-<p><strong>CocoaPods</strong>就是為iOS開發提供依賴管理的工具。主要Source Code在Github上管理。CocoaPods幫助我們在開發iOS時管理第三方套件，省下了開發時間。</p>
-<h5 id="COCOAPODS網站：http://cocoapods-org/">COCOAPODS網站：<a href="http://cocoapods.org/" target="_blank" rel="external">http://cocoapods.org/</a></h5><h3 id="使用方法">使用方法</h3><h5 id="安裝">安裝</h5><ol>
-<li>開啓終端機</li>
-<li><p>輸入指令</p>
- <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>[sudo] gem install cocoapods (安裝)</span><br><span class="line"><span class="variable">$ </span>pod setup (設定)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接著就能使用</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="built_in">help</span> (幫助)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h5 id="建立_PODFILE">建立 PODFILE</h5><p>方法一： 利用終端機</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>vi <span class="constant">Podfile</span></span><br></pre></td></tr></table></figure>
-<p>方法二：    在專案資料夾直接右鍵新增</p>
-<p>內容</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'8.0'</span></span><br><span class="line">use_frameworks!</span><br><span class="line"></span><br><span class="line">target <span class="string">'MyApp'</span> <span class="keyword">do</span></span><br><span class="line">  pod <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 2.6'</span></span><br><span class="line">  pod <span class="string">'ORStackView'</span>, <span class="string">'~&gt; 3.0'</span></span><br><span class="line">  pod <span class="string">'SwiftyJSON'</span>, <span class="string">'~&gt; 2.3'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h5 id="安裝LIBRARY">安裝LIBRARY</h5><p>開啓終端機</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
-<p>安裝完成後，專案資料夾會出現多個檔案</p>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> <span class="constant">Podfile</span>.lock</span><br><span class="line"></span>-<span class="ruby"> <span class="constant">Pods</span> folder /<span class="regexp">/放置所引用的第三方套件檔案</span><br><span class="line"></span></span>-<span class="ruby"><span class="regexp"> build folder </span><br><span class="line"></span></span>-<span class="ruby"><span class="regexp"> .xcworkspace /</span><span class="regexp">/專案改用這個開啟吧</span></span></span><br></pre></td></tr></table></figure>
-<p>用.xcworkspace開啟專案，Xcode開啟後，會多出有關pods的多個檔案，方便我們管理操作。</p>
-<h5 id="更新LIBRARY">更新LIBRARY</h5><p>開啓終端機</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>pod outdated (檢查<span class="constant">Library</span>是否過期)</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"></span><br><span class="line"><span class="variable">$ </span>pod update (更新<span class="constant">Library</span>)</span><br></pre></td></tr></table></figure>
-<h5 id="新增第三方套件">新增第三方套件</h5><ol>
-<li><p>開啓PODFILE做內容修改</p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, ‘<span class="number">8.0</span>’（版本） </span><br><span class="line">pod <span class="string">'...'</span></span><br></pre></td></tr></table></figure>
-<p> 如</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">platform</span> <span class="pseudo">:ios</span>, ‘8<span class="class">.0</span>’（版本） </span><br><span class="line"><span class="tag">pod</span> ‘<span class="tag">AFNetworking</span>’, ‘~&gt;2<span class="class">.1</span><span class="class">.0</span>’</span><br><span class="line"><span class="tag">pod</span> ‘<span class="tag">MBProgressHUD</span>’</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>開啓終端機</p>
-</li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="operator"><span class="keyword">update</span> (更新<span class="keyword">Library</span>)</span></span><br></pre></td></tr></table></figure>
+                        <h3 id="intent">intent</h3><p><strong>目的,意圖</strong>,意義,含義(a.)熱心的,專心致志的</p>
+<h3 id="Android_intent">Android intent</h3><p>在Android來說，intent是常用到的方法，導頁好幫手，主要幫助我們在傳值、轉化畫面等等，像是<strong>意圖辦到什麼目的，前往哪個目的地的概念</strong></p>
+<p>但除了導頁功能之外，intent能做到的事情不只這些唷，先以導頁做舉例與方法使用說明 …</p>
+<p>intent分為兩種：顯式(Explicit intent)和隱式(Implicit intent)。</p>
+<p>假設今日我們要從FirstActivity.class轉換到GoalActivity.class</p>
+<h4 id="1-_顯示(Explicit)">1. 顯示(Explicit)</h4><p>直接指定<strong>確定</strong>要<strong>一個</strong>轉換的目標Activity，意圖明顯，所以稱為顯示意圖(Explicit intent)。<strong>常用於應用程式內部頁面之間轉換之用。</strong></p>
+<p>例如，在FirstActivity.java指定需要轉換到GoalActivity.java，直接在FirstActivity.java正確位置寫上下面程式碼。很多種可替代的寫法，所以選自己習慣的寫法就行囉！</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//<span class="number">1.</span> 目標Activity可直接以package.<span class="keyword">class</span>路徑表示。</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(FirstActivity.<span class="keyword">class</span>,<span class="string">"com.bird.intenttext.GoalActivity"</span>)</span><br><span class="line">startActivity(<span class="type">intent</span>); 		</span><br><span class="line">//<span class="number">2.</span> 目標Activity簡化表示</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(FirstActivity.this,  GoalActivity.<span class="keyword">class</span>)</span><br><span class="line">startActivity(<span class="type">intent</span>); </span><br><span class="line">//<span class="number">3.</span> this 取代 FirstActivity.<span class="keyword">class</span></span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(this,  GoalActivity.<span class="keyword">class</span>)</span><br><span class="line">startActivity(<span class="type">intent</span>); </span><br><span class="line">//<span class="number">4.</span> setComponent：ComponentName取代</span><br><span class="line">ComponentName CPName = new ComponentName(this,  GoalActivity.<span class="keyword">class</span>);  </span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();  </span><br><span class="line"><span class="type">intent</span>.setComponent(CPName);  </span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br><span class="line">//<span class="number">5.</span> setClass：ClassName取代</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();</span><br><span class="line"><span class="type">intent</span>.setClassName(this,  GoalActivity.<span class="keyword">class</span>);</span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
+<p><strong> <code>「重要」</code> 最後一定要記得在 AndroidManifest.xml 文件中＜application＞＜/application＞ 之中，註冊欲前往的目標Activity。
+</strong></p>
+<p>範例如下</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span> <span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GoalActivity"</span></span><br><span class="line">			<span class="attribute">...</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">action</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">category</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">data</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">meta-data</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-_隱示(Implicit_intent)">2. 隱示(Implicit intent)</h4><p>相對顯示來說，隱示就是<strong>間接指定</strong>囉！就是讓系统幫你篩選出適合的目標Activity，根據<intent-filter>来篩選。透過AndroidManifest.xml文件幫助我們完成這件事情。</intent-filter></p>
+<p>舉例來說，在AndroidManifest.xml文件中，註冊欲前往的目標Activity時，將內容修改內容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span></span><br><span class="line">	<span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GoalActivity"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">		//可自訂android:name字串內容</span><br><span class="line">		<span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GotoGoalActivity"</span>/&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在FirstActivity.java指定需要轉換到GoalActivity.java，直接在FirstActivity.java正確位置寫上下面程式碼。</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="string">"GotoGoalActivity"</span>);</span><br><span class="line">startActivity(<span class="type">intent</span>); </span><br><span class="line">// or 將Activity定義為<span class="keyword">Action</span>，使用setAction</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();  </span><br><span class="line"><span class="type">intent</span>.setAction(<span class="string">"com.bird.intenttext.GotoGoalActivity"</span>);  </span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="外部轉換">外部轉換</h5><p>另外，隱示最厲害的地方就是用於<strong>與外部應用程式間的Activity轉換</strong>，讓<br>透過設置<strong>Action</strong>，表明自己的意圖，由系統解析，找到能夠處理這個Intent的Activity並啟動。</p>
+<p>例如</p>
+<p><code>&quot;android.intent.action.DIAL&quot;</code>: 表示當你有撥打電話的意圖時，系統會呼叫Activity該讓使用者選擇使用。</p>
+<p>範例1：表示GoalActivity有撥打電話的功能意圖可被呼叫</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span></span><br><span class="line">	<span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GoalActivity"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">		//可自訂android:name字串內容: 建議將其完整命名package.class</span><br><span class="line">		<span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.DIAL"</span>/&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>範例2：該Activity需呼叫別的意圖功能</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="type">Intent</span>.ACTION_DIAL);  </span><br><span class="line">// 或者<span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="string">"android.intent.action.DIAL"</span>);</span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="安全機制">安全機制</h4><p>有時候會因為AndroidManifest.xml中忘記註冊或字串打錯等原因，找不到對應的Activity，便會拋出ActivityNotFoundException的錯誤訊息，為防止App出錯關閉無法運行，因此我們要設立對應的安全機制。</p>
+<p>方法1：try catch</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"GotoGoalActivity"</span>);</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	startActivity(intent); </span><br><span class="line">&#125;<span class="keyword">catch</span>(ActivityNotFoundException e)&#123;</span><br><span class="line">	 Toast.makeText(<span class="keyword">this</span>, <span class="string">"找不到对应的Activity"</span>, Toast.LENGTH_SHORT).show();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法2：使用Intent的resolveActivity方法判斷這個Intent是否能找到合適的Activity</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="type">Intent</span>.ACTION_DIAL); </span><br><span class="line"><span class="keyword">if</span>(<span class="type">intent</span>.resolveActivity(getPackageManager()) == null)  </span><br><span class="line">&#123;  </span><br><span class="line">   // 设置控件不可用   </span><br><span class="line">&#125;</span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
+<p>方法3：多個Activity可供選擇的話，則返回的Component是com.android.internal.app.ResolverActivity，也就是用戶選擇Activity的那個界面對應的Activity，這裡不再深究。</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="type">Intent</span>.ACTION_DIAL);  </span><br><span class="line">ComponentName componentName = <span class="type">intent</span>.resolveActivity(getPackageManager());  </span><br><span class="line"><span class="keyword">if</span>(componentName <span class="comment">!= null)  </span></span><br><span class="line">&#123;  </span><br><span class="line">    String className = componentName.getClassName();  </span><br><span class="line">   	Toast.makeText(this, className, Toast.LENGTH_SHORT).show();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://cg2010studio.com/2014/08/15/ios-%E4%BD%BF%E7%94%A8-cocoapods-%E7%AE%A1%E7%90%86%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6/" target="_blank" rel="external">[iOS] 使用 CocoaPods 管理第三方套件 | 逍遙文工作室</a></li>
-<li><a href="https://cocoapods.org/" target="_blank" rel="external">CocoaPods.org</a></li>
+<li><a href="http://blog.csdn.net/xiao__gui/article/details/11392987" target="_blank" rel="external">Android理解：显式和隐式Intent - 叉叉哥的BLOG - 博客频道 - CSDN.NET</a></li>
+<li><a href="http://developer.android.com/intl/zh-tw/reference/android/content/Intent.html" target="_blank" rel="external">Android Developrs-intent</a></li>
+<li><a href="http://ke.jikexueyuan.com/zhiye/android/" target="_blank" rel="external">Android工程師<em>路徑圖的標題</em>職業路徑圖<em>IT職業在線教育平台</em>極客學院</a></li>
 </ol>
 
                         
@@ -239,7 +238,7 @@
                         
                         
                             <p>
-                                <a href="/2015/10/28/iOS-pods/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/10/28/Android-Intent/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -270,7 +269,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 12 of 18</li>
+        <li class="pagination-number">page 12 of 19</li>
     </ul>
 </div>
 

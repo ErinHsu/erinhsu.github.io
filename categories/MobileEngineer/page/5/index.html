@@ -175,13 +175,13 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2016/02/01/Ionic/">\ionic/ 環境架設</a>
+                                <a class="link-unstyled" href="/2016/02/15/Android-Adapter/">\Android/ Adapter 觀念</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Mon Feb 01 2016 10:30:20 GMT+0800">
+    <time itemprop="datePublished" content="Mon Feb 15 2016 10:44:08 GMT+0800">
 	
-		    Feb 01, 2016
+		    Feb 15, 2016
     	
     </time>
     
@@ -196,105 +196,57 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p>一般我們所知的手機作業系統，以最大宗來說，iOS與Android為主要兩大市場，當然也有windows phone等等其他作業系統，這些相互獨立的市場，開發條件與方式當然截然不同。</p>
-<p>想要成為一個行動裝置軟體開發者，首先你要選擇你想攻佔的是屬於apple系列（ios）還是google系列(Android)的領土，才能進行對應技術的學習與開發。</p>
-<p>請下關鍵字：</p>
-<p>apple系列（ios）：Ｘcode, Swift, Object-C(舊), Mac電腦 ….</p>
-<p>google系列(Android)：Android Studio, Java, XML, Eclipse(舊) … </p>
-<p>倘若，你有個理想，想要擁有一把劍能在兩大領土都能大開殺戒的武器，<strong>ionic</strong>是你最好的選擇。如果你又剛剛好會寫網頁、架網站，哇～你應該就是拿破崙了，開疆闢土都沒問題了。</p>
-<p>已經有許多開發成功的案例在你我手機App Store/Google Play裡了，看看官網上的<a href="http://showcase.ionicframework.com/" target="_blank" rel="external"><code>Showcase</code></a>吧~</p>
-<p>有信心百倍了嗎？心動不如行動吧！</p>
-<h3 id="關於ionic">關於ionic</h3><p>以建立 hybrid mobile apps 為目標的 HTML5 mobile app 開發框架。</p>
-<p>有別於目前 Native 方式（前言提到下關鍵字者會告訴你）， Native 方式效能較佳且可以對於硬體有更好的掌握，但缺點是開發週期較長。而ionic實際上就是跑在瀏覽器內核上可以操控硬體的小網站，缺點是效能比起 Native 還是有些差距。</p>
-<p>也可以上架到市集給使用者下載，優勢是跨平台、開發速度快、可以使用許多第三方的程式碼</p>
-<h3 id="先備技術知識">先備技術知識</h3><ol>
-<li>HTML 5</li>
-<li>Angular Js</li>
-<li>Restful API</li>
-<li>Sass </li>
-</ol>
-<p>就是寫網頁了吧～看起來是前端技術，開心的是，後端用你在行的技術就可以了～</p>
-<h3 id="Step1_QUICK_START">Step1 QUICK START</h3><p>現在我們開始照的官網上的指示一步一步走</p>
-<p><a href="http://ionicframework.com/getting-started/" target="_blank" rel="external"><code>官網圖文並茂版(點我)</code></a></p>
-<p><a href="https://www.youtube.com/watch?v=15daTaDQ6Yg" target="_blank" rel="external"><code>英文影片版(點我)</code></a></p>
-<p>隨客官愛好進行版本選學，最後附上<code>簡易版(下拉)教學</code>給客官賞味 XD</p>
-<h4 id="Step2_安裝環境設置">Step2 安裝環境設置</h4><p>確認自己的電腦是否有安裝 <strong>Node.js 4 </strong>與<strong> 最新的 Apache Cordova</strong>。</p>
-<p>以及設置iOS與Android開發依循環境，特別是iOS必須在Mac OS X環境下才能測試開發。</p>
+                        <h3 id="前言">前言</h3><p><code>Adapter (n.) 適配器; 多功能插頭; 改編者</code></p>
+<p>在Android的世界裡，Adapter是<code>Database和UI（View）之間一個重要的橋樑</code>，用於連接後端資料和前端介面。</p>
+<p>我們常用的View，包括ListView,GridView, Spinner等，常常伴隨著Adapter的使用。</p>
+<p>如下圖直觀的表達了Data、Adapter、View三者的關係：<br><img src="http://image.lxway.com/upload/f/15/f15b47d3418249a43e56a800abc75e83.jpg" alt=""></p>
+<h3 id="種類">種類</h3><p>比較常用的有BaseAdapter，SimpleAdapter，ArrayAdapter，SimpleCursorAdapter等。</p>
+<ul>
+<li><p><a href="http://developer.android.com/reference/android/widget/ArrayAdapter.html" target="_blank" rel="external"><strong><code>ArrayAdapter&lt;T&gt;</code></strong></a></p>
+<p>  <img src="http://i.stack.imgur.com/NC9L0.png" alt="Single ListView"></p>
 <ol>
-<li><p><a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">Android Studio</a>: 請可安裝Android Studio或是單獨安裝 <a href="http://developer.android.com/intl/zh-tw/sdk/index.html#Other" target="_blank" rel="external">sdk</a>。並確認SDK版本</p>
+<li><p>ArrayAdapter可繼承自BaseAdapter，最為簡單，只能展示一行字。</p>
 </li>
-<li><p><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 4</a>:直接下載並安裝小於5的版本使用</p>
+<li><p>利用ArrayAdapter的<code>add()</code>方法新增資料到adapter尾端或是用<code>insert()</code>新增資料到特定的位置；刪除資料則使用<code>remove()</code>方法。</p>
 </li>
-<li><p><a href="https://www.npmjs.com/package/ionic" target="_blank" rel="external">Cordova ionic</a>: 開啟command line 透過 Node.js 的 npm 指令下載</p>
-</li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> cordova ionic</span></span><br></pre></td></tr></table></figure>
-<h4 id="Step3_建立專案">Step3 建立專案</h4><ol>
-<li><p>cd到你想建立專案的資料夾，利用模組範例，建立一個新的專案資料夾</p>
- <figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic <span class="keyword">start</span> &#123;projectName&#125; &#123;blank/tabs/sidemenu&#125;</span><br></pre></td></tr></table></figure>
+<li><p>ListView類別是負責顯示在螢幕上，adapter類別才是負責處理資料的繫結。一旦adapter內的資料有了變更，則adapter和ListView的內容就失去了同步，這是侯需要由adapter發送一個<code>notifyDataSetChanged()</code>方法通知ListView重新同步顯示的內容。</p>
 </li>
 </ol>
+</li>
+<li><p><a href="http://developer.android.com/reference/android/widget/BaseAdapter.html" target="_blank" rel="external"><strong><code>BaseAdapter</code></strong></a></p>
 <ol>
-<li><p>專案資料檔案結構 <a href="http://blog.kdchang.cc/2015/02/ionic-note-book-chapter-2-installation.html" target="_blank" rel="external">(參考來源)</a></p>
- <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">├── bower<span class="class">.json</span>     <span class="comment">// bower dependencies</span></span><br><span class="line">├── config<span class="class">.xml</span>     <span class="comment">// cordova configuration</span></span><br><span class="line">├── gulpfile<span class="class">.js</span>    <span class="comment">// gulp tasks</span></span><br><span class="line">├── hooks          <span class="comment">// custom cordova hooks to execute on specific commands</span></span><br><span class="line">├── ionic<span class="class">.project</span>  <span class="comment">// ionic configuration</span></span><br><span class="line">├── package<span class="class">.json</span>   <span class="comment">// node dependencies</span></span><br><span class="line">├── platforms      <span class="comment">// iOS/Android specific builds will reside here</span></span><br><span class="line">├── plugins        <span class="comment">// where your cordova/ionic plugins will be installed</span></span><br><span class="line">├── scss           <span class="comment">// scss code, which will output to www/css/</span></span><br><span class="line">└── www            <span class="comment">// application - JS code and libs, CSS, images, etc.</span></span><br></pre></td></tr></table></figure>
+<li><p>當ListView需要附加其他更強大的功能時，就必須重新自定義一個Adapter，此時可繼承使用BaseAdapter來建構，具有較高的靈活性。</p>
+</li>
+<li><p>使用者自定的Layout時需要覆寫<code>getCount()</code>, <code>getItem(Int position)</code>, <code>getItemId(int position)</code>, 還有 <code>getView(int position, View convertView, ViewGroup parent)</code>那麼多函式。</p>
 </li>
 </ol>
-<h4 id="Step4_建立測試平台">Step4 建立測試平台</h4><figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &#123;projectName&#125;  <span class="comment">//指到專案那個資料夾裡</span></span><br></pre></td></tr></table></figure>
-<p>產生測試參數</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic <span class="built_in">platform</span> <span class="built_in">add</span> &#123;android/ios&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong> iOS 不能在windows環境下運行，但依然會幫你建立(建立爽的嗎哈哈)，出錯如下。</p>
-<p><code>WARNING: Applications for platform ios can not be built on this OS - win ...</code></p>
-<p><strong>注意</strong> Android 在兩種環境下皆可運行，但必須安裝JDK (&gt;1.6 )與 SDK Manager </p>
-<p><strong>注意</strong> 若Android在 Mac OS X 錯誤</p>
-<p><code>Error: ERROR : Make sure JAVA_HOME is set, as well as paths to your JDK and JRE for java.</code></p>
-<p>請可安裝Android開發的IDE（原本Native開發者不用擔心的問題）或執行以下指令</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAV<span class="built_in">A_HOME</span>=$(/usr/libexec/jav<span class="built_in">a_home</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="Step5_執行">Step5 執行</h4><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic serve <span class="comment">//網頁</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//建立成一個<span class="keyword">android/ios對應開發專案資料夾</span><br><span class="line"></span><span class="label">ionic</span> <span class="keyword">build </span>&#123;<span class="keyword">android/ios&#125;</span><br><span class="line"></span>//emulate模擬器<span class="comment">; run實機</span></span><br><span class="line"> ----------------- ios實機要用Xcode執行 /<span class="keyword">android </span>SDK <span class="number">16</span>up</span><br><span class="line"><span class="label">ionic</span> &#123;emulate/run&#125; &#123;<span class="keyword">android/ios&#125;</span></span><br></pre></td></tr></table></figure>
-<h4 id="Step6_發布">Step6 發布</h4><p>完成了你的作品之後，怎麼把它上傳給其他使用者使用呢。<br>在上架之前我們必須先把用於 debug 的 plugin 移除避免困擾。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin rm org<span class="class">.apache</span><span class="class">.cordova</span><span class="class">.console</span></span><br></pre></td></tr></table></figure>
-<p>將我們的 App build 成還沒簽證的 .apk 檔</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova build <span class="comment">--release android</span></span><br></pre></td></tr></table></figure>
-<p>用 JDK 的工具來產生我們簽核用的 key，若已有自己的 signing key 可以忽略這個步驟。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -keystore my-<span class="operator"><span class="keyword">release</span>-<span class="keyword">key</span>.keystore -<span class="keyword">alias</span> alias_name -keyalg RSA -keysize <span class="number">2048</span> -validity <span class="number">10000</span></span></span><br></pre></td></tr></table></figure>
-<p>產生 my-release-key.keystore 檔案在目前的資料夾，請妥善保存這個檔案，避免遺失，不然就無法更新 App 啦！</p>
-<p>接著我們用產生或已有的 key，將 apk 進行簽核。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-<span class="operator"><span class="keyword">release</span>-<span class="keyword">key</span>.keystore HelloWorld-<span class="keyword">release</span>-<span class="keyword">unsigned</span>.apk alias_name</span></span><br></pre></td></tr></table></figure>
-<p>簽核完後我們可以使用 APK 優化工具 <a href="http://developer.android.com/intl/zh-tw/tools/help/zipalign.html" target="_blank" rel="external">zip align</a>，優化後產生 HelloWorld.apk 的檔案。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zipalign -v <span class="number">4</span> HelloWorld-release-<span class="keyword">unsigned</span>.apk HelloWorld.apk</span><br></pre></td></tr></table></figure>
-<p>若是之後想更新 App，記得更新 platforms/android/AndroidManifest.xml 中的 android:versionCode 版本值並再次提交你的 .apk 檔案。</p>
-<hr>
-<h4 id="實作">實作</h4><p>ionic 架構<br><img src="http://ithelp.ithome.com.tw/upload/images/20141013/20141013092618543b2a3a0cd3e_resize_600.png" alt=""><br>主要開發<br><img src="http://ithelp.ithome.com.tw/upload/images/20141013/20141013092659543b2a635c7c5_resize_600.png" alt=""></p>
-<h4 id="其他疑難雜症">其他疑難雜症</h4><p>2.<strong>Android 模擬器(Genymotion)注意事項</strong></p>
-<p>大家都知道 Android 模擬器（AVD）在運行速度慢且無法代表真實的設備，若要使用虛擬機的話（常用 Genymotion 替代，它會在你的電腦中將 Android 設備當做一個虛擬機來運行），因為 Genymotion 被視為電腦的物理設備，因此使用 Genymotion 的話將使用<code>ionic run</code> 而非 ionic emulate。</p>
-<p>3.<strong>偵測實機問題</strong> </p>
-<p>依序執行以下三種指令</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="operator"><span class="keyword">kill</span>-<span class="keyword">server</span> </span><br><span class="line">adb <span class="keyword">start</span>-<span class="keyword">server</span> </span><br><span class="line">adb devices</span></span><br></pre></td></tr></table></figure>
-<p>4.<strong>Android 執行版本問題</strong></p>
-<p><code>Error</code> </p>
-<p><code>1.&quot;SDK Platform&quot; for android-23</code></p>
-<p><code>2.Lastest &quot;Android SDK Platform-tool&quot;</code> </p>
-<p><code>3.Lastest &quot;Android SDK Build-tools&quot;</code></p>
-<p>Mac OS X /Linux 在 ~/.bash_profile 文件最後加入以下指令&lt;!?&gt;</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export ANDROID_HOME=/Users/your_user_name/android-sdks</span><br><span class="line">export PATH=$&#123;PATH&#125;:<span class="variable">$ANDROID</span>_HOME/tools:<span class="variable">$ANDROID</span>_HOME/platform-tools</span><br></pre></td></tr></table></figure>
-<p>Windows 環境變數設制</p>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// android-sdks位置</span></span><br><span class="line">set ANDROID_HOME=C:\&lt;installation location&gt;\android-sdk-windowsset PATH=<span class="variable">%PATH</span><span class="variable">%;</span><span class="variable">%ANDROID_HOME</span><span class="variable">%\</span>tools;<span class="variable">%ANDROID_HOME</span><span class="variable">%\</span>platform-tools</span><br></pre></td></tr></table></figure>
-<h6 id="參考來源">參考來源</h6><p>Full-Stack Engineering系列文章</p>
-<ol>
-<li><a href="http://blog.kdchang.cc/2015/02/ionic-note-ionic-book-chapter-1-all-about-ionic.html" target="_blank" rel="external">Full-Stack Engineering: [Ionic 初心者筆記] 官方教學 - Ch 1 關於 Ionic</a></li>
-<li><a href="http://blog.kdchang.cc/2015/02/ionic-note-book-chapter-2-installation.html" target="_blank" rel="external">Full-Stack Engineering: [Ionic 初心者筆記] 官方教學 - Ch 2 安裝</a></li>
-<li><a href="http://blog.kdchang.cc/2015/02/ionic-note-book-chapter-3-start-your-ionic-mobile-app.html" target="_blank" rel="external">Full-Stack Engineering: [Ionic 初心者筆記] 官方教學 - Ch 3 開始第一個 Ionic Mobile App</a></li>
-<li><a href="http://blog.kdchang.cc/2015/02/ionic-note-book-chapter-4-test-your-ionic-mobile-app.html" target="_blank" rel="external">Full-Stack Engineering: [Ionic 初心者筆記] 官方教學 - Ch 4 測試你的 Ionic Mobile App</a></li>
-<li><a href="http://blog.kdchang.cc/2015/02/ionic-note-book-chapter-5-build-out-your-ionic-mobile-app.html" target="_blank" rel="external">Full-Stack Engineering: [Ionic 初心者筆記] 官方教學 - Ch 5 擴展你 App 的功能</a></li>
-<li><a href="http://blog.kdchang.cc/2015/02/ionic-note-book-chapter-6-publish-your-app.html" target="_blank" rel="external">Full-Stack Engineering: [Ionic 初心者筆記] 官方教學 - Ch 6 發佈/上架你的 App</a></li>
-</ol>
-<p>其他</p>
-<ol>
-<li><a href="http://ionic.io/" target="_blank" rel="external">ionic 官方網站</a></li>
-<li><a href="http://ionicframework.com/getting-started/" target="_blank" rel="external">ionic 官方網站-getting-started</a></li>
-<li><a href="http://learn.ionicframework.com/videos/windows-android/" target="_blank" rel="external">Installing Cordova and the Android SDK on Windows 7 and 8 | Videos | Learn Ionic</a></li>
-<li><a href="http://ithelp.ithome.com.tw/question/10159582" target="_blank" rel="external">ionic 實作(2)：Project 建立及架構介紹 - iT邦幫忙::IT知識分享社群</a></li>
-<li><a href="https://segmentfault.com/a/1190000003809277" target="_blank" rel="external">Ubuntu 15.04開發Ionic之環境配置- 開發日誌- SegmentFault</a></li>
+</li>
+<li><p><a href="http://developer.android.com/reference/android/support/v4/widget/CursorAdapter.html" target="_blank" rel="external"><code>CursorAdapter</code></a></p>
+</li>
+<li><a href="http://developer.android.com/reference/android/widget/HeaderViewListAdapter.html" target="_blank" rel="external"><code>HeaderViewListAdapter</code></a></li>
+<li><a href="http://developer.android.com/reference/android/widget/ListAdapter.html" target="_blank" rel="external"><code>ListAdapter</code></a></li>
+<li><a href="http://developer.android.com/reference/android/support/v4/widget/ResourceCursorAdapter.html" target="_blank" rel="external"><code>ResourceCursorAdapter</code></a></li>
+<li><p><a href="http://developer.android.com/reference/android/widget/SimpleAdapter.html" target="_blank" rel="external"><strong><code>SimpleAdapter</code></strong></a> </p>
+<p>  有最好的擴充性，可以<code>定義各種各樣的佈局</code>出來，可以放上ImageView（圖片），還可以放上Button（按鈕），CheckBox（複選框）等等。代碼都可以直接繼承了ListActivity。</p>
+</li>
+<li><p><a href="http://developer.android.com/reference/android/support/v4/widget/SimpleCursorAdapter.html" target="_blank" rel="external"><strong><code>SimpleCursorAdapter</code></strong></a></p>
+<p>  可以適用於簡單的純文字型ListView，它需要Cursor的字段和UI的id對應起來。如需要實現更複雜的UI也可以重寫其他方法。可以認為是SimpleAdapter<code>對資料庫的簡單結合</code>，可以方便地把數據庫的內容以列表的形式展示出來。</p>
+</li>
+<li><p><a href="http://developer.android.com/reference/android/widget/SpinnerAdapter.html" target="_blank" rel="external"><code>SpinnerAdapter</code></a></p>
+<p>  <img src="http://images.cnblogs.com/cnblogs_com/over140/2010/11/2010-11-26_1.jpg" alt="SpinnerAdapter"></p>
+<p>  擴展自Adapter 的適配器是在Spinner 與數據之間的一座橋樑。一個Spinner Adapter 允許定義兩個不同的視圖：一是在Spinner 上顯示數據，另一個是當Spinner 按下時在下拉列表裡顯示數據。</p>
+</li>
+<li><p><a href="http://developer.android.com/reference/android/support/v7/widget/ThemedSpinnerAdapter.html" target="_blank" rel="external"><code>ThemedSpinnerAdapter</code></a></p>
+</li>
+<li><a href="http://developer.android.com/reference/android/widget/WrapperListAdapter.html" target="_blank" rel="external"><code>WrapperListAdapter</code></a></li>
+</ul>
+<h6 id="參考來源">參考來源</h6><ol>
+<li><a href="http://developer.android.com/intl/zh-tw/reference/android/widget/ListView.html" target="_blank" rel="external">ListView | Android Developers</a></li>
+<li><a href="http://huli.logdown.com/posts/280137-android-custom-listview" target="_blank" rel="external">[Android] 自訂ListView « Huli’s Blog</a></li>
+<li><a href="http://www.cnblogs.com/devinzhang/archive/2012/01/20/2328334.html" target="_blank" rel="external">Android之Adapter用法总结 - Devin Zhang - 博客园</a></li>
+<li><a href="http://www.jianshu.com/p/136e57599537" target="_blank" rel="external">Android入門2：從GridView控件使用到自定義Adapter - 簡書</a></li>
+<li><a href="http://hhliu-skills.blogspot.tw/2012/04/arrayadapter.html" target="_blank" rel="external">雜技本 - Android程式開發: ArrayAdapter的使用</a></li>
+<li><a href="http://www.cnblogs.com/over140/archive/2010/11/26/1888359.html" target="_blank" rel="external">Android API 中文（50） —— SpinnerAdapter - 農民伯伯- 博客園</a></li>
 </ol>
 
                         
@@ -303,7 +255,7 @@
                         
                         
                             <p>
-                                <a href="/2016/02/01/Ionic/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2016/02/15/Android-Adapter/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -334,7 +286,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 5 of 13</li>
+        <li class="pagination-number">page 5 of 14</li>
     </ul>
 </div>
 
