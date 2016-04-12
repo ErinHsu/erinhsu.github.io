@@ -5,21 +5,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="bird 學習日記">
-    <title>Archives - bird 學習日記</title>
-    <meta name="author" content="bird">
+    <meta name="generator" content="誰都是我的老師">
+    <title>Archives - 誰都是我的老師</title>
+    <meta name="author" content="ErinB">
     
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
     <meta name="description">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="bird 學習日記">
+<meta property="og:title" content="誰都是我的老師">
 <meta property="og:url" content="http://yoursite.com/archives/page/10/index.html">
-<meta property="og:site_name" content="bird 學習日記">
+<meta property="og:site_name" content="誰都是我的老師">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bird 學習日記">
+<meta name="twitter:title" content="誰都是我的老師">
 <meta name="twitter:description">
     
     
@@ -41,7 +41,7 @@
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
-        <a class="header-title-link" href="/ ">bird 學習日記</a>
+        <a class="header-title-link" href="/ ">誰都是我的老師</a>
     </h1>
     
         
@@ -175,13 +175,13 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/10/28/iOS-pods/">\iOS/ 使用 CocoaPods 管理第三方套件</a>
+                                <a class="link-unstyled" href="/2015/11/24/Android-Gradle/">\Android/ Gradle</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Oct 28 2015 10:44:08 GMT+0800">
+    <time itemprop="datePublished" content="Tue Nov 24 2015 10:30:20 GMT+0800">
 	
-		    Oct 28, 2015
+		    Nov 24, 2015
     	
     </time>
     
@@ -196,42 +196,44 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p>在開發iOS APP時，利用XCode創建新的專案，經常需要引用第三方Open Source套件。通常我們將要運用的套件下載到本機端，再放置到專案中。<strong>未來若有新版本的套件需要更新時，都必須重新搜尋並下載</strong></p>
-<p><strong>CocoaPods</strong>就是為iOS開發提供依賴管理的工具。主要Source Code在Github上管理。CocoaPods幫助我們在開發iOS時管理第三方套件，省下了開發時間。</p>
-<h5 id="COCOAPODS網站：http://cocoapods-org/">COCOAPODS網站：<a href="http://cocoapods.org/" target="_blank" rel="external">http://cocoapods.org/</a></h5><h3 id="使用方法">使用方法</h3><h5 id="安裝">安裝</h5><ol>
-<li>開啓終端機</li>
-<li><p>輸入指令</p>
- <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>[sudo] gem install cocoapods (安裝)</span><br><span class="line"><span class="variable">$ </span>pod setup (設定)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接著就能使用</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="built_in">help</span> (幫助)</span><br></pre></td></tr></table></figure>
-</li>
+                        <h3 id="前言">前言</h3><p>Gradle </p>
+<p>自動化編譯工具為 Ant , Maven ,Gradle</p>
+<p>Ant -&gt; <a href="http://www.codedata.com.tw/java/understanding-gradle-1-ant/" target="_blank" rel="external">【認識 Gradle】（1）講古的時間 Apache Ant | CodeData</a></p>
+<p>提供一組 XML 標籤，讓你定義一個『專案（project）』內要提供哪些『目標(target)』，在目標內需要描述有哪些『任務（task）』需要被執行。簡而言之，Ant 讓你用 XML 的方式描述一些自動化編譯的事項，就如同撰寫程式語言一般。說到程式語言不外乎，語法、語意與函式，若將上述概念轉換成 Ant 的領域，則為 XML、DataType、Properties、Task。</p>
+<p>Maven -&gt; <a href="http://www.codedata.com.tw/java/understanding-gradle-2-maven/" target="_blank" rel="external">【認識 Gradle】（2）講古的時間 Apache Maven by qrtt1 | CodeData</a></p>
+<p>Maven 被創造出來的動機有二個主要原因：</p>
+<ol>
+<li>Java 專案的標準化</li>
+<li>Java 專案函式庫管理的問題</li>
 </ol>
-<h5 id="建立_PODFILE">建立 PODFILE</h5><p>方法一： 利用終端機</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>vi <span class="constant">Podfile</span></span><br></pre></td></tr></table></figure>
-<p>方法二：    在專案資料夾直接右鍵新增</p>
-<p>內容</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'8.0'</span></span><br><span class="line">use_frameworks!</span><br><span class="line"></span><br><span class="line">target <span class="string">'MyApp'</span> <span class="keyword">do</span></span><br><span class="line">  pod <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 2.6'</span></span><br><span class="line">  pod <span class="string">'ORStackView'</span>, <span class="string">'~&gt; 3.0'</span></span><br><span class="line">  pod <span class="string">'SwiftyJSON'</span>, <span class="string">'~&gt; 2.3'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h5 id="安裝LIBRARY">安裝LIBRARY</h5><p>開啓終端機</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
-<p>安裝完成後，專案資料夾會出現多個檔案</p>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> <span class="constant">Podfile</span>.lock</span><br><span class="line"></span>-<span class="ruby"> <span class="constant">Pods</span> folder /<span class="regexp">/放置所引用的第三方套件檔案</span><br><span class="line"></span></span>-<span class="ruby"><span class="regexp"> build folder </span><br><span class="line"></span></span>-<span class="ruby"><span class="regexp"> .xcworkspace /</span><span class="regexp">/專案改用這個開啟吧</span></span></span><br></pre></td></tr></table></figure>
-<p>用.xcworkspace開啟專案，Xcode開啟後，會多出有關pods的多個檔案，方便我們管理操作。</p>
-<h5 id="更新LIBRARY">更新LIBRARY</h5><p>開啓終端機</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>pod outdated (檢查<span class="constant">Library</span>是否過期)</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"></span><br><span class="line"><span class="variable">$ </span>pod update (更新<span class="constant">Library</span>)</span><br></pre></td></tr></table></figure>
-<h5 id="新增第三方套件">新增第三方套件</h5><ol>
-<li><p>開啓PODFILE做內容修改</p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, ‘<span class="number">8.0</span>’（版本） </span><br><span class="line">pod <span class="string">'...'</span></span><br></pre></td></tr></table></figure>
-<p> 如</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">platform</span> <span class="pseudo">:ios</span>, ‘8<span class="class">.0</span>’（版本） </span><br><span class="line"><span class="tag">pod</span> ‘<span class="tag">AFNetworking</span>’, ‘~&gt;2<span class="class">.1</span><span class="class">.0</span>’</span><br><span class="line"><span class="tag">pod</span> ‘<span class="tag">MBProgressHUD</span>’</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>開啓終端機</p>
-</li>
+<p>Gradle -&gt; <a href="http://siwei.me/blog/posts/gradle-why-gradle-but-not-ant-maven-ivy" target="_blank" rel="external">為什麼要用Gradle? - 申思維的技術站點  | CodeData</a></p>
+<p>ANT的缺點：</p>
+<p>很容易變臃腫。雖然ANT 提倡大家寫個MODULE出來，但是大部分人都不會這樣做。基本都喜歡把所有內容都寫在build.xml中</p>
+<p>MAVEN的缺點：</p>
+<p>比較精簡，但是無法定制化。在MAVEN中，想要定制，必須得寫個plugin 或者做些hack， 無法像ANT那樣靈活。可以說走了與ANT相反的極端。</p>
+<p>ANT和MAVEN共同的缺點：</p>
+<p>都很複雜。XML 在2000年還是很炫酷的，但是到了現在就是喳喳。。。寫起來麻煩。</p>
+<p>Gradle 把兩者的優點結合到了一起。</p>
+<p>比ant 語法經驗， 比MAVEN靈活。可以自由定制。</p>
+<h3 id="檔案架構">檔案架構</h3><p><a href="http://www.codedata.com.tw/java/understanding-gradle-3-getting-started/" target="_blank" rel="external">【認識 Gradle】（3）Gradle 起手式 by qrtt1 | CodeData</a></p>
+<p>範例一 java project</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 引用 java plugin 獲得編譯 java 專案相關的 task $ */</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span> </span><br><span class="line"><span class="comment">/* 引用 application plugin 獲得執行 java 專案相關的 task $ */</span></span><br><span class="line">apply <span class="string">plugin:</span><span class="string">'application'</span></span><br><span class="line"><span class="comment">/* 執行 application plugin 用到的參數 $ */</span></span><br><span class="line">mainClassName = <span class="string">"tw.com.codedata.HelloWorld"</span></span><br><span class="line"><span class="comment">/* 設定 maven repository server $ */</span></span><br><span class="line">repositories &#123;</span><br><span class="line">   	mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 宣告專案的相依函式庫 $ */</span></span><br><span class="line">dependencies &#123;</span><br><span class="line">   	compile <span class="string">group:</span> <span class="string">'commons-logging'</span>, <span class="string">name:</span> <span class="string">'commons-logging'</span>, <span class="string">version:</span> <span class="string">'1.1.1'</span></span><br><span class="line">   	compile <span class="string">group:</span> <span class="string">'log4j'</span>, <span class="string">name:</span> <span class="string">'log4j'</span>, <span class="string">version:</span> <span class="string">'1.2.16'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>範例二 android project</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 引用 java plugin 獲得編譯 android 專案相關的 task  */</span></span><br><span class="line">apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line"><span class="comment">/* 設定 android SDK 目標版本 要和“com.android...”下方同一版本  */</span></span><br><span class="line">android &#123;</span><br><span class="line">   	compileSdkVersion <span class="number">23</span> </span><br><span class="line">   	buildToolsVersion <span class="string">"23.0.1"</span></span><br><span class="line"><span class="comment">/* 設定 android SDK 最小資源版本 */</span></span><br><span class="line">   defaultConfig &#123;</span><br><span class="line">       applicationId <span class="string">"com.ftc.ec"</span></span><br><span class="line">       minSdkVersion  <span class="number">14</span></span><br><span class="line">       targetSdkVersion <span class="number">23</span></span><br><span class="line">       versionCode <span class="number">1</span></span><br><span class="line">       versionName <span class="string">"1.0"</span></span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">/*    */</span></span><br><span class="line">   buildTypes &#123;</span><br><span class="line">       release &#123;</span><br><span class="line">           minifyEnabled <span class="keyword">false</span></span><br><span class="line">           proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.txt'</span></span><br><span class="line">       	&#125;</span><br><span class="line">   	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 宣告專案的相依函式庫 */</span></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">	<span class="comment">//-- project</span></span><br><span class="line">   	<span class="keyword">compile</span> <span class="keyword">project</span>(<span class="string">':chachalibrary'</span>)</span><br><span class="line">   	<span class="comment">//-- 線上jar檔</span></span><br><span class="line">   	<span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:23.1.1'</span></span><br><span class="line">   	<span class="comment">//-- local jar檔</span></span><br><span class="line">	<span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">  		<span class="keyword">compile</span> files(<span class="string">'libs/ormlite-core-4.48.jar'</span>)</span><br><span class="line">   	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="參考來源">參考來源</h6><p>CodeData系列文章</p>
+<ol>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-1-ant/" target="_blank" rel="external">【認識 Gradle】（1）講古的時間 Apache Ant | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-2-maven/" target="_blank" rel="external">【認識 Gradle】（2）講古的時間 Apache Maven by qrtt1 | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-3-getting-started/" target="_blank" rel="external">【認識 Gradle】（3）Gradle 起手式 by qrtt1 | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-4-gradle-script/" target="_blank" rel="external">【認識 Gradle】（4）看懂 Gradle Script by qrtt1 | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-2-maven/" target="_blank" rel="external">【認識 Gradle】（5）Gradle Task 觀念導讀 | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-4-java-project-build-script-customization/" target="_blank" rel="external">【認識 Gradle】（6）Java 專案與 Build Script 客製化 | CodeData</a></li>
+<li><a href="http://www.codedata.com.tw/java/understanding-gradle-7-java-project-dependencies/" target="_blank" rel="external">【認識 Gradle】（7）Java 專案相依管理 | CodeData</a></li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="operator"><span class="keyword">update</span> (更新<span class="keyword">Library</span>)</span></span><br></pre></td></tr></table></figure>
-<h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://cg2010studio.com/2014/08/15/ios-%E4%BD%BF%E7%94%A8-cocoapods-%E7%AE%A1%E7%90%86%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6/" target="_blank" rel="external">[iOS] 使用 CocoaPods 管理第三方套件 | 逍遙文工作室</a></li>
-<li><a href="https://cocoapods.org/" target="_blank" rel="external">CocoaPods.org</a></li>
+<p>其他</p>
+<ol>
+<li><a href="http://polinwei.blogspot.tw/2008/07/ant.html" target="_blank" rel="external">我與小崴崴的工作日記: [教學] ANT 的基本介紹</a></li>
+<li><a href="http://www.cnblogs.com/luotaoyeah/p/3764533.html" target="_blank" rel="external">Maven入門指南① ：Maven 快速入門及簡單使用- 羅韜- 博客園</a></li>
 </ol>
 
                         
@@ -240,7 +242,7 @@
                         
                         
                             <p>
-                                <a href="/2015/10/28/iOS-pods/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/11/24/Android-Gradle/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -271,7 +273,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 10 of 16</li>
+        <li class="pagination-number">page 10 of 18</li>
     </ul>
 </div>
 
@@ -281,7 +283,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2016 bird. All Rights Reserved.
+        Copyrights &copy; 2016 ErinB. All Rights Reserved.
     </span>
 </footer>
 
@@ -297,7 +299,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <h4 id="about-card-name">bird</h4>
+            <h4 id="about-card-name">ErinB</h4>
         
             <h5 id="about-card-bio"><p>author.bio</p>
 </h5>

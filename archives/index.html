@@ -5,21 +5,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="bird 學習日記">
-    <title>Archives - bird 學習日記</title>
-    <meta name="author" content="bird">
+    <meta name="generator" content="誰都是我的老師">
+    <title>Archives - 誰都是我的老師</title>
+    <meta name="author" content="ErinB">
     
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
     <meta name="description">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="bird 學習日記">
+<meta property="og:title" content="誰都是我的老師">
 <meta property="og:url" content="http://yoursite.com/archives/index.html">
-<meta property="og:site_name" content="bird 學習日記">
+<meta property="og:site_name" content="誰都是我的老師">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bird 學習日記">
+<meta name="twitter:title" content="誰都是我的老師">
 <meta name="twitter:description">
     
     
@@ -41,7 +41,7 @@
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
-        <a class="header-title-link" href="/ ">bird 學習日記</a>
+        <a class="header-title-link" href="/ ">誰都是我的老師</a>
     </h1>
     
         
@@ -175,13 +175,13 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2016/02/17/Android-ListviewArray/">\Android/ ListView 顯示陣列資料</a>
+                                <a class="link-unstyled" href="/2016/04/11/Android-GCMerror/">ANDROID – GCM 推播後，錯誤訊息解析</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Feb 17 2016 10:44:08 GMT+0800">
+    <time itemprop="datePublished" content="Mon Apr 11 2016 08:44:08 GMT+0800">
 	
-		    Feb 17, 2016
+		    Apr 11, 2016
     	
     </time>
     
@@ -196,31 +196,33 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p>ListView 是非常常用的Layout，將你要顯示的資訊用列表的方式垂直依序顯示出來。</p>
-<p>我們常用的View，包括ListView,GridView, Spinner等，常常伴隨著<a href="http://erinhsu.github.io/2016/02/15/Android-Adapter/" target="_blank" rel="external">Adapter</a>的使用。 </p>
-<p>如下圖直觀的表達了Data、Adapter、View三者的關係：<br><img src="http://image.lxway.com/upload/f/15/f15b47d3418249a43e56a800abc75e83.jpg" alt=""></p>
-<p>另外，可參考<a href="http://erinhsu.github.io/2015/10/28/Android-Recycleview/" target="_blank" rel="external">RecyclerView</a> 為 v7 的新部件，可替代 ListView 使用。</p>
-<h3 id="實作（一）">實作（一）</h3><p>把一個陣列裡的資料，用ListView顯示出來。點選項目會出現Toast提示。實作結果如圖：<br><img src="http://1.bp.blogspot.com/-icIpwY5GO0k/UMWHtG4GRBI/AAAAAAAAJXw/ntULvYIgzt4/s1600/2012-12-10+12_40_36-5554_LINE.jpg" alt=""></p>
-<h5 id="Layout:">Layout:</h5><p>activity_main.xml 新增 ListView物件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:orientation</span>=<span class="value">"vertical"</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"fill_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"fill_parent"</span></span><br><span class="line">    &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ListView</span>  </span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"fill_parent"</span> </span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"fill_parent"</span></span><br><span class="line">    <span class="attribute">android:id</span>=<span class="value">"@+id/listView"</span></span><br><span class="line">    /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="JAVA">JAVA</h5><p>MainActivity.java </p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Activity</span> &#123;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">ListView</span> listView;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span>[] list = &#123;<span class="string">"鉛筆"</span>,<span class="string">"原子筆"</span>,<span class="string">"鋼筆"</span>,<span class="string">"毛筆"</span>,<span class="string">"彩色筆"</span>&#125;;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">ArrayAdapter</span>&lt;<span class="type">String</span>&gt; listAdapter;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(<span class="type">R</span>.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        listView = (<span class="type">ListView</span>)findViewById(<span class="type">R</span>.id.listView);</span><br><span class="line">        listAdapter = <span class="keyword">new</span> <span class="type">ArrayAdapter</span>(<span class="keyword">this</span>,android.<span class="type">R</span>.layout.simple_list_item_1,list);</span><br><span class="line">        listView.setAdapter(listAdapter);</span><br><span class="line">        listView.setOnItemClickListener(<span class="keyword">new</span> <span class="type">OnItemClickListener</span>()&#123;</span><br><span class="line">           <span class="annotation">@Override</span></span><br><span class="line">           public void onItemClick(<span class="type">AdapterView</span>&lt;?&gt; parent, <span class="type">View</span> view, int position, long id)&#123;</span><br><span class="line">              <span class="type">Toast</span>.makeText(getApplicationContext(), <span class="string">"你選擇的是"</span>+list[position], <span class="type">Toast</span>.<span class="type">LENGTH_SHORT</span>).show();</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>ps. android幫我們設計幾種了listView的樣式，如：</p>
-<p>android.R.layout.simple_list_item_1<br><img src="http://farm8.staticflickr.com/7238/7163922530_b61a301bd2.jpg" alt=""><br>android.R.layout.simple_list_item_2<br><img src="http://farm8.staticflickr.com/7243/7163922460_2f9790c2ac.jpg" alt=""></p>
-<h3 id="實作（二）_設計ListItem樣式">實作（二） 設計ListItem樣式</h3><h5 id="Layout:-1">Layout:</h5><p>activity_main.xml 新增 ListView物件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:orientation</span>=<span class="value">"vertical"</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"fill_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"fill_parent"</span></span><br><span class="line">    &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ListView</span>  </span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"fill_parent"</span> </span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"fill_parent"</span></span><br><span class="line">    <span class="attribute">android:id</span>=<span class="value">"@+id/listView"</span></span><br><span class="line">    /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>新增一個<strong>listitem.xml檔</strong>，來設計item樣式。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:orientation</span>=<span class="value">"vertical"</span> <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">LinearLayout</span></span><br><span class="line">        <span class="attribute">android:orientation</span>=<span class="value">"horizontal"</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:paddingBottom</span>=<span class="value">"10dp"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">            <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">            <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">            <span class="attribute">android:textAppearance</span>=<span class="value">"?android:attr/textAppearanceMedium"</span></span><br><span class="line">            <span class="attribute">android:text</span>=<span class="value">"產品:"</span></span><br><span class="line">            <span class="attribute">android:layout_weight</span>=<span class="value">"1"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">            <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">            <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">            <span class="attribute">android:id</span>=<span class="value">"@+id/itemText"</span></span><br><span class="line">            <span class="attribute">android:layout_weight</span>=<span class="value">"1"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h5 id="JAVA-1">JAVA</h5><p>MainActivity.java </p>
-<p>將(Android預設簡易樣式)</p>
-<p><code>listAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,list);</code></p>
-<p>改成（我們自製的樣式）</p>
-<p><code>listAdapter = new ArrayAdapter(this,R.layout.listitem, R.id.itemText ,list);</code></p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Activity</span> &#123;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">ListView</span> listView;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span>[] list = &#123;<span class="string">"鉛筆"</span>,<span class="string">"原子筆"</span>,<span class="string">"鋼筆"</span>,<span class="string">"毛筆"</span>,<span class="string">"彩色筆"</span>&#125;;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">ArrayAdapter</span>&lt;<span class="type">String</span>&gt; listAdapter;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(<span class="type">R</span>.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        listView = (<span class="type">ListView</span>)findViewById(<span class="type">R</span>.id.listView);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        listAdapter = <span class="keyword">new</span> <span class="type">ArrayAdapter</span>(<span class="keyword">this</span>,<span class="type">R</span>.layout.listitem, <span class="type">R</span>.id.itemText ,list);</span><br><span class="line">        </span><br><span class="line">        listView.setAdapter(listAdapter);</span><br><span class="line">        listView.setOnItemClickListener(<span class="keyword">new</span> <span class="type">OnItemClickListener</span>()&#123;</span><br><span class="line">           <span class="annotation">@Override</span></span><br><span class="line">           public void onItemClick(<span class="type">AdapterView</span>&lt;?&gt; parent, <span class="type">View</span> view, int position, long id)&#123;</span><br><span class="line">              <span class="type">Toast</span>.makeText(getApplicationContext(), <span class="string">"你選擇的是"</span>+list[position], <span class="type">Toast</span>.<span class="type">LENGTH_SHORT</span>).show();</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                        <ol>
+<li><p>錯的APP KEY。</p>
+<p> <code>401 Unauthorized</code></p>
+</li>
+<li><p>錯的registration_id。</p>
+<p> <code>Error=InvalidRegistration</code></p>
+</li>
+</ol>
+<ol>
+<li><p>AppKey.ProjectID &lt;&gt; registration_id.ProjectID 。</p>
+<p> <code>Error=MismatchSenderId</code> </p>
+</li>
+<li><p>APP前一次發推播得到刪除情報後，再推一次則得到。</p>
+<p> <code>Error=NotRegistered</code> </p>
+</li>
+<li><p>registration_id 為空。</p>
+<p> <code>Error=MissingRegistration</code> </p>
+</li>
+<li><p>超過一天20萬限制。</p>
+<p> <code>Error=QuotaExceeded</code> </p>
+</li>
+<li><p>超過一分鐘60封限制。</p>
+<p> <code>Error=DeviceQuotaExceeded</code>    </p>
+</li>
+</ol>
 <h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://developer.android.com/intl/zh-tw/reference/android/widget/ListView.html" target="_blank" rel="external">ListView | Android Developers</a></li>
-<li><a href="http://huli.logdown.com/posts/280137-android-custom-listview" target="_blank" rel="external">[Android] 自訂ListView « Huli’s Blog</a></li>
-<li><a href="http://givemepass.blogspot.tw/2011/11/listview.html" target="_blank" rel="external">GiveMePasS’s Android惡補筆記: 如何使用ListView</a></li>
-<li><a href="http://imax-live.blogspot.tw/2012/12/android-listview.html" target="_blank" rel="external">Max的Android心得筆記: Android ListView(列表視圖)</a></li>
+<li><a href="http://it.zhaozhao.info/archives/50483" target="_blank" rel="external">IT@找著了</a></li>
 </ol>
 
                         
@@ -229,7 +231,7 @@
                         
                         
                             <p>
-                                <a href="/2016/02/17/Android-ListviewArray/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2016/04/11/Android-GCMerror/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -251,7 +253,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 1 of 16</li>
+        <li class="pagination-number">page 1 of 18</li>
     </ul>
 </div>
 
@@ -261,7 +263,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2016 bird. All Rights Reserved.
+        Copyrights &copy; 2016 ErinB. All Rights Reserved.
     </span>
 </footer>
 
@@ -277,7 +279,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <h4 id="about-card-name">bird</h4>
+            <h4 id="about-card-name">ErinB</h4>
         
             <h5 id="about-card-bio"><p>author.bio</p>
 </h5>

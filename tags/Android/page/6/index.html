@@ -5,21 +5,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="bird 學習日記">
-    <title>Tag: Android - bird 學習日記</title>
-    <meta name="author" content="bird">
+    <meta name="generator" content="誰都是我的老師">
+    <title>Tag: Android - 誰都是我的老師</title>
+    <meta name="author" content="ErinB">
     
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
     <meta name="description">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="bird 學習日記">
+<meta property="og:title" content="誰都是我的老師">
 <meta property="og:url" content="http://yoursite.com/tags/Android/page/6/index.html">
-<meta property="og:site_name" content="bird 學習日記">
+<meta property="og:site_name" content="誰都是我的老師">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bird 學習日記">
+<meta name="twitter:title" content="誰都是我的老師">
 <meta name="twitter:description">
     
     
@@ -41,7 +41,7 @@
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
-        <a class="header-title-link" href="/ ">bird 學習日記</a>
+        <a class="header-title-link" href="/ ">誰都是我的老師</a>
     </h1>
     
         
@@ -175,13 +175,13 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/11/24/Android-Parse/">\Android/ Parse架站</a>
+                                <a class="link-unstyled" href="/2015/11/25/Android-AndroidStudio-SystemLog/">\Android/ Android Studio 基本使用技巧 － System Log使用</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Tue Nov 24 2015 10:30:20 GMT+0800">
+    <time itemprop="datePublished" content="Wed Nov 25 2015 10:50:20 GMT+0800">
 	
-		    Nov 24, 2015
+		    Nov 25, 2015
     	
     </time>
     
@@ -196,11 +196,15 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p>Parse </p>
-<p>要關閉了ＱＱ</p>
-<p><a href="https://medium.com/@Appletone/%E9%97%9C%E6%96%BC-parse-%E6%9C%8D%E5%8B%99%E6%BA%96%E5%82%99%E9%97%9C%E6%8E%89%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9B%A0%E6%87%89%E6%8E%AA%E6%96%BD-77d430d6d8a5#.5n2t3g73p" target="_blank" rel="external">關於 Parse 服務準備關掉的一些因應措施</a></p>
-<h3 id="實作">實作</h3><p><strong>step 1</strong><br><a href="https://parse.com/" target="_blank" rel="external">註冊Parse</a></p>
-<p><strong>step 2</strong><br><a href="https://parse.com/apps/quickstart#parse_data/mobile/android/native/new" target="_blank" rel="external">Parse Andorid QuickStart</a></p>
+                        <h3 id="前言">前言</h3><p>系統日誌(System Log)可幫助顯示系統信息，同時幫助Debug應用程序。如果要使用系統日誌來Debug你的應用程序，在程式碼內寫入<strong>Log程式碼</strong>，並輸出表達異常情況的字串，來幫助除錯。</p>
+<h3 id="實作範例">實作範例</h3><p>增加日誌訊息使用</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android . util . <span class="type">Log</span> ; </span><br><span class="line">... </span><br><span class="line">public  <span class="class"><span class="keyword">class</span>  <span class="title">MyActivity</span>  <span class="keyword"><span class="keyword">extends</span></span>  <span class="title">Activity</span>  &#123;</span> </span><br><span class="line">    <span class="keyword">private</span>  static  <span class="keyword">final</span>  <span class="type">String</span> <span class="type">TAG</span> =  <span class="type">MyActivity</span> . <span class="class"><span class="keyword">class</span> . <span class="title">getSimpleName</span> (</span>); </span><br><span class="line">    ... </span><br><span class="line">    <span class="annotation">@Override</span> </span><br><span class="line">    public  void onCreate ( <span class="type">Bundle</span> savedInstanceState )  &#123; </span><br><span class="line">        <span class="keyword">if</span>  ( savedInstanceState !=  <span class="literal">null</span> )  &#123; </span><br><span class="line">            <span class="type">Log</span> . d ( <span class="type">TAG</span> ,  <span class="string">"onCreate() Restoring previous state"</span> ); </span><br><span class="line">            <span class="comment">/* restore state */</span> </span><br><span class="line">        &#125;  <span class="keyword">else</span>  &#123; </span><br><span class="line">            <span class="type">Log</span> . d ( <span class="type">TAG</span> ,  <span class="string">"onCreate() No saved state available"</span> ); </span><br><span class="line">            <span class="comment">/* initialize app */</span> </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>錯誤訊息e 寫入日誌</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">someOtherMethod</span> <span class="params">()</span>  </span>&#123; </span><br><span class="line">    <span class="keyword">try</span>  &#123; </span><br><span class="line">        ... </span><br><span class="line">    &#125;  <span class="keyword">catch</span>  ( SomeException e )  &#123; </span><br><span class="line">        Log . d ( TAG ,  <span class="string">"someOtherMethod()"</span> , e ); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>於DDMS查看日誌內容<br><img src="http://developer.android.com/images/tools/as-ddmslog.png" alt="DDMS"></p>
+<h6 id="參考來源">參考來源</h6><ol>
+<li><a href="http://developer.android.com/intl/zh-tw/tools/debugging/debugging-studio.html" target="_blank" rel="external">Debugging with Android Studio | Android Developers</a></li>
+</ol>
 
                         
                             
@@ -208,7 +212,7 @@
                         
                         
                             <p>
-                                <a href="/2015/11/24/Android-Parse/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/11/25/Android-AndroidStudio-SystemLog/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -239,7 +243,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 6 of 10</li>
+        <li class="pagination-number">page 6 of 12</li>
     </ul>
 </div>
 
@@ -248,7 +252,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2016 bird. All Rights Reserved.
+        Copyrights &copy; 2016 ErinB. All Rights Reserved.
     </span>
 </footer>
 
@@ -264,7 +268,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <h4 id="about-card-name">bird</h4>
+            <h4 id="about-card-name">ErinB</h4>
         
             <h5 id="about-card-bio"><p>author.bio</p>
 </h5>

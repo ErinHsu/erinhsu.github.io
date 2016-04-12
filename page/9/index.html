@@ -5,21 +5,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="bird 學習日記">
-    <title>bird 學習日記</title>
-    <meta name="author" content="bird">
+    <meta name="generator" content="誰都是我的老師">
+    <title>誰都是我的老師</title>
+    <meta name="author" content="ErinB">
     
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
     <meta name="description">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="bird 學習日記">
+<meta property="og:title" content="誰都是我的老師">
 <meta property="og:url" content="http://yoursite.com/page/9/index.html">
-<meta property="og:site_name" content="bird 學習日記">
+<meta property="og:site_name" content="誰都是我的老師">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bird 學習日記">
+<meta name="twitter:title" content="誰都是我的老師">
 <meta name="twitter:description">
     
     
@@ -41,7 +41,7 @@
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
-        <a class="header-title-link" href="/ ">bird 學習日記</a>
+        <a class="header-title-link" href="/ ">誰都是我的老師</a>
     </h1>
     
         
@@ -174,19 +174,19 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/10/28/Android-Intent/">\Android/ intent</a>
+                                <a class="link-unstyled" href="/2015/11/24/Android-Parse/">\Android/ Parse架站</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Oct 28 2015 10:49:25 GMT+0800">
+    <time itemprop="datePublished" content="Tue Nov 24 2015 10:30:20 GMT+0800">
 	
-		    Oct 28, 2015
+		    Nov 24, 2015
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/MoGoalileEngineer/">MoGoalileEngineer</a>
+    <a class="category-link" href="/categories/MobileEngineer/">MobileEngineer</a>
 
 
     
@@ -195,42 +195,11 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="intent">intent</h3><p><strong>目的,意圖</strong>,意義,含義(a.)熱心的,專心致志的</p>
-<h3 id="Android_intent">Android intent</h3><p>在Android來說，intent是常用到的方法，導頁好幫手，主要幫助我們在傳值、轉化畫面等等，像是<strong>意圖辦到什麼目的，前往哪個目的地的概念</strong></p>
-<p>但除了導頁功能之外，intent能做到的事情不只這些唷，先以導頁做舉例與方法使用說明 …</p>
-<p>intent分為兩種：顯式(Explicit intent)和隱式(Implicit intent)。</p>
-<p>假設今日我們要從FirstActivity.class轉換到GoalActivity.class</p>
-<h4 id="1-_顯示(Explicit)">1. 顯示(Explicit)</h4><p>直接指定<strong>確定</strong>要<strong>一個</strong>轉換的目標Activity，意圖明顯，所以稱為顯示意圖(Explicit intent)。<strong>常用於應用程式內部頁面之間轉換之用。</strong></p>
-<p>例如，在FirstActivity.java指定需要轉換到GoalActivity.java，直接在FirstActivity.java正確位置寫上下面程式碼。很多種可替代的寫法，所以選自己習慣的寫法就行囉！</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//<span class="number">1.</span> 目標Activity可直接以package.<span class="keyword">class</span>路徑表示。</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(FirstActivity.<span class="keyword">class</span>,<span class="string">"com.bird.intenttext.GoalActivity"</span>)</span><br><span class="line">startActivity(<span class="type">intent</span>); 		</span><br><span class="line">//<span class="number">2.</span> 目標Activity簡化表示</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(FirstActivity.this,  GoalActivity.<span class="keyword">class</span>)</span><br><span class="line">startActivity(<span class="type">intent</span>); </span><br><span class="line">//<span class="number">3.</span> this 取代 FirstActivity.<span class="keyword">class</span></span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(this,  GoalActivity.<span class="keyword">class</span>)</span><br><span class="line">startActivity(<span class="type">intent</span>); </span><br><span class="line">//<span class="number">4.</span> setComponent：ComponentName取代</span><br><span class="line">ComponentName CPName = new ComponentName(this,  GoalActivity.<span class="keyword">class</span>);  </span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();  </span><br><span class="line"><span class="type">intent</span>.setComponent(CPName);  </span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br><span class="line">//<span class="number">5.</span> setClass：ClassName取代</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();</span><br><span class="line"><span class="type">intent</span>.setClassName(this,  GoalActivity.<span class="keyword">class</span>);</span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
-<p><strong> <code>「重要」</code> 最後一定要記得在 AndroidManifest.xml 文件中＜application＞＜/application＞ 之中，註冊欲前往的目標Activity。
-</strong></p>
-<p>範例如下</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span> <span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GoalActivity"</span></span><br><span class="line">			<span class="attribute">...</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">action</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">category</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">data</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">meta-data</span> <span class="attribute">...</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-_隱示(Implicit_intent)">2. 隱示(Implicit intent)</h4><p>相對顯示來說，隱示就是<strong>間接指定</strong>囉！就是讓系统幫你篩選出適合的目標Activity，根據<intent-filter>来篩選。透過AndroidManifest.xml文件幫助我們完成這件事情。</intent-filter></p>
-<p>舉例來說，在AndroidManifest.xml文件中，註冊欲前往的目標Activity時，將內容修改內容如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span></span><br><span class="line">	<span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GoalActivity"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">		//可自訂android:name字串內容</span><br><span class="line">		<span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GotoGoalActivity"</span>/&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在FirstActivity.java指定需要轉換到GoalActivity.java，直接在FirstActivity.java正確位置寫上下面程式碼。</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="string">"GotoGoalActivity"</span>);</span><br><span class="line">startActivity(<span class="type">intent</span>); </span><br><span class="line">// or 將Activity定義為<span class="keyword">Action</span>，使用setAction</span><br><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>();  </span><br><span class="line"><span class="type">intent</span>.setAction(<span class="string">"com.bird.intenttext.GotoGoalActivity"</span>);  </span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
-<h5 id="外部轉換">外部轉換</h5><p>另外，隱示最厲害的地方就是用於<strong>與外部應用程式間的Activity轉換</strong>，讓<br>透過設置<strong>Action</strong>，表明自己的意圖，由系統解析，找到能夠處理這個Intent的Activity並啟動。</p>
-<p>例如</p>
-<p><code>&quot;android.intent.action.DIAL&quot;</code>: 表示當你有撥打電話的意圖時，系統會呼叫Activity該讓使用者選擇使用。</p>
-<p>範例1：表示GoalActivity有撥打電話的功能意圖可被呼叫</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">activity</span></span><br><span class="line">	<span class="attribute">android:name</span>=<span class="value">"com.bird.intenttext.GoalActivity"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">		//可自訂android:name字串內容: 建議將其完整命名package.class</span><br><span class="line">		<span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.DIAL"</span>/&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>範例2：該Activity需呼叫別的意圖功能</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="type">Intent</span>.ACTION_DIAL);  </span><br><span class="line">// 或者<span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="string">"android.intent.action.DIAL"</span>);</span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="安全機制">安全機制</h4><p>有時候會因為AndroidManifest.xml中忘記註冊或字串打錯等原因，找不到對應的Activity，便會拋出ActivityNotFoundException的錯誤訊息，為防止App出錯關閉無法運行，因此我們要設立對應的安全機制。</p>
-<p>方法1：try catch</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"GotoGoalActivity"</span>);</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	startActivity(intent); </span><br><span class="line">&#125;<span class="keyword">catch</span>(ActivityNotFoundException e)&#123;</span><br><span class="line">	 Toast.makeText(<span class="keyword">this</span>, <span class="string">"找不到对应的Activity"</span>, Toast.LENGTH_SHORT).show();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>方法2：使用Intent的resolveActivity方法判斷這個Intent是否能找到合適的Activity</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="type">Intent</span>.ACTION_DIAL); </span><br><span class="line"><span class="keyword">if</span>(<span class="type">intent</span>.resolveActivity(getPackageManager()) == null)  </span><br><span class="line">&#123;  </span><br><span class="line">   // 设置控件不可用   </span><br><span class="line">&#125;</span><br><span class="line">startActivity(<span class="type">intent</span>);</span><br></pre></td></tr></table></figure>
-<p>方法3：多個Activity可供選擇的話，則返回的Component是com.android.internal.app.ResolverActivity，也就是用戶選擇Activity的那個界面對應的Activity，這裡不再深究。</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(<span class="type">Intent</span>.ACTION_DIAL);  </span><br><span class="line">ComponentName componentName = <span class="type">intent</span>.resolveActivity(getPackageManager());  </span><br><span class="line"><span class="keyword">if</span>(componentName <span class="comment">!= null)  </span></span><br><span class="line">&#123;  </span><br><span class="line">    String className = componentName.getClassName();  </span><br><span class="line">   	Toast.makeText(this, className, Toast.LENGTH_SHORT).show();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://blog.csdn.net/xiao__gui/article/details/11392987" target="_blank" rel="external">Android理解：显式和隐式Intent - 叉叉哥的BLOG - 博客频道 - CSDN.NET</a></li>
-<li><a href="http://developer.android.com/intl/zh-tw/reference/android/content/Intent.html" target="_blank" rel="external">Android Developrs-intent</a></li>
-<li><a href="http://ke.jikexueyuan.com/zhiye/android/" target="_blank" rel="external">Android工程師<em>路徑圖的標題</em>職業路徑圖<em>IT職業在線教育平台</em>極客學院</a></li>
-</ol>
+                        <h3 id="前言">前言</h3><p>Parse </p>
+<p>要關閉了ＱＱ</p>
+<p><a href="https://medium.com/@Appletone/%E9%97%9C%E6%96%BC-parse-%E6%9C%8D%E5%8B%99%E6%BA%96%E5%82%99%E9%97%9C%E6%8E%89%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9B%A0%E6%87%89%E6%8E%AA%E6%96%BD-77d430d6d8a5#.5n2t3g73p" target="_blank" rel="external">關於 Parse 服務準備關掉的一些因應措施</a></p>
+<h3 id="實作">實作</h3><p><strong>step 1</strong><br><a href="https://parse.com/" target="_blank" rel="external">註冊Parse</a></p>
+<p><strong>step 2</strong><br><a href="https://parse.com/apps/quickstart#parse_data/mobile/android/native/new" target="_blank" rel="external">Parse Andorid QuickStart</a></p>
 
                         
                             
@@ -238,7 +207,7 @@
                         
                         
                             <p>
-                                <a href="/2015/10/28/Android-Intent/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2015/11/24/Android-Parse/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -269,7 +238,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 9 of 16</li>
+        <li class="pagination-number">page 9 of 18</li>
     </ul>
 </div>
 
@@ -278,7 +247,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2016 bird. All Rights Reserved.
+        Copyrights &copy; 2016 ErinB. All Rights Reserved.
     </span>
 </footer>
 
@@ -294,7 +263,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <h4 id="about-card-name">bird</h4>
+            <h4 id="about-card-name">ErinB</h4>
         
             <h5 id="about-card-bio"><p>author.bio</p>
 </h5>

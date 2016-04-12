@@ -5,21 +5,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="bird 學習日記">
-    <title>Archives - bird 學習日記</title>
-    <meta name="author" content="bird">
+    <meta name="generator" content="誰都是我的老師">
+    <title>Archives - 誰都是我的老師</title>
+    <meta name="author" content="ErinB">
     
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
     <meta name="description">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="bird 學習日記">
+<meta property="og:title" content="誰都是我的老師">
 <meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
-<meta property="og:site_name" content="bird 學習日記">
+<meta property="og:site_name" content="誰都是我的老師">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bird 學習日記">
+<meta name="twitter:title" content="誰都是我的老師">
 <meta name="twitter:description">
     
     
@@ -41,7 +41,7 @@
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
-        <a class="header-title-link" href="/ ">bird 學習日記</a>
+        <a class="header-title-link" href="/ ">誰都是我的老師</a>
     </h1>
     
         
@@ -175,13 +175,13 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2016/02/15/Android-Adapter/">\Android/ Adapter 觀念</a>
+                                <a class="link-unstyled" href="/2016/02/16/Android-Recycleview/">\Android/ Recyclerview &amp; CardView</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Mon Feb 15 2016 10:44:08 GMT+0800">
+    <time itemprop="datePublished" content="Tue Feb 16 2016 10:49:25 GMT+0800">
 	
-		    Feb 15, 2016
+		    Feb 16, 2016
     	
     </time>
     
@@ -196,57 +196,44 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <h3 id="前言">前言</h3><p><code>Adapter (n.) 適配器; 多功能插頭; 改編者</code></p>
-<p>在Android的世界裡，Adapter是<code>Database和UI（View）之間一個重要的橋樑</code>，用於連接後端資料和前端介面。</p>
-<p>我們常用的View，包括ListView,GridView, Spinner等，常常伴隨著Adapter的使用。</p>
-<p>如下圖直觀的表達了Data、Adapter、View三者的關係：<br><img src="http://image.lxway.com/upload/f/15/f15b47d3418249a43e56a800abc75e83.jpg" alt=""></p>
-<h3 id="種類">種類</h3><p>比較常用的有BaseAdapter，SimpleAdapter，ArrayAdapter，SimpleCursorAdapter等。</p>
+                        <h3 id="前言">前言</h3><p><strong>RecyclerView</strong> 為 v7 的新部件，可替代 ListView 使用，標準化了 ViewHolder 類似於 ListView 中 convertView。</p>
+<p>RecyclerView 快速實現 listview 、 gridview 、瀑布流的效果，而且還可以設置橫向和縱向顯示，添加動畫效果也非常簡單(自帶了 ItemAnimation ，可以設置加載和移除時的動畫，方便做出各種動態瀏覽的效果)</p>
+<p>以下是Google在對於RecyclerView的描述</p>
+<p><code>A flexible view for providing a limited window into a large data set.</code> </p>
+<p>以下是它的新特性：</p>
 <ul>
-<li><p><a href="http://developer.android.com/reference/android/widget/ArrayAdapter.html" target="_blank" rel="external"><strong><code>ArrayAdapter&lt;T&gt;</code></strong></a></p>
-<p>  <img src="http://i.stack.imgur.com/NC9L0.png" alt="Single ListView"></p>
-<ol>
-<li><p>ArrayAdapter可繼承自BaseAdapter，最為簡單，只能展示一行字。</p>
-</li>
-<li><p>利用ArrayAdapter的<code>add()</code>方法新增資料到adapter尾端或是用<code>insert()</code>新增資料到特定的位置；刪除資料則使用<code>remove()</code>方法。</p>
-</li>
-<li><p>ListView類別是負責顯示在螢幕上，adapter類別才是負責處理資料的繫結。一旦adapter內的資料有了變更，則adapter和ListView的內容就失去了同步，這是侯需要由adapter發送一個<code>notifyDataSetChanged()</code>方法通知ListView重新同步顯示的內容。</p>
-</li>
-</ol>
-</li>
-<li><p><a href="http://developer.android.com/reference/android/widget/BaseAdapter.html" target="_blank" rel="external"><strong><code>BaseAdapter</code></strong></a></p>
-<ol>
-<li><p>當ListView需要附加其他更強大的功能時，就必須重新自定義一個Adapter，此時可繼承使用BaseAdapter來建構，具有較高的靈活性。</p>
-</li>
-<li><p>使用者自定的Layout時需要覆寫<code>getCount()</code>, <code>getItem(Int position)</code>, <code>getItemId(int position)</code>, 還有 <code>getView(int position, View convertView, ViewGroup parent)</code>那麼多函式。</p>
-</li>
-</ol>
-</li>
-<li><p><a href="http://developer.android.com/reference/android/support/v4/widget/CursorAdapter.html" target="_blank" rel="external"><code>CursorAdapter</code></a></p>
-</li>
-<li><a href="http://developer.android.com/reference/android/widget/HeaderViewListAdapter.html" target="_blank" rel="external"><code>HeaderViewListAdapter</code></a></li>
-<li><a href="http://developer.android.com/reference/android/widget/ListAdapter.html" target="_blank" rel="external"><code>ListAdapter</code></a></li>
-<li><a href="http://developer.android.com/reference/android/support/v4/widget/ResourceCursorAdapter.html" target="_blank" rel="external"><code>ResourceCursorAdapter</code></a></li>
-<li><p><a href="http://developer.android.com/reference/android/widget/SimpleAdapter.html" target="_blank" rel="external"><strong><code>SimpleAdapter</code></strong></a> </p>
-<p>  有最好的擴充性，可以<code>定義各種各樣的佈局</code>出來，可以放上ImageView（圖片），還可以放上Button（按鈕），CheckBox（複選框）等等。代碼都可以直接繼承了ListActivity。</p>
-</li>
-<li><p><a href="http://developer.android.com/reference/android/support/v4/widget/SimpleCursorAdapter.html" target="_blank" rel="external"><strong><code>SimpleCursorAdapter</code></strong></a></p>
-<p>  可以適用於簡單的純文字型ListView，它需要Cursor的字段和UI的id對應起來。如需要實現更複雜的UI也可以重寫其他方法。可以認為是SimpleAdapter<code>對資料庫的簡單結合</code>，可以方便地把數據庫的內容以列表的形式展示出來。</p>
-</li>
-<li><p><a href="http://developer.android.com/reference/android/widget/SpinnerAdapter.html" target="_blank" rel="external"><code>SpinnerAdapter</code></a></p>
-<p>  <img src="http://images.cnblogs.com/cnblogs_com/over140/2010/11/2010-11-26_1.jpg" alt="SpinnerAdapter"></p>
-<p>  擴展自Adapter 的適配器是在Spinner 與數據之間的一座橋樑。一個Spinner Adapter 允許定義兩個不同的視圖：一是在Spinner 上顯示數據，另一個是當Spinner 按下時在下拉列表裡顯示數據。</p>
-</li>
-<li><p><a href="http://developer.android.com/reference/android/support/v7/widget/ThemedSpinnerAdapter.html" target="_blank" rel="external"><code>ThemedSpinnerAdapter</code></a></p>
-</li>
-<li><a href="http://developer.android.com/reference/android/widget/WrapperListAdapter.html" target="_blank" rel="external"><code>WrapperListAdapter</code></a></li>
+<li>分離出數據顯示相關的所有問題，只關注View的回收和復用</li>
+<li>對數據的顯示、動畫的配置進行高度解耦，提供了插拔式的體驗</li>
+<li>強制使用ViewHolder模式，消除不必要的Layout Resource查找時間內置添加和移除動畫</li>
 </ul>
+<p><strong>CardView</strong> 也為 v7 的新部件，常與RecyclerView配合使用，可視為RecyclerView的item項目。優化了我們自定義的Listiem設計，自帶背景與陰影屬性，供我們設計使用。</p>
+<p>以下是Google在對於CardView的描述</p>
+<p><code>A FrameLayout with a rounded corner background and shadow.</code></p>
+<h3 id="對應Activity生命週期">對應Activity生命週期</h3><ul>
+<li><strong>getItemViewType</strong>：獲取View類型</li>
+<li><strong>onCreateViewHolder</strong>：創建ViewHolder</li>
+<li><strong>ViewHolderonViewAttac.bhedToWindow</strong>：當It​​em可見時調用</li>
+<li><strong>onBindViewHolder</strong>：綁定數據以及邏輯控製樣式</li>
+<li><strong>onViewDetachedFromWindow：Item</strong>不可見時調用</li>
+<li><strong>onViewRecycled：Item</strong>被回收時調用</li>
+</ul>
+<h3 id="實作">實作</h3><p>LinearLayoutManager</p>
+<p><img src="https://raw.githubusercontent.com/Frank-Zhu/AndroidRecyclerViewDemo/master/art/normal_2.png" alt="LinearLayoutManager"></p>
+<p>GridLayoutManager</p>
+<p><img src="https://raw.githubusercontent.com/Frank-Zhu/AndroidRecyclerViewDemo/master/art/normal_1.png" alt="GridLayoutManager"></p>
+<h4 id="Gradle_Compile:">Gradle Compile:</h4><p>在build.gradle(app)內加入recyclerview和cardview的引用</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:23.0.+'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:cardview-v7:23.0.+'</span></span><br></pre></td></tr></table></figure>
+<h4 id="Layout:">Layout:</h4><p>XML文件用使用它</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.RecyclerView</span></span><br><span class="line">    xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">    android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">    android:id=<span class="string">"@+id/recycler_view"</span></span><br><span class="line">    android:layout_centerVertical=<span class="string">"true"</span></span><br><span class="line">    android:layout_centerHorizontal=<span class="string">"true"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Java:">Java:</h4><p>MainActivity中设置它</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">ActionBarActivity</span> </span>&#123;</span><br><span class="line">    <span class="annotation">@InjectView</span>(R.id.recycler_view)</span><br><span class="line">    RecyclerView mRecyclerView;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        ButterKnife.inject(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        mRecyclerView.setLayoutManager(<span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>));<span class="comment">//这里用线性显示 类似于listview</span></span><br><span class="line"><span class="comment">//        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));//这里用线性宫格显示 类似于grid view</span></span><br><span class="line"><span class="comment">//        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));//这里用线性宫格显示 类似于瀑布流</span></span><br><span class="line">        mRecyclerView.setAdapter(<span class="keyword">new</span> NormalRecyclerViewAdapter(<span class="keyword">this</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu)</span> </span>&#123;</span><br><span class="line">        getMenuInflater().inflate(R.menu.menu_main, menu);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> id = item.getItemId();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (id == R.id.action_settings) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onOptionsItemSelected</span><span class="params">(item)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>新增一個適配器（NormalRecyclerViewAdapter）代碼</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NormalRecyclerViewAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">NormalRecyclerViewAdapter</span>.<span class="title">NormalTextViewHolder</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> LayoutInflater mLayoutInflater;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Context mContext;</span><br><span class="line">    <span class="keyword">private</span> String[] mTitles;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NormalRecyclerViewAdapter</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        mTitles = context.getResources().getStringArray(R.array.titles);</span><br><span class="line">        mContext = context;</span><br><span class="line">        mLayoutInflater = LayoutInflater.from(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> NormalTextViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> NormalTextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, <span class="keyword">false</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(NormalTextViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        holder.mTextView.setText(mTitles[position]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mTitles == <span class="keyword">null</span> ? <span class="number">0</span> : mTitles.length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">NormalTextViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">        <span class="annotation">@InjectView</span>(R.id.text_view)</span><br><span class="line">        TextView mTextView;</span><br><span class="line"></span><br><span class="line">        NormalTextViewHolder(View view) &#123;</span><br><span class="line">            <span class="keyword">super</span>(view);</span><br><span class="line">            ButterKnife.inject(<span class="keyword">this</span>, view);</span><br><span class="line">            view.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">                <span class="annotation">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                    Log.d(<span class="string">"NormalTextViewHolder"</span>, <span class="string">"onClick--&gt; position = "</span> + getPosition());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h6 id="參考來源">參考來源</h6><ol>
-<li><a href="http://developer.android.com/intl/zh-tw/reference/android/widget/ListView.html" target="_blank" rel="external">ListView | Android Developers</a></li>
-<li><a href="http://huli.logdown.com/posts/280137-android-custom-listview" target="_blank" rel="external">[Android] 自訂ListView « Huli’s Blog</a></li>
-<li><a href="http://www.cnblogs.com/devinzhang/archive/2012/01/20/2328334.html" target="_blank" rel="external">Android之Adapter用法总结 - Devin Zhang - 博客园</a></li>
-<li><a href="http://www.jianshu.com/p/136e57599537" target="_blank" rel="external">Android入門2：從GridView控件使用到自定義Adapter - 簡書</a></li>
-<li><a href="http://hhliu-skills.blogspot.tw/2012/04/arrayadapter.html" target="_blank" rel="external">雜技本 - Android程式開發: ArrayAdapter的使用</a></li>
-<li><a href="http://www.cnblogs.com/over140/archive/2010/11/26/1888359.html" target="_blank" rel="external">Android API 中文（50） —— SpinnerAdapter - 農民伯伯- 博客園</a></li>
+<li><a href="http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/" target="_blank" rel="external">RecyclerView使用详解（一） · Frank-Zhu</a></li>
+<li><a href="https://www.binpress.com/tutorial/android-l-recyclerview-and-cardview-tutorial/156" target="_blank" rel="external">A Guide to Android RecyclerView and CardView - Tutorial - Binpress</a></li>
+<li><a href="http://developer.android.com/intl/zh-tw/reference/android/support/v7/widget/RecyclerView.html" target="_blank" rel="external">RecyclerView | Android Developers</a></li>
+<li><a href="https://www.binpress.com/tutorial/android-l-recyclerview-and-cardview-tutorial/156" target="_blank" rel="external">CardView | Android Developers</a></li>
 </ol>
 
                         
@@ -255,7 +242,7 @@
                         
                         
                             <p>
-                                <a href="/2016/02/15/Android-Adapter/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2016/02/16/Android-Recycleview/#post-footer" class="postShorten-excerpt_link link">
                                     Comment and share
                                 </a>
                             </p>
@@ -286,7 +273,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">page 3 of 16</li>
+        <li class="pagination-number">page 3 of 18</li>
     </ul>
 </div>
 
@@ -296,7 +283,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2016 bird. All Rights Reserved.
+        Copyrights &copy; 2016 ErinB. All Rights Reserved.
     </span>
 </footer>
 
@@ -312,7 +299,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <h4 id="about-card-name">bird</h4>
+            <h4 id="about-card-name">ErinB</h4>
         
             <h5 id="about-card-bio"><p>author.bio</p>
 </h5>
