@@ -30,7 +30,7 @@
  javax.net.ssl​​.SSLHandshakeException: sun.security.validator.Validat">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1115744-ffe0d6fd8774048f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://img.blog.csdn.net/20130621104249562?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuZ2t1bjA4MjQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2016-04-12T07:14:57.000Z">
+<meta property="og:updated_time" content="2016-04-12T07:16:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS – APNS 推播後，錯誤訊息解析">
 <meta name="twitter:description" content="服務器沒有啟動
@@ -220,16 +220,12 @@
 </a></p>
 <p> <code>javax.net.ssl​​.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed</code></p>
 </li>
-</ol>
-<ol>
 <li><p>這是由於服務端配置的是SSL雙向認證，而客戶端發送數據是按照服務器是單向認證時發送的，即沒有將客戶端證書信息一起發送給服務端。</p>
 <p> <code>java.net.SocketException: Software caused connection abort: recv failed</code></p>
 </li>
 </ol>
 <ol>
-<li><p>這一般是服務端防火牆的原因。攔截了客戶端請求。另外，當服務端負載過重時，也會出現此問題。</p>
-<p> <code>org.apache.commons.httpclient.NoHttpResponseException</code></p>
-</li>
+<li>這一般是服務端防火牆的原因。攔截了客戶端請求。另外，當服務端負載過重時，也會出現此問題。<br> <code>org.apache.commons.httpclient.NoHttpResponseException</code></li>
 </ol>
 <ol>
 <li><p>這是由於服務端配置的是SSL雙向認證，而客戶端發送數據是按照服務器是單向認證時發送的，即沒有將客戶端證書信息一起發送給服務端。服務端驗證客戶端證書時，發現客戶端沒有證書，然後就斷開了握手連接。</p>
